@@ -1,9 +1,9 @@
 all:
 	MAKE.EXE clean
-	TCC.EXE -c -oGRAPHICS.OBJ SRC/GRAPHICS.CPP
-	TCC.EXE SRC/MAIN.CPP GRAPHICS.OBJ
+	TCC.EXE -c -ovga.obj vga.cpp
+	TCC.EXE main.cpp vga.obj
 clean:
 	DEL MAIN.EXE
-	DEL MAIN.OBJ
-	DEL GRAPHICS.OBJ
+	DEL main.obj
+	DEL vga.obj
 	

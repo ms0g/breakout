@@ -1,6 +1,6 @@
 #include "vga.h"
 
-void initGFM(void) {
+void initVGA(void) {
     asm {
         mov ah, 0h     // change video mode
         mov al, 13h    // 320x200x256

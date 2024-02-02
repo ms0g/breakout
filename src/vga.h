@@ -1,6 +1,9 @@
 #ifndef VGA_H
 #define VGA_H
 
+#define WIDTH 320
+#define HEIGHT 200
+
 enum COLORS {
     BLACK,		    /* dark colors */
     BLUE,
@@ -23,7 +26,7 @@ enum COLORS {
 /**
  * Initialize the graphics system.
  */
-void initGFM(void);
+void initVGA(void);
 
 void putpixel(int x, int y, char color);
 

@@ -1,4 +1,4 @@
-#include "GRAPHICS.H"
+#include "vga.h"
 
 void initGFM(void) {
     asm {

@@ -1,15 +1,10 @@
-#include <dos.h>
-#include "vga.h"
-#include "vector.h"
-#include "bool.h"
-
-
+#include "game.h"
 
 void main(void) {   
-    initGFM();
+    Game* breakout = new Game();
 
-    while(true) {
-        delay(100);
+    breakout->init();
+    breakout->run();
 
-    }
+    delete breakout;
 }

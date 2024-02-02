@@ -10,7 +10,7 @@ enum COLORS {
     MAGENTA,
     BROWN,
     LIGHTGRAY,
-    DARKGRAY,		    /* light colors */
+    DARKGRAY,		/* light colors */
     LIGHTBLUE,
     LIGHTGREEN,
     LIGHTCYAN,
@@ -27,6 +27,12 @@ void initGFM(void);
 
 void putpixel(int x, int y, char color);
 
-void drawRectangle(int x, int y, int width, int height, char color);
+void rectangle(int x, int y, int width, int height, char color);
+
+/**
+ * Bresenham’s circle drawing algorithm.
+ * https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
+ */
+void circle(int xc, int yc, int r, char color);
 
 #endif

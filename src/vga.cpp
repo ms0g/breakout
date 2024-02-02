@@ -8,7 +8,7 @@ void initGFM(void) {
     }
 }
 
-void putPixel(int x, int y, char color) {
+void putpixel(int x, int y, char color) {
     asm {
         mov bh, 00h           
         mov al, [color]       
@@ -22,7 +22,7 @@ void putPixel(int x, int y, char color) {
 void drawRectangle(int x, int y, int width, int height, char color) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            putPixel(x + j, y + i, color);
+            putpixel(x + j, y + i, color);
         }
     }
 }

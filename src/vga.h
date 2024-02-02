@@ -25,7 +25,7 @@ enum COLORS {
  */
 void initGFM(void);
 
-void putPixel(int x, int y, char color);
+void putpixel(int x, int y, char color);
 
 void drawRectangle(int x, int y, int width, int height, char color);
 

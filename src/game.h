@@ -21,6 +21,11 @@ private:
         int y;
         int width; 
         int height;
+
+        struct {
+            int x;
+            int y;
+        } velocity;
     } Ball;
 
     Ball m_ball;
@@ -30,6 +35,10 @@ private:
         int y;
         int width; 
         int height;
+
+        struct {
+            int x;
+        } velocity;
     } Paddle;
 
     Paddle m_paddle;

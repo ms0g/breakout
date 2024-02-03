@@ -2,7 +2,13 @@
 
 int kbhit(void) {
     asm {
-        mov ah, 00h       
-        int 16h   
+        mov ah, 01h       
+        int 16h
+        jz NoKey
     }
+    asm {
+        mov ah, 00h
+        int 16h
+    }
+    NoKey:
 }

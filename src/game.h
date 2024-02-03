@@ -17,9 +17,10 @@ public:
 
 private:
     typedef struct Ball {
-        int x;
+        int x; 
         int y;
-        int r;
+        int width; 
+        int height;
     } Ball;
 
     Ball m_ball;

@@ -17,11 +17,14 @@ public:
 
 private:
     typedef struct Ball {
-        int x; 
-        int y;
+        struct {
+            int x; 
+            int y;
+        } coord;
+
         int width; 
         int height;
-
+        
         struct {
             int x;
             int y;
@@ -31,8 +34,11 @@ private:
     Ball m_ball;
 
     typedef struct Paddle {
-        int x; 
-        int y;
+        struct {
+            int x; 
+            int y;
+        } coord;
+
         int width; 
         int height;
 

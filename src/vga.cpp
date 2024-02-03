@@ -8,6 +8,17 @@ void initVGA(void) {
     }
 }
 
+void clrscr(void) {
+    asm {
+        mov ah, 07h
+        mov al, 00h
+        mov bh, 00h
+        mov cx, 0000h
+        mov dx, 184fh 
+        int 10h 
+    }
+}
+
 void putpixel(int x, int y, char color) {
     asm {
         mov bh, 00h           

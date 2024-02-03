@@ -28,6 +28,11 @@ enum COLORS {
  */
 void initVGA(void);
 
+/**
+ * Clear all screen
+ */
+void clrscr(void);
+
 void putpixel(int x, int y, char color);
 
 void rectangle(int x, int y, int width, int height, char color);

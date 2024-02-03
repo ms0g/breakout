@@ -43,10 +43,6 @@ void Game::run(void) {
 
 void Game::processInput(void) {
     int key = kbhit();
-
-    if (key != 0) {
-        rectangle(m_paddle.x, m_paddle.y, m_paddle.width, m_paddle.height, BLACK);
-    }
     
     if (key == L_ARROW) {
         m_paddle.x -= PADDLE_SPEED;
@@ -61,6 +57,8 @@ void Game::update(void) {
 }
 
 void Game::render(void) {
-    //circle(m_ball.x, m_ball.y, R, WHITE);
+    clrscr();
+    
+    circle(m_ball.x, m_ball.y, R, WHITE);
     rectangle(m_paddle.x, m_paddle.y, m_paddle.width, m_paddle.height, LIGHTBLUE);
 }

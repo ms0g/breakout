@@ -26,7 +26,7 @@ void Game::init(void) {
    
     rectangle(m_paddle.x, m_paddle.y, m_paddle.width, m_paddle.height, LIGHTBLUE);
     
-    m_ball.x = m_paddle.x + PADDLE_WIDTH / 2;
+    m_ball.x = m_paddle.x + (PADDLE_WIDTH / 2);
     m_ball.y = m_paddle.y - 5;
     m_ball.width = BALL_WIDTH;
     m_ball.height = BALL_HEIGHT;
@@ -50,9 +50,13 @@ void Game::processInput(void) {
     int key = kbhit();
 
     if (key == L_ARROW) {
-        m_paddle.x -= PADDLE_SPEED;
+        if (m_paddle.x > 0) {
+            m_paddle.x -= PADDLE_SPEED;
+        }
     } else if (key == R_ARROW) {
-        m_paddle.x += PADDLE_SPEED;
+        if (m_paddle.x < SCREEN_WIDTH - PADDLE_WIDTH) {
+             m_paddle.x += PADDLE_SPEED;
+        }
     }
 }
 

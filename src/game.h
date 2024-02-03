@@ -33,7 +33,6 @@ private:
 
     Paddle m_paddle;
     
-
     bool isRunning;
 
 };

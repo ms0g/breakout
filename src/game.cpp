@@ -2,6 +2,7 @@
 #include <dos.h>
 #include "vga.h"
 #include "vector.h"
+#include "keyboard.h"
 #include "bool.h"
 
 #define R 3
@@ -9,14 +10,6 @@
 #define PADDLE_SPEED 10
 #define PADDLE_WIDTH 20
 #define PADDLE_HEIGHT 5
-
-
-int input() {
-    asm {
-        mov ah, 00h       
-        int 16h   
-    }
-}
 
 void Game::init(void) {
     initVGA();
@@ -49,12 +42,15 @@ void Game::run(void) {
 }
 
 void Game::processInput(void) {
-    int a = input();
+    int key = kbhit();
 
-    if (a != 0) rectangle(m_paddle.x, m_paddle.y, m_paddle.width, m_paddle.height, BLACK);
-    if (a == 0x4B00) {
+    if (key != 0) {
+        rectangle(m_paddle.x, m_paddle.y, m_paddle.width, m_paddle.height, BLACK);
+    }
+    
+    if (key == L_ARROW) {
         m_paddle.x -= PADDLE_SPEED;
-    } else if (a == 0x4D00) {
+    } else if (key == R_ARROW) {
         m_paddle.x += PADDLE_SPEED;
     }
 }

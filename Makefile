@@ -6,8 +6,8 @@ all:
 	TCC.EXE main.cpp vga.obj game.obj keyboard.obj
 clean:
 	DEL MAIN.EXE
-	DEL main.obj
-	DEL vga.obj
-	DEL game.obj
-	DEL keyboard.obj
+	DEL MAIN.OBJ
+	DEL VGA.OBJ
+	DEL GAME.OBJ
+	DEL KEYBOARD.OBJ
 	

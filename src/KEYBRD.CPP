@@ -1,4 +1,4 @@
-#include "keyboard.h"
+#include "KEYBRD.H"
 
 int kbhit(void) {
     asm {

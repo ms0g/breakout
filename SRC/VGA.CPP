@@ -2,7 +2,7 @@
 
 void initVGA(void) {
     asm {
-        mov ah, 0x0     // change video mode
+        xor ah, ah      // change video mode
         mov al, 0x13    // 320x200x256
         int 0x10        //interrupt
     }
@@ -22,11 +22,11 @@ void clrscr(char color) {
 
 void putpixel(int x, int y, char color) {
     asm {
-        mov bh, 0x0           
-        mov al, [color]       
+        mov ah, 0x0C
+        mov al, [color]
+        xor bh, bh             
         mov cx, [x]           
-        mov dx, [y]                    
-        mov ah, 0x0C        
+        mov dx, [y]    
         int 0x10          
     }
 }

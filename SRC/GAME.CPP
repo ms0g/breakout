@@ -15,7 +15,7 @@ void Game::init(void) {
 
     m_paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
    
-    m_ball = new Ball(m_paddle->posX() + (m_paddle->width() / 2),  m_paddle->posY() - 5, WHITE);
+    m_ball = new Ball(m_paddle->pos.x + (m_paddle->width / 2),  m_paddle->pos.y - 5, WHITE);
 
     m_renderer = new Renderer();
     
@@ -45,8 +45,8 @@ void Game::processInput(void) {
 void Game::update(void) {
     m_ball->move();
 
-    if (m_ball->posY() + m_ball->height() >= SCREEN_HEIGHT) {
-        m_ball->reset(m_paddle->posX() + (m_paddle->width() / 2), m_paddle->posY() - 5);
+    if (m_ball->pos.y + m_ball->height >= SCREEN_HEIGHT) {
+        m_ball->reset(m_paddle->pos.x + (m_paddle->width / 2), m_paddle->pos.y - 5);
     }
 
     doCollision();
@@ -62,7 +62,7 @@ void Game::render(void) {
 
 void Game::doCollision(void) {
     if (checkCollision(m_ball, m_paddle)) {
-        m_ball->m_velocity.y = -m_ball->m_velocity.y;
-        m_ball->m_pos.y = m_paddle->posY() - 5;
+        m_ball->velocity.y = -m_ball->velocity.y;
+        m_ball->pos.y = m_paddle->pos.y - 5;
     }
 }

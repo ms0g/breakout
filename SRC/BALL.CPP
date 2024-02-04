@@ -7,40 +7,40 @@
 #define BALL_HEIGHT 3
 
 Ball::Ball(int x, int y, char color) {
-    m_pos.x = x;
-    m_pos.y = y;
-    m_width = BALL_WIDTH;
-    m_height = BALL_HEIGHT;
-    m_velocity.x = -BALL_SPEED;
-    m_velocity.y = -BALL_SPEED;
+    pos.x = x;
+    pos.y = y;
+    width = BALL_WIDTH;
+    height = BALL_HEIGHT;
+    velocity.x = -BALL_SPEED;
+    velocity.y = -BALL_SPEED;
     m_color = color;
 }
 
 void Ball::move(void) {
-    m_pos.x += m_velocity.x;
-    m_pos.y += m_velocity.y;
+    pos.x += velocity.x;
+    pos.y += velocity.y;
 
-    if (m_pos.x < 0) {
-        m_velocity.x = -m_velocity.x;
-        m_pos.x = 0;
-    } else if (m_pos.x + m_width >= SCREEN_WIDTH) {
-        m_velocity.x = -m_velocity.x;
-        m_pos.x = SCREEN_WIDTH - m_width;
+    if (pos.x < 0) {
+        velocity.x = -velocity.x;
+        pos.x = 0;
+    } else if (pos.x + width >= SCREEN_WIDTH) {
+        velocity.x = -velocity.x;
+        pos.x = SCREEN_WIDTH - width;
     }
 
-    if (m_pos.y <= 0) {
-        m_velocity.y = -m_velocity.y;
-        m_pos.y = 0;
+    if (pos.y <= 0) {
+        velocity.y = -velocity.y;
+        pos.y = 0;
     }
 }
 
 void Ball::draw(Renderer* renderer) {
-    renderer->renderRect(m_pos.x, m_pos.y, m_width, m_height, m_color);
+    renderer->renderRect(pos.x, pos.y, width, height, m_color);
 }
 
 void Ball::reset(int x, int y) {
-    m_pos.x = x;
-    m_pos.y = y;
-    m_velocity.x = -BALL_SPEED;
-    m_velocity.y = -BALL_SPEED;
+    pos.x = x;
+    pos.y = y;
+    velocity.x = -BALL_SPEED;
+    velocity.y = -BALL_SPEED;
 }

@@ -1,0 +1,443 @@
+		   Welcome to Turbo C++ Version 3.0
+		   --------------------------------
+
+  This README file contains important information about Turbo C++.
+  For the latest information about Turbo C++ and its accompanying
+  programs and manuals, read this file in its entirety.
+
+TABLE OF CONTENTS
+-----------------
+1.  How to Get Help
+2.  Installation
+3.  Features
+4.  Important Information
+5.  Testing Your Expanded Memory
+6.  Corrections to the On-line Help
+
+
+ 1. HOW TO GET HELP
+-------------------
+  If you have any problems, please read this file, the
+  HELPME!.DOC and other files in your DOC subdirectory, and the
+  Turbo C++ manuals first. If you still have a question and need
+  assistance, help is available from the following sources:
+
+  1. Type GO BPROGB on the CompuServe bulletin board system for
+     instant access to the Borland forums with their libraries of
+     technical information and answers to common questions.
+
+     If you are not a member of CompuServe, see the enclosed
+     special offer, and write for full details on how to receive
+     a free IntroPak containing a $15 credit toward your first
+     month's on-line charges.
+
+  2. Check with your local software dealer or users' group.
+
+  3. Borland's TECHFAX service. Call (800) 822-4269 for a FAX 
+     catalog of entries.
+
+  4. If you have an urgent problem that cannot wait and you have
+     sent in the license agreement that came with the package,
+     you may call the Borland Technical Support Department at
+     (408) 438-5300. Please have the following information ready
+     before calling:
+
+     a. Product name and serial number on your original
+        distribution disk.  Please have your serial number ready
+        or we will be unable to process your call.
+
+     b. Product version number. The version number for Turbo
+        C++ can be displayed by pressing Alt-H/A.
+
+     c. Computer brand, model, and the brands and model numbers of
+        any additional hardware.
+
+     d. Operating system and version number. (The version number
+        can be determined by typing VER at the DOS prompt.)
+
+     e. Contents of your AUTOEXEC.BAT file.
+
+     f. Contents of your CONFIG.SYS file.
+
+
+
+ 2. INSTALLATION
+----------------
+
+  You MUST use the INSTALL program to install Turbo C++. The
+  files on the distribution disks are all archived and have to be
+  properly assembled.  You cannot do this by hand!
+
+     IMPORTANT!
+
+     If you want to create backup copies of your disks, make sure 
+     that you put the backup on the same type of disk as the 
+     source. If you're backing up the 5 1/4 inch 1.2 Mb disk set, 
+     use only blank 5 1/4 inch 1.2 Mb disks for backup, etc. The 
+     installation will not work correctly if you do not use the 
+     same media type for the backup disks.
+
+  To start the installation, change your current drive to the one
+  that has the install program on it and type INSTALL.  You will
+  be given instructions in a box at the bottom of the screen for
+  each prompt. For example, if you will be installing from drive
+  A:, type:
+
+    A:
+    INSTALL
+
+  -  This INSTALL handles the installation of both the compiler
+     and tools in one operation, and allows several new 
+     configuration options.
+
+  -  After installation, make sure you insert \TC\BIN - or
+     whatever you selected as your BIN directory - into
+     your DOS path so the executable files can be found.
+
+  -  Note: The list of files is contained in a separate file
+     called FILELIST.DOC, which will appear in the target
+     directory you specify during installation.
+
+  -  After your initial installation, you can run INSTALL again to
+     add elements you omitted the first time. Just select the
+     items you want to add in the INSTALL options screen. Because
+     some things you may want to save could be overwritten, review
+     the following items to make sure you don't lose important
+     information:
+
+     1.  Selecting CMD (the Command-line compiler) causes an
+	 overwrite of any existing turboc.cfg & tlink.cfg file
+	 with path information provided in that INSTALL session.
+	 Any switches other than -L (library path) and -I
+	 (include path) will not be preserved.
+
+     2.  Selecting IDE will reset the include and library paths 
+         to those provided in that INSTALL session.
+
+     3.  By selecting any one of the following, the help file
+	 paths and choices for THELP.CFG will reflect the current
+	 session's installation choices:
+
+	      a. CMD - command-line compiler
+	      b. IDE - integrated environment
+
+     4.  Alterations to headers or startup files will be
+	 overwritten if any library models are selected.
+
+     In general, any selection you make of something installed
+     earlier will cause an overwrite of the earlier version
+     without prompting.
+
+
+  You should read the rest of this README file to get further
+  information about this release before you do the installation.
+
+
+ 3. FEATURES
+------------
+
+  Turbo C++ 3.0 includes big speed and capacity gains.  Here are
+  some important features found in this version:
+
+  - DPMI services for increased capacity
+
+  - C++ 2.1 support, including the new nested class specifications,
+    and support of C++ 3.0 templates.
+
+  - Support for pre-compiled headers for substantial time savings
+    during subsequent recompiles.
+
+  - Color syntax highlighting
+
+  - Unlimited Undo/Redo replacing previous 'restore line' capability
+
+  - Added library functions for compatibility with other runtime
+    libraries, and addition of support for long double parameters
+    in math functions. (Please refer to On-line Help for details.)
+
+  - New MAKE features. (Please see the MAKE chapter in the User's 
+    Guide for details.)
+
+  - Added BGI (Borland Graphics Interface) fonts and support. (See
+    "New BGI fonts" below.)
+
+  - A resident DPMI kernel program, DPMIRES.EXE. (See "DPMI" below.)
+
+  - THELP now allows you to switch between help files without
+    unloading and reloading. (Please see UTIL.DOC for details.)
+
+
+NEW BGI FONTS
+-------------
+
+Several new fonts have been added to the Borland Graphics Interface:
+
+
+Name            Value   Description
+-------------------------------------------
+SCRIPT_FONT     5       Stroked script font
+SIMPLEX_FONT    6       Stroked simplex font
+TRIP_SCR_FONT   7       Stroked triplex script font
+COMPLEX_FONT    8       Stroked complex font
+EURO_FONT       9       Stroked European font
+BOLD_FONT       10      Stroked bold font
+
+The fonts in the BGI now support the full ASCII character set.
+
+DPMI
+----
+
+TC.EXE, TCC.EXE, and TLINK.EXE are now hosted under DPMI.  These files
+support protected-mode compilation and replace the files of the same
+name in Turbo C++ Second Edition.  Turbo C++ Second Edition should
+continue to be used in instances where real-mode compilation is desired.
+
+If you encounter a "machine not in database" message while attempting
+to run the compiler, run the DPMIINST program to add your machine
+configuration to the DPMI server database.
+
+This version includes a resident DPMI host program, DPMIRES.EXE, that
+allows you to preload the server before invoking TC, TCC, or any other
+DPMI-hosted executables.  If you want to run such hosted EXEs in a
+Windows Standard Mode DOS window, you should run DPMIRES.EXE before
+loading Windows. To do this, enter the following commands at DOS:
+ 
+  set DPMIMEM=MAXMEM 2000
+  dpmires
+  win /s
+
+If you want to limit the amount of extended memory used by the
+DPMI-hosted executables, an environment variable called DPMIMEM
+can be set to do so. For instance, the command
+
+  set DPMIMEM=MAXMEM 2000
+
+reserves about 2 Mb of memory for DPMIRES. The number after MAXMEM
+can be adjusted, but cannot be lower than 1000.
+
+The hosted executables cannot spawn each other when SHARE is loaded.
+For instance, if you run MAKE on a file which in turn calls MAKE
+again, you will get a sharing violation. In this specific case,
+you can call the real mode version, MAKER, within the given makefile,
+and a sharing violation won't occur.
+
+
+ 4. IMPORTANT INFORMATION
+-------------------------
+
+  - When using Brief with THELP, make sure to use Brief's -p
+    switch to ensure that the thelp window will be visible.
+
+  - We recommend that you use the following mouse drivers with
+    this product:
+
+       Microsoft Mouse version 7.04 or later;
+       Logitech Mouse version 5.01 or later;
+       Genius Mouse version 9.06 or later.
+
+  - If you get a "floating point formats not linked" message at
+    runtime, put the following somewhere in your source files:
+
+	extern void _floatconvert();
+	#pragma extref _floatconvert
+
+    This will force inclusion of floating point formats, which
+    may not be linked to reduce executable size.
+
+
+  COMPILER
+
+  - The default extension for source files to the command-line
+    compiler is .CPP; that is, if you enter
+
+       TCC -c test
+
+    the compiler will search for test.cpp, and give an error if a
+    file of that name cannot be found. If you want to have the
+    command-line compiler assume a .c extension and C language
+    source, use the command-line option -P-c. For more
+    information, see "The command-line compiler" in the User's
+    Guide.
+
+  - Note that the Generate COMDEFs choice under
+    Options|Compiler|Advanced Code Generation and the -Fc command-
+    line option are only supported in the C language. Linker errors
+    will result if you attempt to use a communal variable in C++.
+
+  - The macros min() and max() are not defined when stdlib.h is
+    compiled as C++ (to allow their use in 3rd party libraries,
+    etc.).
+
+  - Note that SYMDEB creates .SYM files for use in debugging;
+    Turbo C++ creates .SYM files for pre-compiled headers. They
+    are not compatible and collisions should be avoided by
+    setting the name of the pre-compiled header file (using -
+    H=filename).
+
+  - There is now full support of distance modifiers (near and
+    far) used for class member pointers. Here are two sample
+    declarations and their meanings:
+
+       void (A::* far var) ();
+
+    this is a far variable 'var' of type 'void (A::*)()';
+
+       void (far A::* var) ();
+
+    this is a 'default distance' variable 'var' of type
+	'void (far A::*)()'
+
+  - If you use C++ templates, and use a separate TLINK command
+    line rather than letting TCC invoke TLINK, you should make
+    sure that you turn on case-sensitive links with the /c switch.
+
+  - Incorrect code will be generated if you have a statement of
+    the type "A op B" where either A or B is an enum and the 
+    other operand is a long, and "op" is one of the following 
+    operators: 
+  
+       +=  -=  *=  /=  |  ^
+
+    The same problem applies when the operands are a non-integer
+    enum and an int.  Cast the enum to long or int respectively
+    to solve the problem.
+
+
+  IDE
+
+  - When debugging a mouse application the Options|Debugger|Display
+    Swapping option should be set to "Always" for best results.
+
+  - In the IDE, the mouse cursor is turned off during compilation
+    for performance improvements.
+
+  - To run or debug an overlaid application in the IDE when DOS
+    SHARE is loaded, the .EXE file must first be marked as
+    read-only.  Otherwise, unload SHARE.
+
+  - Pressing Control-Break twice while running or stepping a
+    program from the IDE may cause unexpected results.  In
+    particular, avoid pressing Control-Break twice in response
+    to any function requiring input (scanf, getch, etc.).  To
+    break out of a program during such interaction, press
+    Control-Break and enter a valid input string.  Control will
+    be returned to the IDE.
+
+
+  EXAMPLE PROGRAMS
+
+  - When you are running any example programs that come with .PRJ
+    files, if you didn't use the standard directories when you
+    installed Turbo C++ you will have to change the .PRJ file
+    to reflect your actual directory setup.  Do this from inside
+    Turbo C++ with Alt-O/D.
+
+
+  LINKING C++ WITH C
+
+  - Linking C++ modules with C modules requires the use of a
+    linkage specification.  Prototypes for C functions within C++
+    modules must be in one of the following forms:
+
+	extern "C" declaration
+	extern "C" { declarations }
+
+    For example, if a C module contains these functions:
+
+	char *SCopy(char*, char*);
+	void ClearScreen(void)
+
+    they must be declared in a C++ module in one of the
+    following ways:
+
+	extern "C" char *SCopy(char*, char*);
+	extern "C" void ClearScreen(void);
+
+      or
+
+	 extern "C" {
+	    char *SCopy(char*, char*);
+	    void ClearScreen(void);
+	 }
+
+    Failure to do so will result in "Undefined symbol" errors
+    during link. For further examples, see the standard header
+    files.
+
+
+  CLASS LIBRARY
+
+  - Two versions of the class libraries are provided; one that 
+    includes debug information and one that does not. Small 
+    versions of each are provided, and project files are 
+    provided to build other models.  Note that the non-debug 
+    versions are used by default.  If you would like to use the
+    debug version, copy it to the non-debug file.  For instance, 
+    in the CLASSLIB\LIB directory, copy TCLASDBS.LIB to 
+    TCLASSS.LIB for the small model version.
+
+  - In some places the User's Guide incorrectly refers to the 
+    online documentation for the Container Class Libraries as 
+    CONTAIN.DOC.  The correct file name is CLASSLIB.DOC, located
+    in the ..\DOC directory.
+
+
+ 5. TESTING YOUR EXPANDED MEMORY: EMSTEST.COM
+---------------------------------------------
+
+  Included with Turbo C++ is a program to test your Expanded
+  Memory hardware and software. If you have problems using
+  Turbo C++ with your EMS, type EMSTEST at the DOS prompt and
+  follow the instructions.
+
+ 6. CORRECTIONS TO THE ON-LINE HELP
+-----------------------------------
+
+  The information for alloca is not available in on-line help.
+  The correct help screen should read as follows:
+
+  ------------------------------------------------------------------
+  Function: alloca
+  Allocates temporary stack space
+
+  Syntax:
+  #include <malloc.h>
+  void *alloca(size_t size);
+
+  Remarks:
+  alloca allocates bytes on the stack.  The allocated space is 
+  automatically freed up when the calling function exits.
+
+  Return value:
+    o On success (if enough stack space is available), returns a
+      pointer to the allocated stack area.
+    o On error, returns null.
+
+  Argument size is the number of bytes allocated on the stack.
+
+  Because alloca modifies the stack pointer, do no place calls to 
+  alloca in an expression that is an argument to a function.
+
+  NOTE: If the calling function does not contain any references to 
+  local variables in the stack, the stack won't be resotored 
+  correctly when the function exits and your program will crash.
+  To ensure that the stack is restored correctly, use this code in 
+  your calling function:
+
+    char *p;
+    char dummy[1];
+
+    dummy[0] := 0;;
+      ...
+    p = alloca(nbytes);
+
+  Because alloca is not defined in ANSI C, you should use malloc 
+  instead.
+
+  See also:
+  malloc
+  ------------------------------------------------------------------
+
+
+
+

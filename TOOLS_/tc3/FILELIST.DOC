@@ -1,0 +1,411 @@
+FILES ON DISKS
+--------------
+
+DISK 1
+------
+INSTALL   EXE - Install program
+UNZIP     EXE - Decompress .ZIP files
+README    COM - Reads this README
+CLASSDBL  ZIP - 
+   BIDSDBL   PRJ - Project file for building classlibs
+   TCLASDBL  PRJ - Project file for building classlibs
+
+CLASSINC  ZIP - 
+   ABSTARRY    H - Header file for classlibs
+   ARRAY       H - Header file for classlibs
+   ARRAYS      H - Header file for classlibs
+   ASSOC       H - Header file for classlibs
+   BAG         H - Header file for classlibs
+   BAGS        H - Header file for classlibs
+   BTREE       H - Header file for classlibs
+   CHECKS      H - Header file for classlibs
+   CLSDEFS     H - Header file for classlibs
+   CLSTYPES    H - Header file for classlibs
+   COLLECT     H - Header file for classlibs
+   CONTAIN     H - Header file for classlibs
+   DBLLIST     H - Header file for classlibs
+   DEQUE       H - Header file for classlibs
+   DEQUES      H - Header file for classlibs
+   DICT        H - Header file for classlibs
+   DLISTIMP    H - Header file for classlibs
+   HASHTBL     H - Header file for classlibs
+   LDATE       H - Header file for classlibs
+   LIST        H - Header file for classlibs
+   LISTIMP     H - Header file for classlibs
+   LTIME       H - Header file for classlibs
+   MEMMGR      H - Header file for classlibs
+   OBJECT      H - Header file for classlibs
+   PRIORTYQ    H - Header file for classlibs
+   QUEUE       H - Header file for classlibs
+   QUEUES      H - Header file for classlibs
+   RESOURCE    H - Header file for classlibs
+   SET         H - Header file for classlibs
+   SETS        H - Header file for classlibs
+   SHDDEL      H - Header file for classlibs
+   SORTABLE    H - Header file for classlibs
+   SORTARRY    H - Header file for classlibs
+   STACK       H - Header file for classlibs
+   STACKS      H - Header file for classlibs
+   STDTEMPL    H - Header file for classlibs
+   STRNG       H - Header file for classlibs
+   TIMER       H - Header file for classlibs
+   VECTIMP     H - Header file for classlibs
+
+CLASSS    ZIP - 
+   BIDSS     PRJ - Project file for building classlibs
+   TCLASSS   PRJ - Project file for building classlibs
+
+CLASSSRC  ZIP - 
+   ABSTARRY  CPP - Abstract array class definitions
+   ARRAY     CPP - Source file for classlibs
+   ASSOC     CPP - Association class (used by dictionary class)
+   BABSTARY  CPP - Source file for classlibs
+   BDICT     CPP - Source file for Classlibs
+   BSORTARY  CPP - Source file for classlibs
+   BTREE     CPP - Tree class definitions
+   BTREEINN  CPP - Tree class definitions
+   BTREELFN  CPP - Tree class definitions
+   COLLECT   CPP - Ordered collection class definitions
+   CONTAIN   CPP - Container class definitions
+   DBLLIST   CPP - Doubly linked list class definitions
+   DEQUE     CPP - Source file for classlibs
+   DICT      CPP - Dictinary class definitiions
+   HASHTBL   CPP - Hash table class definitions
+   LDATE     CPP - Date class definitions
+   LIST      CPP - List class definitions
+   LTIME     CPP - Time class definitions
+   MEMMGR    CPP - Memory class definitions
+   OBJECT    CPP - Base class for other objects
+   SORTARRY  CPP - Sorted array class definitions
+   STACK     CPP - Source file for classlibs
+   STRNG     CPP - String class definitions
+   TIMER     CPP - Timer class definitions
+   TMPLINST  CPP - Timer class definitions
+
+CMDLINE   CA2 - Split File of CMDLINE.ZIP
+EXAMPLES  ZIP - 
+   BARCHART    C - C example file
+   CIRCLE    CPP - C++ example file
+   CIRCLE    PRJ - Project file for CIRCLE.CPP
+   CPASDEMO    C - C example module for the Turbo Pascal - Turbo C++
+                   interface demonstration
+   CPASDEMO  PAS - Pascal program that demonstrates Turbo Pascal - Turbo C++
+                   interface
+   CTOPAS    CFG - Config file for Pascal - Turbo C++ interface demo
+   CTOPAS    PRJ - Project file for Turbo Pascal - Turbo C++ interface demo
+   DCOPY     CPP - C++ example file
+   DEF       CPP - C++ example module used by DICTION.CPP
+   DEF         H - Header file for DEF.CPP
+   DEF2      CPP - C++ example - another version of DEF.CPP
+   DEF2        H - Header file for DEF.CPP
+   DICTION   CPP - C++ example program
+   DICTION     H - Header file for DICTION.CPP
+   DYNPOINT  CPP - C++ example file
+   DYNPOINT  PRJ - Project file for DYNPOINT.CPP
+   EX1       CPP - C++ example program
+   EX2       CPP - C++ example program
+   EX3       CPP - C++ example program
+   EX4       CPP - C++ example program
+   EX5       CPP - C++ example program
+   EX5       PRJ - Project file for ex5.cpp
+   EX6       CPP - C++ example program
+   EX6       PRJ - Project file for ex6.cpp
+   EX7       CPP - C++ example program
+   EX7       PRJ - Project file for ex7.cpp
+   EX8       CPP - C++ example program
+   EX8       PRJ - Project file for ex8.cpp
+   EX9       CPP - C++ example program
+   EX9       PRJ - Project file for ex9.cpp
+   FIGDEMO   CPP - C++ example file
+   FIGDEMO   PRJ - Project file for FIGDEMO. CPP
+   FIGURES   CPP - C++ example file
+   FIGURES     H - Header file for FIGURES.CPP
+   FILTER      H - Header file for TASM2MSG.C and GREP2MSG.C
+   GAME      CPP - C example - simulated baseball game
+   GETOPT      C - Parses options in command line
+   GREP2MSG    C - Example program for Turbo C++ filters
+   HELLO       C - Example Turbo C++ program
+   INTRO1    CPP - Example program from User's Guide
+   INTRO10   CPP - Example program from User's Guide
+   INTRO11   CPP - Example program from User's Guide
+   INTRO12   CPP - Example program from User's Guide
+   INTRO13   CPP - Example program from User's Guide
+   INTRO14   CPP - Example program from User's Guide
+   INTRO15   CPP - Example program from User's Guide
+   INTRO16   CPP - Example program from User's Guide
+   INTRO17   CPP - Example program from User's Guide
+   INTRO18   CPP - Example program from User's Guide
+   INTRO19   CPP - Example program from User's Guide
+   INTRO2    CPP - Example program from User's Guide
+   INTRO20   CPP - Example program from User's Guide
+   INTRO21   CPP - Example program from User's Guide
+   INTRO22   CPP - Example program from User's Guide
+   INTRO23   CPP - Example program from User's Guide
+   INTRO24   CPP - Example program from User's Guide
+   INTRO25   CPP - Example program from User's Guide
+   INTRO26   CPP - Example program from User's Guide
+   INTRO27   CPP - Example program from User's Guide
+   INTRO28   CPP - Example program from User's Guide
+   INTRO29   CPP - Example program from User's Guide
+   INTRO3    CPP - Example program from User's Guide
+   INTRO30   CPP - Example program from User's Guide
+   INTRO31   CPP - Example program from User's Guide
+   INTRO32   CPP - Example program from User's Guide
+   INTRO33   CPP - Example program from User's Guide
+   INTRO34   CPP - Example program from User's Guide
+   INTRO35   CPP - Example program from User's Guide
+   INTRO36   CPP - Example program from User's Guide
+   INTRO4    CPP - Example program from User's Guide
+   INTRO5    CPP - Example program from User's Guide
+   INTRO6    CPP - Example program from User's Guide
+   INTRO7    CPP - Example program from User's Guide
+   INTRO8    CPP - Example program from User's Guide
+   INTRO9    CPP - Example program from User's Guide
+   LIST      CPP - C++ example program - linked list implementation
+   LIST        H - Header file for LIST.CPP
+   LIST2     CPP - Another version of LIST.CPP
+   LIST2       H - Header file for LIST2.CPP
+   LISTDEMO  CPP - C++ example file
+   LISTDEMO  PRJ - Project file for LISTDEMO.CPP
+   MATHERR     C - Source code for handling math library exceptions
+   MCIRCLE   CPP - C++ example file
+   MCIRCLE   PRJ - Project file for MCIRCLE.CPP
+   PIXEL     CPP - C++ example file
+   PIXEL     PRJ - Project file for PIXEL.CPP
+   PLANETS   CPP - C graphics example
+   PLOTEMP     C - C graphics example
+   PLOTEMP1    C - C graphics example - bar graphs
+   PLOTEMP2    C - C example - modification of PLOTEMP1.C
+   PLOTEMP3    C - C example - modification of PLOTEMP2.C
+   PLOTEMP4    C - C example - modification of PLOTEMP3.C
+   PLOTEMP5    C - C example - modification of PLOTEMP4.C
+   PLOTEMP6    C - C example - modification of PLOTEMP5.C
+   POINT     CPP - C++ example program
+   POINT       H - Header file for POINT.CPP
+   POINT2    CPP - C++ example program
+   SALESTAG    C - C example program form User's Guide
+   SOLAR     CPP - C example program from User's Guide
+   STACK     CPP - Stack class definitions
+   STACK       H - Header file for STACK.CPP
+   STACK2    CPP - Another version of STACK.CPP
+   STACK2      H - Header file for STACK2.CPP
+   STRING    CPP - C++ example program
+   TASM2MSG    C - Example program for Turbo C++ filters
+   VCIRC     CPP - C++ example program
+   VCIRC     PRJ - Project file for VCIRC.CPP
+   VPOINT    CPP - C++ example program
+   VPOINT      H - Header file for VPOINT.CPP
+   XSTRING   CPP - C++ example program
+
+FILELIST  DOC - List & description of files
+HELP      CA2 - Split File of HELP.ZIP
+HELP      CA3 - Split File of HELP.ZIP
+IDE       CA2 - Split File of IDE.ZIP
+INCLUDE   ZIP - Turbo C++ header files
+   _DEFS       H - Definition of _FAR, _Cdecl, _CType, _ClassType
+   _NULL       H - Definition of NULL
+   ALLOC       H - Turbo C++ RTL header file
+   GRAPHICS    H - Turbo C++ RTL header file
+   ASSERT      H - Turbo C++ RTL header file
+   BCD         H - Turbo C++ RTL header file
+   BIOS        H - Turbo C++ RTL header file
+   COMPLEX     H - Turbo C++ RTL header file
+   CONIO       H - Turbo C++ RTL header file
+   CONSTREA    H - Turbo C++ RTL header file
+   CTYPE       H - Turbo C++ RTL header file
+   DIR         H - Turbo C++ RTL header file
+   DIRECT      H - Turbo C++ RTL header file
+   DIRENT      H - Turbo C++ RTL header file
+   DOS         H - Turbo C++ RTL header file
+   ERRNO       H - Turbo C++ RTL header file
+   FCNTL       H - Turbo C++ RTL header file
+   FLOAT       H - Turbo C++ RTL header file
+   FSTREAM     H - Turbo C++ RTL header file
+   GENERIC     H - Turbo C++ RTL header file
+   IO          H - Turbo C++ RTL header file
+   IOMANIP     H - Turbo C++ RTL header file
+   IOSTREAM    H - Turbo C++ RTL header file
+   LIMITS      H - Turbo C++ RTL header file
+   LOCALE      H - Turbo C++ RTL header file
+   LOCKING     H - Turbo C++ RTL header file
+   MALLOC      H - Turbo C++ RTL header file
+   MATH        H - Turbo C++ RTL header file
+   MEM         H - Turbo C++ RTL header file
+   MEMORY      H - Turbo C++ RTL header file
+   NEW         H - Turbo C++ RTL header file
+   PROCESS     H - Turbo C++ RTL header file
+   SEARCH      H - Turbo C++ RTL header file
+   SETJMP      H - Turbo C++ RTL header file
+   SHARE       H - Turbo C++ RTL header file
+   SIGNAL      H - Turbo C++ RTL header file
+   STAT        H - Turbo C++ RTL header file
+   STDARG      H - Turbo C++ RTL header file
+   STDDEF      H - Turbo C++ RTL header file
+   STDIO       H - Turbo C++ RTL header file
+   STDIOSTR    H - Turbo C++ RTL header file
+   STDLIB      H - Turbo C++ RTL header file
+   STRING      H - Turbo C++ RTL header file
+   STRSTREA    H - Turbo C++ RTL header file
+   TIME        H - Turbo C++ RTL header file
+   TIMEB       H - Turbo C++ RTL header file
+   TYPES       H - Turbo C++ RTL header file
+   UTIME       H - Turbo C++ RTL header file
+   VALUES      H - Turbo C++ RTL header file
+   VARARGS     H - Turbo C++ RTL header file
+
+XLIB      ZIP - 
+   EMU       LIB - 8087 emulator library
+   FP87      LIB - 8087 library
+   OVERLAY   LIB - Overlays library
+   WILDARGS  OBJ - Object code for module to expand wildcard arguments
+   GRAPHICS  LIB - Graphics library
+
+README        - General information last minute changes to documentation
+
+DISK 2
+------
+CLIB      ZIP - 
+   C0C       OBJ - Compact model startup code
+   C0FC      OBJ - Compact model startup code
+   CC        LIB - Compact model run-time library
+   MATHC     LIB - Compact model math library
+
+CMDLINE   CA1 - 
+   OBJXREF   COM - Conversion program for object files.
+   BUILTINS  MAK - File containing default inference rules and macros for
+                   MAKE.EXE
+   CPP       EXE - Turbo C++ preprocessor
+   MAKE      EXE - Protected mode version of program for managing projects
+   MAKER     EXE - Real mode version of program for managing projects
+   TCC       EXE - Command-line version of Turbo C++ Compiler
+   TDUMP     EXE - Utility to access internal file structure
+   TLINK     EXE - Turbo Linker
+
+HELP      CA1 - 
+   TCHELP    TCH - Turbo C++ help file
+   THELP     COM - On-line help program
+
+IDE       CA1 - Files in Turbo C++ Compiler - IDE version
+   TASM2MSG  EXE - Display Tasm  error msgs in IDE
+   PRJCFG    EXE - Utility to convert PRJ files
+   TRANCOPY  EXE - Utility to access transfer data
+   GREP2MSG  EXE - GREP filter program for IDE
+   PRJCNVT   EXE - Utility to convert from Turbo C 2.x project files to Turbo
+                   C++ project files
+   TC        PIF - Pif file for TC.EXE
+   TC        EXE - Turbo C++ compiler (IDE)
+   TEMC      EXE - Turbo editor macro compiler
+
+
+DISK 3
+------
+BGI       ZIP - 
+   ATT       BGI - Graphics driver for ATT400 graphics card
+   BGIDEMO     C - Graphics demonstration program
+   BGIOBJ    EXE - Conversion program for fonts and drivers
+   BOLD      CHR - Font for Bold char set
+   CGA       BGI - Graphics driver for CGA
+   EGAVGA    BGI - Graphics driver for EGA and VGA
+   EURO      CHR - Font for European char set
+   GOTH      CHR - Font for gothic character set
+   HERC      BGI - Graphics driver for Hercules
+   IBM8514   BGI - Graphics driver for IBM 8514 graphics card
+   LCOM      CHR - Complex char font set
+   LITT      CHR - Font for small character set
+   PC3270    BGI - Graphics driver for PC3270
+   SANS      CHR - Font for sans serif character set
+   SCRI      CHR - Font for script char set
+   SIMP      CHR - Font for Simplex char set
+   TRIP      CHR - Font for triplex character set
+   TSCR      CHR - Font for tiny script char set
+
+BIN       ZIP - 
+   DPMI16BI  OVL - Turbo C++ DPMI Server
+   DPMIINST  EXE - Turbo C++ DPMI Configuration program
+   DPMILOAD  EXE - Turbo C++ DPMI loader
+   DPMIMEM   DLL - Turbo C++ DPMI memory manager
+   DPMIRES   EXE - Turbo C++ DPMI resident loader(user executable)
+   EMSTEST   COM - Utility program for detecting expanded memory
+   GREP      COM - Turbo GREP program
+   PRJ2MAK   EXE - Utility to convert a TC project file into a TCC make file
+   TLIB      EXE - Turbo Librarian
+   TOUCH     COM - Program that updates a file's date and time
+   TRIGRAPH  EXE - Trigraph conversion utility
+
+CLASSDBS  ZIP - 
+   BIDSDBS   PRJ - Project file for building classlibs
+   TCLASDBS  PRJ - Project file for building classlibs
+
+CLASSEXM  ZIP - 
+   DIRECTRY  CPP - Directory class example file
+   DIRECTRY    H - Header file for DIRECTRY.CPP
+   DIRECTRY  PRJ - Project file for DIRECTRY.CPP
+   FILEDATA  CPP - FileData class example file
+   FILEDATA    H - Header  file for FILEDATA.CPP
+   LOOKUP    CPP - Lookup table  example file
+   LOOKUP    PRJ - Project file for LOOKUP.CPP
+   QUEUETST  CPP - Queue class example file
+   QUEUETST  PRJ - Project file for QUEUETST.CPP
+   REVERSE   CPP - String class example file
+   REVERSE   PRJ - Project file for REVERSE.CPP
+   STRNGMAX  CPP - String class example file
+   STRNGMAX  PRJ - Project file for STRNGMAX.CPP
+   TESTDIR   CPP - Directory example file
+
+CLASSL    ZIP - 
+   BIDSL     PRJ - Project file for building classlibs
+   TCLASSL   PRJ - Project file for building classlibs
+
+CLASSLIB  ZIP - 
+   TCLASDBS  LIB - Library file for C++ classes
+   TCLASSS   LIB - Library file for C++ classes
+
+DOC       ZIP - 
+   BRIEF     TEM - Editor Macros File for Brief emulation
+   CMACROS   TEM - Editor Macros File for C emulation
+   DEFAULTS  TEM - Sample Editor Macros File
+   DOSEDIT   TEM - Editor Macros File for Dosedit emulation
+   EPSILON   TEM - Editor Macros File for Epsilon emulation
+   HELPME!   DOC - Answers to commonly asked questions
+   UTIL      DOC - On-line documentation for utilities
+   CLASSLIB  DOC - On-line documentation for container classes
+   ANSI      DOC - On-line documentation for ansi compatability
+   BASM      DOC - On-line documentation for BASM
+
+HLIB      ZIP - Huge model libraries
+   C0H       OBJ - Huge model startup code
+   C0FH      OBJ - Huge model startup code
+   CH        LIB - Huge model run-time library
+   MATHH     LIB - Huge model math library
+
+LLIB      ZIP - Large model libraries
+   C0L       OBJ - Large model startup code
+   C0FL      OBJ - Large model startup code
+   CL        LIB - Large model run-time library
+   MATHL     LIB - Large model math library
+
+MLIB      ZIP - Medium model libraries
+   C0M       OBJ - Medium model startup code
+   C0FM      OBJ - Medium model startup code
+   CM        LIB - Medium model run-time library
+   MATHM     LIB - Medium model math library
+
+SLIB      ZIP - Small model libraries
+   C0S       OBJ - Small model startup code
+   C0FS      OBJ - Small model startup code
+   C0T       OBJ - Tiny model startup code
+   C0FT      OBJ - Tiny model startup code
+   CS        LIB - Small model run-time library
+   MATHS     LIB - Small model math library
+
+TCALC     ZIP - Files for TCALC example program
+   TCALC       C - TurboCalc main program source code
+   TCALC     DOC - TurboCalc documentation
+   TCALC       H - The header file for TurboCalc
+   TCALC     PRJ - The TurboCalc project file
+   TCDISPLY    C - TurboCalc screen display source code
+   TCINPUT     C - TurboCalc input routines source code
+   TCOMMAND    C - TurboCalc commands source code
+   TCPARSER    C - TurboCalc input parser source code
+   TCUTIL      C - TurboCalc utilities source code
+

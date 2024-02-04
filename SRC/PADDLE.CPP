@@ -1,5 +1,6 @@
 #include "PADDLE.H"
 #include "CONF.H"
+#include "RENDERER.H"
 
 #define PADDLE_SPEED 5
 #define PADDLE_WIDTH 50
@@ -24,4 +25,8 @@ void Paddle::move(int direction) {
                 pos.x += velocity.x;
         }
     }
+}
+
+void Paddle::draw(Renderer* renderer) {
+    renderer->renderRect(pos.x, pos.y, width, height, m_color);
 }

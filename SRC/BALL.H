@@ -10,6 +10,8 @@ public:
 
     void move(void);
 
+    void draw(Renderer* renderer);
+
     void reset(int x, int y);
 };
 

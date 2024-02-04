@@ -1,8 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "bool.h"
+#include "BOOL.H"
 
+class Ball;
+class Paddle;
+class Renderer;
 class Game {
 public:
     void init(void);
@@ -15,42 +18,17 @@ public:
 
     void render(void);
 
+    void doCollision(void);
+
 private:
-    typedef struct Ball {
-        struct {
-            int x; 
-            int y;
-        } coord;
 
-        int width; 
-        int height;
-        
-        struct {
-            int x;
-            int y;
-        } velocity;
-    } Ball;
+    Ball* m_ball;
 
-    Ball m_ball;
+    Paddle* m_paddle;
 
-    typedef struct Paddle {
-        struct {
-            int x; 
-            int y;
-        } coord;
-
-        int width; 
-        int height;
-
-        struct {
-            int x;
-        } velocity;
-    } Paddle;
-
-    Paddle m_paddle;
+    Renderer* m_renderer;
     
     bool isRunning;
-
 };
 
 #endif

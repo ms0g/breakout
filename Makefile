@@ -1,13 +1,21 @@
 all:
 	MAKE.EXE clean
-	TCC.EXE -c -ovga.obj vga.cpp
-	TCC.EXE -c -ogame.obj game.cpp
-	TCC.EXE -c -okeyboard.obj keyboard.cpp
-	TCC.EXE main.cpp vga.obj game.obj keyboard.obj
+	TCC.EXE -c -oVGA.OBJ VGA.CPP
+	TCC.EXE -c -oGAME.OBJ GAME.CPP
+	TCC.EXE -c -oKEYBRD.OBJ KEYBRD.CPP
+	TCC.EXE -c -oPADDLE.OBJ PADDLE.CPP
+	TCC.EXE -c -oBALL.OBJ BALL.CPP
+	TCC.EXE -c -oAABB.OBJ AABB.CPP
+	TCC.EXE -c -oRENDERER.OBJ RENDERER.CPP
+	TCC.EXE MAIN.CPP VGA.OBJ GAME.OBJ KEYBRD.OBJ PADDLE.OBJ BALL.OBJ AABB.OBJ RENDERER.OBJ
 clean:
-	DEL main.exe
-	DEL main.obj
-	DEL vga.obj
-	DEL game.obj
-	DEL keyboard.obj
+	DEL MAIN.EXE
+	DEL MAIN.OBJ
+	DEL VGA.OBJ
+	DEL GAME.OBJ
+	DEL PADDLE.OBJ
+	DEL BALL.OBJ
+	DEL KEYBRD.OBJ
+	DEL AABB.OBJ
+	DEL RENDERER.OBJ
 	

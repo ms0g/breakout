@@ -1,4 +1,4 @@
-#include "game.h"
+#include "GAME.H"
 
 void main(void) {   
     Game* breakout = new Game();

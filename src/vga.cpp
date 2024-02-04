@@ -1,4 +1,4 @@
-#include "vga.h"
+#include "VGA.H"
 
 void initVGA(void) {
     asm {

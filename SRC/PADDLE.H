@@ -14,8 +14,6 @@ public:
     Paddle(int x, int y, char color);
 
     void move(int direction);
-
-    void draw(Renderer* renderer);
 };
 
 #endif

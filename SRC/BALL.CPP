@@ -1,6 +1,5 @@
 #include "BALL.H"
 #include "CONF.H"
-#include "RENDERER.H"
 
 #define BALL_SPEED 1
 #define BALL_WIDTH 3
@@ -32,10 +31,6 @@ void Ball::move(void) {
         velocity.y = -velocity.y;
         pos.y = 0;
     }
-}
-
-void Ball::draw(Renderer* renderer) {
-    renderer->renderRect(pos.x, pos.y, width, height, m_color);
 }
 
 void Ball::reset(int x, int y) {

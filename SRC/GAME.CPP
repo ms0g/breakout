@@ -35,7 +35,9 @@ void Game::run(void) {
 void Game::processInput(void) {
     int key = kbhit();
 
-    if (key == L_ARROW) {
+    if (key == Q) {
+        isRunning = false;
+    } else if (key == L_ARROW) {
         m_paddle->move(LEFT);
     } else if (key == R_ARROW) {
         m_paddle->move(RIGHT);

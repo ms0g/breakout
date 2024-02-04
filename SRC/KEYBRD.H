@@ -3,7 +3,7 @@
 
 #define R_ARROW 0x4D00
 #define L_ARROW 0x4B00
-#define ESC     0x011B
+#define Q       0x1071
 
 int kbhit(void);
 

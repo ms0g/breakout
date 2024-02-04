@@ -2,31 +2,32 @@
 
 void initVGA(void) {
     asm {
-        mov ah, 0h     // change video mode
-        mov al, 13h    // 320x200x256
-        int 10h        //interrupt
+        mov ah, 0x0     // change video mode
+        mov al, 0x13    // 320x200x256
+        int 0x10        //interrupt
     }
 }
 
-void clrscr(void) {
+void clrscr(char color) {
     asm {
-        mov ah, 07h
-        mov al, 00h
-        mov bh, 00h
-        mov cx, 0000h
-        mov dx, 184fh 
-        int 10h 
+        xor al, al
+        mov ah, 0x6
+        xor bl, bl
+        mov bh, [color]
+        mov cx, 0x0
+        mov dx, 0x182a 
+        int 0x10 
     }
 }
 
 void putpixel(int x, int y, char color) {
     asm {
-        mov bh, 00h           
+        mov bh, 0x0           
         mov al, [color]       
         mov cx, [x]           
         mov dx, [y]                    
-        mov ah, 0Ch        
-        int 10h          
+        mov ah, 0x0C        
+        int 0x10          
     }
 }
 

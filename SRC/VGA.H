@@ -28,7 +28,7 @@ void initVGA(void);
 /**
  * Clear all screen
  */
-void clrscr(void);
+void clrscr(char color);
 
 void putpixel(int x, int y, char color);
 

@@ -8,7 +8,7 @@
 
 void GameLevel::init(int level[ROW][COL]) {
     int startX = 0;
-    int startY = 0;
+    int startY = 44;
 
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
@@ -33,7 +33,7 @@ void GameLevel::init(int level[ROW][COL]) {
 }
 
 void GameLevel::draw(Renderer* renderer) {
-     for (int i = 0; i < bricks.size(); ++i) {
+    for (int i = 0; i < bricks.size(); ++i) {
         renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i].m_color);
     }
 }

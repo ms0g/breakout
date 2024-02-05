@@ -12,7 +12,7 @@ public:
 
     void draw(Renderer* renderer);
 
-    vector<GameObject> bricks; 
+    vector<GameObject> bricks;
 };
 
 #endif

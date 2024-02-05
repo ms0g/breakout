@@ -2,8 +2,8 @@
 #define GAME_H
 
 #include "BOOL.H"
-#include "VECTOR.H"
-#include "GAMEOBJ.H"
+#include "GAMELVL.H"
+
 
 class Ball;
 class Paddle;
@@ -31,11 +31,12 @@ private:
     Paddle* m_paddle;
 
     Renderer* m_renderer;
-    
+
+    vector<GameLevel> levels;
+
     bool isRunning;
 
-    vector<GameObject> bricks;
-
+    int currentLevel;
 };
 
 #endif

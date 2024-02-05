@@ -8,6 +8,7 @@
 #include "BOOL.H"
 #include "CONF.H"
 #include "AABB.H"
+#include "LEVELS.H"
 
 Game::Game() {
     m_paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
@@ -15,7 +16,14 @@ Game::Game() {
     m_ball = new Ball(m_paddle->pos.x + (m_paddle->width / 2),  m_paddle->pos.y - 5, WHITE);
 
     m_renderer = new Renderer();
-        
+
+    GameLevel one;
+    one.init(levelOne);
+
+    levels.push_back(one);
+    
+    currentLevel = 0;
+
     isRunning = true;
 }
 
@@ -67,6 +75,8 @@ void Game::render(void) {
     m_ball->draw(m_renderer);
     
     m_paddle->draw(m_renderer);
+
+    levels[currentLevel].draw(m_renderer);
 }
 
 void Game::doCollision(void) {

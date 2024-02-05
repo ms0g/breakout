@@ -18,7 +18,7 @@ Game::Game() {
     m_ball = new Ball(m_paddle->pos.x + (m_paddle->width / 2),  m_paddle->pos.y - 5, WHITE);
 
     m_renderer = new Renderer();
-    
+        
     isRunning = true;
 }
 
@@ -57,9 +57,9 @@ void Game::update(void) {
 
     if (m_ball->pos.y + m_ball->height >= SCREEN_HEIGHT) {
         m_ball->reset(m_paddle->pos.x + (m_paddle->width / 2), m_paddle->pos.y - 5);
+    } else {
+        doCollision();
     }
-
-    doCollision();
 }
 
 void Game::render(void) {

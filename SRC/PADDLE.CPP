@@ -28,5 +28,5 @@ void Paddle::move(int direction) {
 }
 
 void Paddle::draw(Renderer* renderer) {
-    renderer->drawRect(pos.x, pos.y, width, height, m_color);
+    renderer->rectangle(pos.x, pos.y, width, height, m_color);
 }

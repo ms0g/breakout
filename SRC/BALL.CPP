@@ -35,7 +35,7 @@ void Ball::move(void) {
 }
 
 void Ball::draw(Renderer* renderer) {
-    renderer->drawRect(pos.x, pos.y, width, height, m_color);
+    renderer->rectangle(pos.x, pos.y, width, height, m_color);
 }
 
 void Ball::reset(int x, int y) {

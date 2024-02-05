@@ -62,7 +62,7 @@ void Game::update(void) {
 }
 
 void Game::render(void) {
-    clrscr(BLACK);
+    m_renderer->clrscr(BLACK);
     
     m_ball->draw(m_renderer);
     

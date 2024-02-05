@@ -8,7 +8,7 @@ Renderer::Renderer() {
 void Renderer::rectangle(int x, int y, int width, int height, char color) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            putpixel(x + j, y + i, color);
+            f_putpixel(x + j, y + i, color);
         }
     }
 }
@@ -40,14 +40,14 @@ void Renderer::circle(int xc, int yc, int r, char color) {
 }
 
 void Renderer::_circle(int xc, int yc, int x, int y, char color) { 
-    putpixel(xc+x, yc+y, color); 
-    putpixel(xc-x, yc+y, color); 
-    putpixel(xc+x, yc-y, color); 
-    putpixel(xc-x, yc-y, color); 
-    putpixel(xc+y, yc+x, color); 
-    putpixel(xc-y, yc+x, color); 
-    putpixel(xc+y, yc-x, color); 
-    putpixel(xc-y, yc-x, color); 
+    f_putpixel(xc+x, yc+y, color); 
+    f_putpixel(xc-x, yc+y, color); 
+    f_putpixel(xc+x, yc-y, color); 
+    f_putpixel(xc-x, yc-y, color); 
+    f_putpixel(xc+y, yc+x, color); 
+    f_putpixel(xc-y, yc+x, color); 
+    f_putpixel(xc+y, yc-x, color); 
+    f_putpixel(xc-y, yc-x, color); 
 }
 
 void Renderer::clrscr(char color) {

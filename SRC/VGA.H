@@ -11,6 +11,14 @@ void initVGA(void);
  */
 void v_clrscr(char color);
 
-void putpixel(int x, int y, char color);
+/**
+ * Put pixel slowly 
+ */
+void s_putpixel(int x, int y, char color);
+
+/**
+ * Put pixel fastly 
+ */
+void f_putpixel(int x, int y, char color);
 
 #endif

@@ -1,5 +1,7 @@
 #include "VGA.H"
 
+unsigned char far *videoMem = (unsigned char far*)0xA0000000L;
+
 void initVGA(void) {
     asm {
         xor ah, ah      // change video mode
@@ -20,7 +22,7 @@ void v_clrscr(char color) {
     }
 }
 
-void putpixel(int x, int y, char color) {
+void s_putpixel(int x, int y, char color) {
     asm {
         mov ah, 0x0C
         mov al, color
@@ -29,5 +31,10 @@ void putpixel(int x, int y, char color) {
         mov dx, y    
         int 0x10          
     }
+}
+
+void f_putpixel(int x, int y, char color) {
+    unsigned short offset = 320 * y + x;
+    videoMem[offset] = color;
 }
    

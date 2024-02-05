@@ -2,13 +2,17 @@
 #define GAME_H
 
 #include "BOOL.H"
+#include "VECTOR.H"
+#include "GAMEOBJ.H"
 
 class Ball;
 class Paddle;
 class Renderer;
 class Game {
 public:
-    void init(void);
+    Game();
+    
+    ~Game();
 
     void run(void);
 
@@ -29,6 +33,9 @@ private:
     Renderer* m_renderer;
     
     bool isRunning;
+
+    vector<GameObject> bricks;
+
 };
 
 #endif

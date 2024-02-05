@@ -10,7 +10,7 @@
 #include "CONF.H"
 #include "AABB.H"
 
-void Game::init(void) {
+Game::Game() {
     initVGA();
 
     m_paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
@@ -20,6 +20,14 @@ void Game::init(void) {
     m_renderer = new Renderer();
     
     isRunning = true;
+}
+
+Game::~Game() {
+    delete m_paddle;
+    
+    delete m_ball;
+    
+    delete m_renderer;
 }
 
 void Game::run(void) {

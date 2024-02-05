@@ -3,6 +3,8 @@
 
 class Renderer {
 public:
+    Renderer();
+    
     void drawRect(int x, int y, int width, int height, char color);
 
     void drawCircle(int xc, int yc, int r, char color);

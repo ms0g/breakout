@@ -1,18 +1,15 @@
 #include "GAME.H"
 #include <dos.h>
-#include "VGA.H"
 #include "VECTOR.H"
 #include "KEYBRD.H"
 #include "PADDLE.H"
-#include "BALL.H"
 #include "RENDERER.H"
+#include "BALL.H"
 #include "BOOL.H"
 #include "CONF.H"
 #include "AABB.H"
 
 Game::Game() {
-    initVGA();
-
     m_paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
    
     m_ball = new Ball(m_paddle->pos.x + (m_paddle->width / 2),  m_paddle->pos.y - 5, WHITE);
@@ -33,7 +30,9 @@ Game::~Game() {
 void Game::run(void) {
     while(isRunning) {
         processInput();
+        
         update();
+        
         render();
         
         delay(15);

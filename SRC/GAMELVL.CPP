@@ -6,12 +6,12 @@
 #define GAP             3
 #define START_GAP       12
 
-void GameLevel::init(int level[9][13]) {
+void GameLevel::init(int level[ROW][COL]) {
     int startX = 0;
     int startY = 0;
 
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 13; ++j) {
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
             char color = level[i][j];
             int posX = startX + START_GAP;
             

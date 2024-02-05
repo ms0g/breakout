@@ -3,11 +3,12 @@
 
 #include "VECTOR.H"
 #include "GAMEOBJ.H"
+#include "CONF.H"
 
 class Renderer;
 class GameLevel {
 public:
-    void init(int level[9][13]);
+    void init(int level[ROW][COL]);
 
     void draw(Renderer* renderer);
 

@@ -1,8 +1,7 @@
 #ifndef LEVELS_H
 #define LEVELS_H
 
-#define ROW 9
-#define COL 13
+#include "CONF.H"
 
 int levelOne[ROW][COL] = {
         {8,8,8,8,8,8,8,8,8,8,8,8,8},

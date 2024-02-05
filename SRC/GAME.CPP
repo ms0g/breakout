@@ -36,7 +36,7 @@ Game::~Game() {
 }
 
 void Game::run(void) {
-    while(isRunning) {
+    while (isRunning) {
         processInput();
         
         update();

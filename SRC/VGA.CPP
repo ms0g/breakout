@@ -1,6 +1,6 @@
 #include "VGA.H"
 
-unsigned char far *videoMem = (unsigned char far*)0xA0000000L;
+unsigned char far* videoMem = (unsigned char far*)0xA0000000L;
 
 void initVGA(void) {
     asm {
@@ -36,5 +36,24 @@ void s_putpixel(int x, int y, char color) {
 void f_putpixel(int x, int y, char color) {
     unsigned short offset = 320 * y + x;
     videoMem[offset] = color;
+}
+
+void waitVRetrace(void) {
+    asm {
+        cli
+        mov dx, 0x03da
+    }
+waitVRetrace: 
+    asm {
+        in al, dx
+        test al, 0x08
+        jnz waitVRetrace
+    }
+endVRefresh: 
+    asm {
+        in al, dx
+        test al, 0x08
+        jz endVRefresh
+    }
 }
    

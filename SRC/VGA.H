@@ -21,4 +21,9 @@ void s_putpixel(int x, int y, char color);
  */
 void f_putpixel(int x, int y, char color);
 
+/**
+ * Wait vertical retrace
+ */
+void waitVRetrace(void);
+
 #endif

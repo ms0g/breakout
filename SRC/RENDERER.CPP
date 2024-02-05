@@ -51,5 +51,7 @@ void Renderer::_circle(int xc, int yc, int x, int y, char color) {
 }
 
 void Renderer::clrscr(char color) {
+    waitVRetrace();
+    
     v_clrscr(color);
 }

@@ -85,8 +85,16 @@ void Game::doCollision(void) {
     for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {
         GameObject* brick =  &levels[currentLevel].bricks[i];
         
-        if (checkAABBCollision(m_ball, brick)) {
-            brick->m_color = CYAN;
-        }
+        if (brick->isActive) {
+            if (checkAABBCollision(m_ball, brick)) {
+                brick->hitCount--;
+                
+                if (brick->hitCount == 0) {
+                    brick->isActive = false;
+                }
+                
+                m_ball->velocity.y = -m_ball->velocity.y;
+            }
+        } 
     }
 }

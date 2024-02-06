@@ -47,7 +47,7 @@ void Game::run(void) {
         render();
 
         if (life == 0) {
-            isRunning = false;
+            break;
         }
     }
 }

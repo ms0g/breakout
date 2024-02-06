@@ -7,14 +7,20 @@
 #define GAP             3
 #define START_GAP       12
 
-void GameLevel::init(int level[ROW][COL]) {
+void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;
     int startY = 45;
 
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
             char color = level[i][j];
+            
             int posX = startX + START_GAP;
+            startX += (BRICK_WIDTH + GAP);
+
+            if (color == BLACK) {
+                continue;
+            }
             
             GameObject obj;
             obj.pos.x = posX;
@@ -26,10 +32,8 @@ void GameLevel::init(int level[ROW][COL]) {
             obj.hitCount =  brickHitCountTable[color];
            
             bricks.push_back(obj);
-
-            startX += (BRICK_WIDTH + GAP);
         }
-        
+
         startX = 0;
         startY += (BRICK_HEIGHT + GAP);
     }

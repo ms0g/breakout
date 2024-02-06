@@ -19,8 +19,19 @@ Game::Game() {
 
     GameLevel one;
     one.init(levelOne);
+    levels[0] = one;
 
-    levels.push_back(one);
+    GameLevel two;
+    two.init(levelTwo);
+    levels[1] = two;
+
+    GameLevel three;
+    three.init(levelThree);
+    levels[2] = three;
+
+    GameLevel four;
+    four.init(levelFour);
+    levels[3] = four;
     
     currentLevel = 0;
 

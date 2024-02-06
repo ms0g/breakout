@@ -31,7 +31,7 @@ private:
 
     Renderer* renderer;
 
-    vector<GameLevel> levels;
+    GameLevel levels[4];
 
     bool isRunning;
 

@@ -32,7 +32,7 @@ private:
 
     GameLevel levels[4];
 
-    bool isRunning;
+    int isRunning;
 
     int currentLevel;
 

@@ -1,8 +1,6 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-#include "BOOL.H"
-
 class GameObject {
 public:
     struct {
@@ -20,7 +18,7 @@ public:
 
     char m_color;
 
-    bool isActive;
+    int isActive;
 
     int hitCount;
 };

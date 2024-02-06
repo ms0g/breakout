@@ -39,7 +39,7 @@ Game::Game() {
 
     life = PLAYER_LIFE;
 
-    isRunning = true;
+    isRunning = 1;
 }
 
 Game::~Game() {
@@ -81,7 +81,7 @@ void Game::update(void) {
         life--;
         
         if (life == 0) {
-            isRunning = false;
+            isRunning = 0;
         }
 
         return;
@@ -118,7 +118,7 @@ void Game::doCollision(void) {
             brick->hitCount--;
                 
             if (brick->hitCount == 0) {
-                brick->isActive = false;
+                brick->isActive = 0;
                 
                 score += brickScoreTable[brick->m_color];
                 

@@ -30,7 +30,7 @@ void GameLevel::init(const int level[ROW][COL]) {
             obj.width = BRICK_WIDTH;
             obj.height = BRICK_HEIGHT;
             obj.m_color = color;
-            obj.isActive = true;
+            obj.isActive = 1;
             obj.hitCount =  brickHitCountTable[color];
            
             bricks.push_back(obj);

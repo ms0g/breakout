@@ -4,8 +4,8 @@
 #include "GAMEOBJ.H"
 #include "BOOL.H"
 
-bool checkCollision(GameObject* ball, GameObject* paddle);
+int checkCollision(GameObject* ball, GameObject* paddle);
 
-bool checkAABBCollision(GameObject* one, GameObject* two);
+int checkAABBCollision(GameObject* one, GameObject* two);
 
 #endif

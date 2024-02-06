@@ -21,6 +21,17 @@ void GameLevel::init(int level[ROW][COL]) {
             obj.width = BRICK_WIDTH;
             obj.height = BRICK_HEIGHT;
             obj.m_color = color;
+            obj.isActive = true;
+
+            if (color == RED) {
+                obj.hitCount = 4;
+            } else if (color == LIGHTRED) {
+                 obj.hitCount = 3;
+            } else if (color == GREEN) {
+                 obj.hitCount = 2;
+            } else if (color == YELLOW) {
+                 obj.hitCount = 1;
+            }
 
             bricks.push_back(obj);
 
@@ -34,6 +45,8 @@ void GameLevel::init(int level[ROW][COL]) {
 
 void GameLevel::draw(Renderer* renderer) {
     for (int i = 0; i < bricks.size(); ++i) {
-        renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i].m_color);
+        if (bricks[i].isActive) {
+            renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i].m_color);
+        }  
     }
 }

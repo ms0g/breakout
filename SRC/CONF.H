@@ -6,7 +6,7 @@
 #define SCREEN_HEIGHT 200
 
 // Level Conf
-#define ROW 9
+#define ROW 8
 #define COL 13
 
 #endif

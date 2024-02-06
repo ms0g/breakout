@@ -8,6 +8,7 @@
 #include "CONF.H"
 #include "AABB.H"
 #include "LEVELS.H"
+#include "TABLES.H"
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
@@ -103,6 +104,8 @@ void Game::doCollision(void) {
                 
                 if (brick->hitCount == 0) {
                     brick->isActive = false;
+
+                    score += brickScoreTable[brick->m_color];
                 }
                 
                 ball->velocity.y = -ball->velocity.y;

@@ -1,5 +1,6 @@
 #include "GAMELVL.H"
 #include "RENDERER.H"
+#include "TABLES.H"
 
 #define BRICK_WIDTH     20
 #define BRICK_HEIGHT    5
@@ -22,22 +23,13 @@ void GameLevel::init(int level[ROW][COL]) {
             obj.height = BRICK_HEIGHT;
             obj.m_color = color;
             obj.isActive = true;
-
-            if (color == RED) {
-                obj.hitCount = 4;
-            } else if (color == LIGHTRED) {
-                 obj.hitCount = 3;
-            } else if (color == GREEN) {
-                 obj.hitCount = 2;
-            } else if (color == YELLOW) {
-                 obj.hitCount = 1;
-            }
-
+            obj.hitCount =  brickHitCountTable[color];
+           
             bricks.push_back(obj);
 
             startX += (BRICK_WIDTH + GAP);
-
         }
+        
         startX = 0;
         startY += (BRICK_HEIGHT + GAP);
     }

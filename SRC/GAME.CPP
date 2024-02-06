@@ -106,8 +106,8 @@ void Game::doCollision(void) {
     }
 
     for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {
-        GameLevel level = levels[currentLevel];
-        GameObject* brick =  &level.bricks[i];
+        GameLevel* level = &levels[currentLevel];
+        GameObject* brick = &level->bricks[i];
         
         if (!brick->isActive) continue;
 
@@ -118,8 +118,8 @@ void Game::doCollision(void) {
                 brick->isActive = false;
                 score += brickScoreTable[brick->m_color];
                 
-                level.activeBrickCount--;
-                if (level.activeBrickCount == 0) {
+                level->activeBrickCount--;
+                if (level->activeBrickCount == 0) {
                     currentLevel++;
                 }
             }

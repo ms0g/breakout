@@ -43,17 +43,17 @@ void waitVRetrace(void) {
         cli
         mov dx, 0x03da
     }
-waitVRetrace: 
+v1: 
     asm {
         in al, dx
         test al, 0x08
-        jnz waitVRetrace
+        jnz v1
     }
-endVRefresh: 
+v2: 
     asm {
         in al, dx
         test al, 0x08
-        jz endVRefresh
+        jz v2
     }
 }
    

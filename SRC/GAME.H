@@ -4,7 +4,6 @@
 #include "BOOL.H"
 #include "GAMELVL.H"
 
-
 class Ball;
 class Paddle;
 class Renderer;

@@ -1,5 +1,4 @@
 #include "GAME.H"
-#include <dos.h>
 #include "VECTOR.H"
 #include "KEYBRD.H"
 #include "PADDLE.H"
@@ -42,8 +41,6 @@ void Game::run(void) {
         update();
         
         render();
-        
-        delay(15);
     }
 }
 
@@ -83,5 +80,13 @@ void Game::doCollision(void) {
     if (checkCollision(m_ball, m_paddle)) {
         m_ball->velocity.y = -m_ball->velocity.y;
         m_ball->pos.y = m_paddle->pos.y - 5;
+    }
+
+    for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {
+        GameObject* brick =  &levels[currentLevel].bricks[i];
+        
+        if (checkAABBCollision(m_ball, brick)) {
+            brick->m_color = CYAN;
+        }
     }
 }

@@ -14,7 +14,8 @@ public:
     ~Game();
 
     void run(void);
-
+    
+private:
     void processInput(void);
 
     void update(void);
@@ -22,8 +23,6 @@ public:
     void render(void);
 
     void doCollision(void);
-
-private:
 
     Ball* ball;
 

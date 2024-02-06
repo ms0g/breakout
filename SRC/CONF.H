@@ -9,4 +9,6 @@
 #define ROW 10
 #define COL 13
 
+#define PLAYER_LIFE 5
+
 #endif

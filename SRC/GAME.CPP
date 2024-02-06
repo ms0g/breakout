@@ -37,7 +37,7 @@ Game::Game() {
 
     score = 0;
 
-    life = 5;
+    life = PLAYER_LIFE;
 
     isRunning = true;
 }
@@ -79,12 +79,15 @@ void Game::update(void) {
         ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
         
         life--;
+        
         if (life == 0) {
             isRunning = false;
         }
-    } else {
-        doCollision();
+
+        return;
     }
+
+    doCollision();
 }
 
 void Game::render(void) {
@@ -101,12 +104,12 @@ void Game::doCollision(void) {
     if (checkCollision(ball, paddle)) {
         ball->velocity.y = -ball->velocity.y;
         ball->pos.y = paddle->pos.y - 5;
-        
         return;
     }
 
-    for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {
-        GameLevel* level = &levels[currentLevel];
+    GameLevel* level = &levels[currentLevel];
+    
+    for (int i = 0; i < level->bricks.size(); ++i) {
         GameObject* brick = &level->bricks[i];
         
         if (!brick->isActive) continue;
@@ -116,9 +119,11 @@ void Game::doCollision(void) {
                 
             if (brick->hitCount == 0) {
                 brick->isActive = false;
+                
                 score += brickScoreTable[brick->m_color];
                 
                 level->activeBrickCount--;
+                
                 if (level->activeBrickCount == 0) {
                     currentLevel++;
                     ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);

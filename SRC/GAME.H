@@ -25,11 +25,11 @@ public:
 
 private:
 
-    Ball* m_ball;
+    Ball* ball;
 
-    Paddle* m_paddle;
+    Paddle* paddle;
 
-    Renderer* m_renderer;
+    Renderer* renderer;
 
     vector<GameLevel> levels;
 

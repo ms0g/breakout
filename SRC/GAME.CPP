@@ -10,11 +10,11 @@
 #include "LEVELS.H"
 
 Game::Game() {
-    m_paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
+    paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
    
-    m_ball = new Ball(m_paddle->pos.x + (m_paddle->width / 2),  m_paddle->pos.y - 5, WHITE);
+    ball = new Ball(paddle->pos.x + (paddle->width / 2),  paddle->pos.y - 5, WHITE);
 
-    m_renderer = new Renderer();
+    renderer = new Renderer();
 
     GameLevel one;
     one.init(levelOne);
@@ -27,11 +27,11 @@ Game::Game() {
 }
 
 Game::~Game() {
-    delete m_paddle;
+    delete paddle;
     
-    delete m_ball;
+    delete ball;
     
-    delete m_renderer;
+    delete renderer;
 }
 
 void Game::run(void) {
@@ -50,50 +50,50 @@ void Game::processInput(void) {
     if (key == Q) {
         isRunning = false;
     } else if (key == L_ARROW) {
-        m_paddle->move(LEFT);
+        paddle->move(LEFT);
     } else if (key == R_ARROW) {
-        m_paddle->move(RIGHT);
+        paddle->move(RIGHT);
     }
 }
 
 void Game::update(void) {
-    m_ball->move();
+    ball->move();
 
-    if (m_ball->pos.y + m_ball->height >= SCREEN_HEIGHT) {
-        m_ball->reset(m_paddle->pos.x + (m_paddle->width / 2), m_paddle->pos.y - 5);
+    if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
+        ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
     } else {
         doCollision();
     }
 }
 
 void Game::render(void) {
-    m_renderer->clrscr(BLACK);
+    renderer->clrscr(BLACK);
     
-    m_ball->draw(m_renderer);
+    ball->draw(renderer);
     
-    m_paddle->draw(m_renderer);
+    paddle->draw(renderer);
 
-    levels[currentLevel].draw(m_renderer);
+    levels[currentLevel].draw(renderer);
 }
 
 void Game::doCollision(void) {
-    if (checkCollision(m_ball, m_paddle)) {
-        m_ball->velocity.y = -m_ball->velocity.y;
-        m_ball->pos.y = m_paddle->pos.y - 5;
+    if (checkCollision(ball, paddle)) {
+        ball->velocity.y = -ball->velocity.y;
+        ball->pos.y = paddle->pos.y - 5;
     }
 
     for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {
         GameObject* brick =  &levels[currentLevel].bricks[i];
         
         if (brick->isActive) {
-            if (checkAABBCollision(m_ball, brick)) {
+            if (checkAABBCollision(ball, brick)) {
                 brick->hitCount--;
                 
                 if (brick->hitCount == 0) {
                     brick->isActive = false;
                 }
                 
-                m_ball->velocity.y = -m_ball->velocity.y;
+                ball->velocity.y = -ball->velocity.y;
             }
         } 
     }

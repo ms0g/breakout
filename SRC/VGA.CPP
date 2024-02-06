@@ -41,19 +41,22 @@ void f_putpixel(int x, int y, char color) {
 void waitVRetrace(void) {
     asm {
         cli
-        mov dx, 0x03da
     }
 v1: 
     asm {
+        mov dx, 0x03da
         in al, dx
         test al, 0x08
         jnz v1
     }
 v2: 
     asm {
+        mov dx, 0x03da
         in al, dx
         test al, 0x08
         jz v2
+
+        sti
     }
 }
    

@@ -121,6 +121,8 @@ void Game::doCollision(void) {
                 level->activeBrickCount--;
                 if (level->activeBrickCount == 0) {
                     currentLevel++;
+                    ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
+                    return;
                 }
             }
                 

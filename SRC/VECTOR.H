@@ -40,7 +40,7 @@ public:
     
     T& operator[](int index);
 private:
-    T *m_pData;
+    T* m_pData;
     int m_count;
     int m_capacity;
 

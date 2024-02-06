@@ -36,6 +36,10 @@ private:
     bool isRunning;
 
     int currentLevel;
+
+    int score;
+
+    int life;
 };
 
 #endif

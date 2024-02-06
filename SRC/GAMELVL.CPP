@@ -8,7 +8,7 @@
 
 void GameLevel::init(int level[ROW][COL]) {
     int startX = 0;
-    int startY = 44;
+    int startY = 45;
 
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {

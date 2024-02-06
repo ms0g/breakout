@@ -23,6 +23,10 @@ Game::Game() {
     
     currentLevel = 0;
 
+    score = 0;
+
+    life = 5;
+
     isRunning = true;
 }
 
@@ -41,6 +45,10 @@ void Game::run(void) {
         update();
         
         render();
+
+        if (life == 0) {
+            isRunning = false;
+        }
     }
 }
 
@@ -61,6 +69,8 @@ void Game::update(void) {
 
     if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
         ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
+        
+        life--;
     } else {
         doCollision();
     }
@@ -80,6 +90,8 @@ void Game::doCollision(void) {
     if (checkCollision(ball, paddle)) {
         ball->velocity.y = -ball->velocity.y;
         ball->pos.y = paddle->pos.y - 5;
+        
+        return;
     }
 
     for (int i = 0; i < levels[currentLevel].bricks.size(); ++i) {

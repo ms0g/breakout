@@ -1,14 +1,9 @@
 #include "RENDERER.H"
-#include "VGA.H"
-
-Renderer::Renderer() {
-    initVGA();
-}
 
 void Renderer::rectangle(int x, int y, int width, int height, char color) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            f_putpixel(x + j, y + i, color);
+            vga.putpixel_f(x + j, y + i, color);
         }
     }
 }
@@ -40,18 +35,20 @@ void Renderer::circle(int xc, int yc, int r, char color) {
 }
 
 void Renderer::_circle(int xc, int yc, int x, int y, char color) { 
-    f_putpixel(xc+x, yc+y, color); 
-    f_putpixel(xc-x, yc+y, color); 
-    f_putpixel(xc+x, yc-y, color); 
-    f_putpixel(xc-x, yc-y, color); 
-    f_putpixel(xc+y, yc+x, color); 
-    f_putpixel(xc-y, yc+x, color); 
-    f_putpixel(xc+y, yc-x, color); 
-    f_putpixel(xc-y, yc-x, color); 
+    vga.putpixel_f(xc+x, yc+y, color); 
+    vga.putpixel_f(xc-x, yc+y, color); 
+    vga.putpixel_f(xc+x, yc-y, color); 
+    vga.putpixel_f(xc-x, yc-y, color); 
+    vga.putpixel_f(xc+y, yc+x, color); 
+    vga.putpixel_f(xc-y, yc+x, color); 
+    vga.putpixel_f(xc+y, yc-x, color); 
+    vga.putpixel_f(xc-y, yc-x, color); 
 }
 
-void Renderer::clrscr(char color) {
-    waitVRetrace();
-    
-    v_clrscr(color);
+void Renderer::clear(char color) {
+    vga.clrBackBuffer(color);
+}
+
+void Renderer::updateBuffer() {
+    vga.updateVideoMem();
 }

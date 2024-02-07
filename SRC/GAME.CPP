@@ -92,13 +92,15 @@ void Game::update(void) {
 }
 
 void Game::render(void) {
-    renderer->clrscr(BLACK);
+    renderer->clear(BLACK);
     
     ball->draw(renderer);
     
     paddle->draw(renderer);
 
     levels[currentLevel].draw(renderer);
+
+    renderer->updateBuffer();
 }
 
 void Game::doCollision(void) {

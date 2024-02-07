@@ -1,6 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include "VGA.H"
+
 enum COLORS {
     BLACK,		    /* dark colors */
     BLUE,
@@ -22,8 +24,6 @@ enum COLORS {
 
 class Renderer {
 public:
-    Renderer();
-
     void rectangle(int x, int y, int width, int height, char color);
 
     /**
@@ -32,10 +32,14 @@ public:
      */
     void circle(int xc, int yc, int r, char color);
     
-    void clrscr(char color);
+    void clear(char color);
+
+    void updateBuffer();
 
 private:
     void _circle(int xc, int yc, int x, int y, char color);
+
+    VGA vga;
 
 };
 

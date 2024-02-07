@@ -1,16 +1,28 @@
 #include "VGA.H"
+#include <malloc.h>
+#include <string.h>
+#include "CONF.H"
 
-unsigned char far* videoMem = (unsigned char far*)0xA0000000L;
+VGA::VGA() {
+    videoMem = (unsigned char far*)0xA0000000L;
+    backBuffer = (unsigned char far*)farmalloc(64000u);
 
-void initVGA(void) {
-    asm {
-        xor ah, ah      // change video mode
-        mov al, 0x13    // 320x200x256
-        int 0x10        //interrupt
-    }
+    if (backBuffer) {
+        asm {
+            xor ah, ah      // change video mode
+            mov al, 0x13    // 320x200x256
+            int 0x10        //interrupt
+        }
+
+        _fmemset(backBuffer, 0, 64000u);
+    } 
 }
 
-void v_clrscr(char color) {
+VGA::~VGA() {
+    farfree(backBuffer);
+}
+
+void VGA::clrscr(char color) {
     asm {
         xor al, al
         mov ah, 0x6
@@ -22,7 +34,11 @@ void v_clrscr(char color) {
     }
 }
 
-void s_putpixel(int x, int y, char color) {
+void VGA::clrBackBuffer(char color) {
+    _fmemset(backBuffer, color, 64000u);
+}
+
+void VGA::putpixel_s(int x, int y, char color) {
     asm {
         mov ah, 0x0C
         mov al, color
@@ -33,12 +49,11 @@ void s_putpixel(int x, int y, char color) {
     }
 }
 
-void f_putpixel(int x, int y, char color) {
-    unsigned short offset = 320 * y + x;
-    videoMem[offset] = color;
+void VGA::putpixel_f(int x, int y, char color) {
+    backBuffer[SCREEN_WIDTH * y + x] = color;
 }
 
-void waitVRetrace(void) {
+void VGA::waitVRetrace(void) {
     asm {
         cli
     }
@@ -58,5 +73,11 @@ v2:
 
         sti
     }
+}
+
+void VGA::updateVideoMem(void) {
+    waitVRetrace();
+
+    _fmemcpy(videoMem, backBuffer, 64000u);
 }
    

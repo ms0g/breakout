@@ -1,29 +1,27 @@
 #ifndef VGA_H
 #define VGA_H
 
-/**
- * Initialize the graphics system.
- */
-void initVGA(void);
+class VGA {
+public:
+    VGA();
 
-/**
- * Clear all screen
- */
-void v_clrscr(char color);
+    ~VGA();
+    
+    void clrscr(char color);
 
-/**
- * Put pixel slowly 
- */
-void s_putpixel(int x, int y, char color);
+    void clrBackBuffer(char color);
+  
+    void putpixel_s(int x, int y, char color);
 
-/**
- * Put pixel fastly 
- */
-void f_putpixel(int x, int y, char color);
+    void putpixel_f(int x, int y, char color);
 
-/**
- * Wait vertical retrace
- */
-void waitVRetrace(void);
+    void waitVRetrace(void);
+
+    void updateVideoMem(void);
+
+private:
+    unsigned char far* videoMem;
+    unsigned char far* backBuffer;
+};
 
 #endif

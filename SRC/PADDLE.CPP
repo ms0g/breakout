@@ -3,7 +3,7 @@
 #include "RENDERER.H"
 
 #define PADDLE_SPEED 5
-#define PADDLE_WIDTH 30
+#define PADDLE_WIDTH 35
 #define PADDLE_HEIGHT 5
 
 Paddle::Paddle(int x, int y, char color) {

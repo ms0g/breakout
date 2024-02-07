@@ -12,7 +12,7 @@ Paddle::Paddle(int x, int y, char color) {
     width = PADDLE_WIDTH;
     height = PADDLE_HEIGHT;
     velocity.x = PADDLE_SPEED;
-    m_color = color;
+    _color = color;
 }
 
 void Paddle::move(int direction) {
@@ -28,5 +28,5 @@ void Paddle::move(int direction) {
 }
 
 void Paddle::draw(Renderer* renderer) {
-    renderer->rectangle(pos.x, pos.y, width, height, m_color);
+    renderer->rectangle(pos.x, pos.y, width, height, _color);
 }

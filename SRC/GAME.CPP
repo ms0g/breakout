@@ -120,7 +120,7 @@ void Game::doCollision(void) {
             if (brick->hitCount == 0) {
                 brick->isActive = 0;
                 
-                score += brickScoreTable[brick->m_color];
+                score += brickScoreTable[brick->_color];
                 
                 level->activeBrickCount--;
                 

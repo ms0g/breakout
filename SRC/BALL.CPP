@@ -13,7 +13,7 @@ Ball::Ball(int x, int y, char color) {
     height = BALL_HEIGHT;
     velocity.x = -BALL_SPEED;
     velocity.y = -BALL_SPEED;
-    m_color = color;
+    _color = color;
 }
 
 void Ball::move(void) {
@@ -35,7 +35,7 @@ void Ball::move(void) {
 }
 
 void Ball::draw(Renderer* renderer) {
-    renderer->rectangle(pos.x, pos.y, width, height, m_color);
+    renderer->rectangle(pos.x, pos.y, width, height, _color);
 }
 
 void Ball::reset(int x, int y) {

@@ -16,7 +16,7 @@ public:
         int y;
     } velocity;
 
-    char m_color;
+    char _color;
 
     int isActive;
 

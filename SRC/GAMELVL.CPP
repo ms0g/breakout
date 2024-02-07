@@ -6,7 +6,7 @@
 #define GAP             3
 #define START_GAP       12
 
-static const int brickHitCountTable[16] = {0,0,2,0,4,0,5,0,0,0,0,0,3,0,1,0};
+static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 
 void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;

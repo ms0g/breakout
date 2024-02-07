@@ -9,7 +9,7 @@
 #include "AABB.H"
 #include "LEVELS.H"
 
-static const int brickScoreTable[16] = {0,0,20,0,40,0,50,0,0,0,0,0,30,0,10,0};
+static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);

@@ -1,18 +1,20 @@
 #include "GAMELVL.H"
 #include "RENDERER.H"
-#include "TABLES.H"
 
 #define BRICK_WIDTH     20
 #define BRICK_HEIGHT    5
 #define GAP             3
 #define START_GAP       12
 
+static const int brickHitCountTable[16] = {0,0,2,0,4,0,5,0,0,0,0,0,3,0,1,0};
+
 void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;
     int startY = 45;
 
-    activeBrickCount = ROW * COL;
+    activeBrickCount = BRICK_COUNT;
 
+    int index = 0;
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
             char color = level[i][j];
@@ -33,7 +35,7 @@ void GameLevel::init(const int level[ROW][COL]) {
             obj.isActive = 1;
             obj.hitCount = brickHitCountTable[color];
            
-            bricks.push_back(obj);
+            bricks[index++] = obj;
         }
 
         startX = 0;
@@ -42,7 +44,7 @@ void GameLevel::init(const int level[ROW][COL]) {
 }
 
 void GameLevel::draw(Renderer* renderer) {
-    for (int i = 0; i < bricks.size(); ++i) {
+    for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {
             renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i]._color);
         }  

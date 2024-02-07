@@ -8,7 +8,8 @@
 #include "CONF.H"
 #include "AABB.H"
 #include "LEVELS.H"
-#include "TABLES.H"
+
+static const int brickScoreTable[16] = {0,0,20,0,40,0,50,0,0,0,0,0,30,0,10,0};
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
@@ -109,7 +110,7 @@ void Game::doCollision(void) {
 
     GameLevel* level = &levels[currentLevel];
     
-    for (int i = 0; i < level->bricks.size(); ++i) {
+    for (int i = 0; i < BRICK_COUNT; ++i) {
         GameObject* brick = &level->bricks[i];
         
         if (!brick->isActive) continue;

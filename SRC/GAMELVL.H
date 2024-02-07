@@ -12,7 +12,7 @@ public:
 
     void draw(Renderer* renderer);
 
-    vector<GameObject> bricks;
+    GameObject bricks[BRICK_COUNT];
 
     int activeBrickCount;
 };

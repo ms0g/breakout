@@ -8,6 +8,7 @@
 // Level Conf
 #define ROW 10
 #define COL 13
+#define BRICK_COUNT ROW * COL
 
 #define PLAYER_LIFE 5
 

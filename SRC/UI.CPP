@@ -78,7 +78,7 @@ void UI::draw(Renderer* renderer) {
             // turn into integer
             int num = str_num.ptr[index] - '0';
 
-            drawChar(renderer, dynamicElements[i], digitTable[num]);
+            drawChar(renderer, dynamicElements[i], digitFontTable[num]);
             
             dynamicElements[i]->pos.x += ADJ;
         } while (str_num.size--); 

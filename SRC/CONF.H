@@ -10,8 +10,6 @@
 #define COL 13
 #define BRICK_COUNT ROW * COL
 
-#define FONT_SIZE 5
-
 #define PLAYER_LIFE 5
 
 #endif

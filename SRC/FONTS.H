@@ -1,7 +1,7 @@
 #ifndef FONTS_H
 #define FONTS_H
 
-#include "CONF.H" 
+#define FONT_SIZE 5
 
 static const int S[FONT_SIZE][FONT_SIZE] = {
     {1,1,1,1,1},

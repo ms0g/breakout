@@ -5,8 +5,13 @@
 
 #define SCORE_X 10
 #define SCORE_Y 10
-#define SCORE_GAP 6
-#define SCORE_TXT_GAP 35
+#define SCORE_GAP 35
+
+#define ADJ 6
+
+#define LIFE_X 200
+#define LIFE_Y SCORE_Y
+#define LIFE_GAP 30
 
 UI::UI() {
     scoreText.pos.x = SCORE_X;
@@ -14,47 +19,77 @@ UI::UI() {
     scoreText.val = 0;
     scoreText.color = WHITE;
 
-    scoreValue.pos.x = SCORE_X + SCORE_TXT_GAP;
+    scoreValue.pos.x = SCORE_X + SCORE_GAP;
     scoreValue.pos.y = SCORE_Y;
     scoreValue.val = 0;
     scoreValue.color = WHITE;
 
+    
+    lifeText.pos.x = LIFE_X;
+    lifeText.pos.y = LIFE_Y;
+    lifeText.val = 0;
+    lifeText.color = WHITE;
+
+    lifeValue.pos.x = LIFE_X + LIFE_GAP;
+    lifeValue.pos.y = LIFE_Y;
+    lifeValue.val = 0;
+    lifeValue.color = WHITE;
+
+    dynamicElements[0] = &scoreValue;
+    dynamicElements[1] = &lifeValue;
+
 }
 
-void UI::update(int value) {
-    scoreValue.val = value;
+void UI::update(int score, int life) {
+    scoreValue.val = score;
+    lifeValue.val = life;
 }
 
 void UI::draw(Renderer* renderer) {
     drawChar(renderer, &scoreText, &S);
-    scoreText.pos.x += SCORE_GAP;
+    scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &C);
-    scoreText.pos.x += SCORE_GAP;
+    scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &O);
-    scoreText.pos.x += SCORE_GAP;
+    scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &R);
-    scoreText.pos.x += SCORE_GAP;
+    scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &E);
-    scoreText.pos.x += SCORE_GAP;
+    scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &COLON);
 
-    string str_num = to_string(scoreValue.val);
-    
-    do {
-        int i = (str_num.size - 1);
-        
-        if (i < 0) break;
-        
-        // turn into integer
-        int index = str_num.ptr[i] - '0';
+    drawChar(renderer, &lifeText, &L);
+    lifeText.pos.x += ADJ;
+    drawChar(renderer, &lifeText, &I);
+    lifeText.pos.x += ADJ;
+    drawChar(renderer, &lifeText, &F);
+    lifeText.pos.x += ADJ;
+    drawChar(renderer, &lifeText, &E);
+    lifeText.pos.x += ADJ;
+    drawChar(renderer, &lifeText, &COLON);
 
-        drawChar(renderer, &scoreValue, digitTable[index]);
+    for (int i = 0; i < 2; ++i) {
+        string str_num = to_string(dynamicElements[i]->val);
         
-        scoreValue.pos.x += SCORE_GAP;
-    } while (str_num.size--);
-    
-    scoreValue.pos.x = SCORE_X + SCORE_TXT_GAP;
+        do {
+            int index = (str_num.size - 1);
+            
+            if (index < 0) break;
+            
+            // turn into integer
+            int num = str_num.ptr[index] - '0';
+
+            drawChar(renderer, dynamicElements[i], digitTable[num]);
+            
+            dynamicElements[i]->pos.x += ADJ;
+        } while (str_num.size--); 
+    }
+
+    scoreValue.pos.x = SCORE_X + SCORE_GAP;
     scoreText.pos.x = SCORE_X;
+
+    lifeValue.pos.x = LIFE_X + LIFE_GAP;
+    lifeText.pos.x = LIFE_X;
 }
 
 void UI::drawChar(Renderer* renderer, UIElement* uiElement, const int (*font)[FONT_SIZE][FONT_SIZE]) {

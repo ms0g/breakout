@@ -8,7 +8,7 @@ class UI {
 public:
     UI();
 
-    void update(int value);
+    void update(int score, int life);
     
     void draw(Renderer* renderer);
 
@@ -28,7 +28,11 @@ private:
 
     UIElement scoreText;
     UIElement scoreValue;
-    UIElement life;
+    UIElement lifeText;
+    UIElement lifeValue;
+
+    UIElement* dynamicElements[2];
+
 };
 
 #endif

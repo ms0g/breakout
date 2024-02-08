@@ -79,7 +79,7 @@ void Game::processInput(void) {
 }
 
 void Game::update(void) {
-    ui->update(score);
+    ui->update(score, life);
 
     ball->move();
 

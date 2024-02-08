@@ -45,6 +45,31 @@ void UI::update(int score, int life) {
 }
 
 void UI::draw(Renderer* renderer) {
+    drawTexts(renderer);
+
+    for (int i = 0; i < 2; ++i) {
+        string str_num = to_string(dynamicElements[i]->val);
+        
+        do {
+            int index = (str_num.size - 1);
+            
+            if (index < 0) break;
+            
+            // turn into integer
+            int num = str_num.ptr[index] - '0';
+
+            drawChar(renderer, dynamicElements[i], digitFontTable[num]);
+            
+            dynamicElements[i]->pos.x += ADJ;
+        } while (str_num.size--); 
+    }
+
+    scoreValue.pos.x = SCORE_X + SCORE_GAP;
+    lifeValue.pos.x = LIFE_X + LIFE_GAP;
+    
+}
+
+void UI::drawTexts(Renderer* renderer) {
     drawChar(renderer, &scoreText, &S);
     scoreText.pos.x += ADJ;
     drawChar(renderer, &scoreText, &C);
@@ -67,27 +92,7 @@ void UI::draw(Renderer* renderer) {
     lifeText.pos.x += ADJ;
     drawChar(renderer, &lifeText, &COLON);
 
-    for (int i = 0; i < 2; ++i) {
-        string str_num = to_string(dynamicElements[i]->val);
-        
-        do {
-            int index = (str_num.size - 1);
-            
-            if (index < 0) break;
-            
-            // turn into integer
-            int num = str_num.ptr[index] - '0';
-
-            drawChar(renderer, dynamicElements[i], digitFontTable[num]);
-            
-            dynamicElements[i]->pos.x += ADJ;
-        } while (str_num.size--); 
-    }
-
-    scoreValue.pos.x = SCORE_X + SCORE_GAP;
     scoreText.pos.x = SCORE_X;
-
-    lifeValue.pos.x = LIFE_X + LIFE_GAP;
     lifeText.pos.x = LIFE_X;
 }
 

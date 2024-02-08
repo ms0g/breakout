@@ -26,6 +26,8 @@ private:
 
     void drawChar(Renderer* renderer, UIElement* uiElement, const int (*font)[FONT_SIZE][FONT_SIZE]);
 
+    void drawTexts(Renderer* renderer);
+
     UIElement scoreText;
     UIElement scoreValue;
     UIElement lifeText;

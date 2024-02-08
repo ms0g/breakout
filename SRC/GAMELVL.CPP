@@ -10,7 +10,7 @@ static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 
 void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;
-    int startY = 45;
+    int startY = 30;
 
     activeBrickCount = BRICK_COUNT;
 

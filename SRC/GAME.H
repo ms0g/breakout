@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "BOOL.H"
 #include "GAMELVL.H"
 
 class Ball;

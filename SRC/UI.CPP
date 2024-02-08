@@ -1,7 +1,6 @@
 #include "UI.H"
 #include "RENDERER.H"
 #include "UTILS.H"
-#include <iostream.h>
 
 #define SCORE_X 10
 #define SCORE_Y 10

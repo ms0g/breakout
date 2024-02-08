@@ -122,4 +122,5 @@ static const int COLON[FONT_SIZE][FONT_SIZE] = {
     {0,0,0,0,0},
     {1,1,0,0,0},
     {1,1,0,0,0}};
+
 #endif

@@ -4,7 +4,6 @@
 #include "PADDLE.H"
 #include "RENDERER.H"
 #include "BALL.H"
-#include "BOOL.H"
 #include "CONF.H"
 #include "AABB.H"
 #include "LEVELS.H"

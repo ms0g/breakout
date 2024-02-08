@@ -1,7 +1,6 @@
 #ifndef GAMELVL_H
 #define GAMELVL_H
 
-#include "VECTOR.H"
 #include "GAMEOBJ.H"
 #include "CONF.H"
 

@@ -7,6 +7,7 @@
 class Ball;
 class Paddle;
 class Renderer;
+class UI;
 class Game {
 public:
     Game();
@@ -29,6 +30,8 @@ private:
     Paddle* paddle;
 
     Renderer* renderer;
+
+    UI* ui;
 
     GameLevel levels[4];
 

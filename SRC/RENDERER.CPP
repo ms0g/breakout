@@ -1,5 +1,9 @@
 #include "RENDERER.H"
 
+void Renderer::putpixel(int x, int y, char color) {
+    vga.putpixel_f(x, y, color);
+}
+
 void Renderer::rectangle(int x, int y, int width, int height, char color) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {

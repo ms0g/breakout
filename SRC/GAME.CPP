@@ -8,6 +8,7 @@
 #include "CONF.H"
 #include "AABB.H"
 #include "LEVELS.H"
+#include "UI.H"
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
@@ -17,6 +18,8 @@ Game::Game() {
     ball = new Ball(paddle->pos.x + (paddle->width / 2),  paddle->pos.y - 5, WHITE);
 
     renderer = new Renderer();
+
+    ui = new UI();
 
     GameLevel one;
     one.init(levelOne);
@@ -49,6 +52,8 @@ Game::~Game() {
     delete ball;
     
     delete renderer;
+
+    delete ui;
 }
 
 void Game::run(void) {
@@ -74,6 +79,8 @@ void Game::processInput(void) {
 }
 
 void Game::update(void) {
+    ui->update(score);
+
     ball->move();
 
     if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
@@ -93,6 +100,8 @@ void Game::update(void) {
 
 void Game::render(void) {
     renderer->clear(BLACK);
+
+    ui->draw(renderer);
     
     ball->draw(renderer);
     

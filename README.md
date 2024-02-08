@@ -4,10 +4,16 @@
 
 This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for DOS operating systems. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
 
+![breakout](IMG/1.png)
+
 ### Features
 + Faithful recreation of the classic Atari Breakout gameplay.
 + Retro-style graphics and user interface reminiscent of early gaming consoles.
 + Simple controls for easy and intuitive gameplay.
++ 4 unique levels.
+
+<img src="IMG/1.png" alt="image" width="300" height="auto"> <img src="IMG/2.png" alt="image" width="300" height="auto">
+<img src="IMG/3.png" alt="image" width="300" height="auto"> <img src="IMG/4.png" alt="image" width="300" height="auto">
 
 ### Prerequisites
 + Turbo C++ (>= 3.0)
@@ -61,9 +67,6 @@ C:\>MAKE.EXE
 + Try to break as many bricks as possible to score points and advance through levels.
 + Enjoy the nostalgic gaming experience of Atari Breakout on your DOS system!
 
-### Configuration
-
-No configuration is required for this game. Simply run the executable file to start playing.
 ### Contributing
 
 Contributions to improve the game are welcome! If you have ideas for enhancements or bug fixes, feel free to fork the repository, make your changes, and submit a pull request.
@@ -75,7 +78,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ### Credits
 
 Developed by M. Sami Gürpınar
-
-Based on the original Atari Breakout game developed by Atari, Inc.
 
 

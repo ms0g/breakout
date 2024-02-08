@@ -122,7 +122,7 @@ static const int COLON[FONT_SIZE][FONT_SIZE] = {
     {1,1,0,0,0}};
 
 // Digit Fonts Table
-static const int (*digitTable[10])[FONT_SIZE][FONT_SIZE] = {&NUM0, &NUM1, &NUM2, &NUM3, &NUM4, &NUM5, &NUM6, &NUM7, &NUM8, &NUM9};                                      
+static const int (*digitFontTable[10])[FONT_SIZE][FONT_SIZE] = {&NUM0, &NUM1, &NUM2, &NUM3, &NUM4, &NUM5, &NUM6, &NUM7, &NUM8, &NUM9};                                      
 
 
 

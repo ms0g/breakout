@@ -5,12 +5,10 @@
 #define SCORE_X 12
 #define SCORE_Y 10
 #define SCORE_GAP 35
-
-#define ADJ 6
-
 #define LIFE_X 200
 #define LIFE_Y SCORE_Y
 #define LIFE_GAP 30
+#define ADJ 6
 
 UI::UI() {
     scoreText.pos.x = SCORE_X;

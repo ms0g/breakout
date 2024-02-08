@@ -53,6 +53,6 @@ void Renderer::clear(char color) {
     vga.clrBackBuffer(color);
 }
 
-void Renderer::updateBuffer() {
+void Renderer::updateBuffer(void) {
     vga.updateVideoMem();
 }

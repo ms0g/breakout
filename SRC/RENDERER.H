@@ -25,7 +25,7 @@ enum COLORS {
 class Renderer {
 public:
     void putpixel(int x, int y, char color);
-    
+
     void rectangle(int x, int y, int width, int height, char color);
 
     /**
@@ -36,7 +36,7 @@ public:
     
     void clear(char color);
 
-    void updateBuffer();
+    void updateBuffer(void);
 
 private:
     void _circle(int xc, int yc, int x, int y, char color);

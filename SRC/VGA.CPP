@@ -4,22 +4,22 @@
 #include "CONF.H"
 
 VGA::VGA() {
-    videoMem = (unsigned char far*)0xA0000000L;
-    backBuffer = (unsigned char far*)farmalloc(64000u);
+    VRAM = (unsigned char far*)0xA0000000L;
+    offscreen = (unsigned char far*)farmalloc(64000u);
 
-    if (backBuffer) {
+    if (offscreen) {
         asm {
             xor ah, ah      // change video mode
             mov al, 0x13    // 320x200x256
             int 0x10        //interrupt
         }
 
-        _fmemset(backBuffer, 0, 64000u);
+        _fmemset(offscreen, 0, 64000u);
     } 
 }
 
 VGA::~VGA() {
-    farfree(backBuffer);
+    farfree(offscreen);
 }
 
 void VGA::clrscr(char color) {
@@ -34,8 +34,8 @@ void VGA::clrscr(char color) {
     }
 }
 
-void VGA::clrBackBuffer(char color) {
-    _fmemset(backBuffer, color, 64000u);
+void VGA::clroffscreen(char color) {
+    _fmemset(offscreen, color, 64000u);
 }
 
 void VGA::putpixel_s(int x, int y, char color) {
@@ -50,7 +50,7 @@ void VGA::putpixel_s(int x, int y, char color) {
 }
 
 void VGA::putpixel_f(int x, int y, char color) {
-    backBuffer[SCREEN_WIDTH * y + x] = color;
+    offscreen[SCREEN_WIDTH * y + x] = color;
 }
 
 void VGA::waitVRetrace(void) {
@@ -75,9 +75,9 @@ v2:
     }
 }
 
-void VGA::updateVideoMem(void) {
+void VGA::updateVRAM(void) {
     waitVRetrace();
 
-    _fmemcpy(videoMem, backBuffer, 64000u);
+    _fmemcpy(VRAM, offscreen, 64000u);
 }
    

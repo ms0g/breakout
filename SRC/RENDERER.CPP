@@ -50,9 +50,9 @@ void Renderer::_circle(int xc, int yc, int x, int y, char color) {
 }
 
 void Renderer::clear(char color) {
-    vga.clrBackBuffer(color);
+    vga.clroffscreen(color);
 }
 
 void Renderer::updateBuffer(void) {
-    vga.updateVideoMem();
+    vga.updateVRAM();
 }

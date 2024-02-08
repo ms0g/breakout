@@ -9,7 +9,7 @@ public:
     
     void clrscr(char color);
 
-    void clrBackBuffer(char color);
+    void clroffscreen(char color);
   
     void putpixel_s(int x, int y, char color);
 
@@ -17,11 +17,11 @@ public:
 
     void waitVRetrace(void);
 
-    void updateVideoMem(void);
+    void updateVRAM(void);
 
 private:
-    unsigned char far* videoMem;
-    unsigned char far* backBuffer;
+    unsigned char far* VRAM;
+    unsigned char far* offscreen;
 };
 
 #endif

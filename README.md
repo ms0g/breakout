@@ -12,8 +12,8 @@ This project is a nostalgic re-implementation of the classic Atari Breakout game
 + Simple controls for easy and intuitive gameplay.
 + 4 unique levels.
 
-<img src="IMG/1.png" alt="image" width="300" height="auto"> <img src="IMG/2.png" alt="image" width="300" height="auto">
-<img src="IMG/3.png" alt="image" width="300" height="auto"> <img src="IMG/4.png" alt="image" width="300" height="auto">
+<img src="IMG/1.png" alt="image" width="502" height="auto"> <img src="IMG/2.png" alt="image" width="502" height="auto">
+<img src="IMG/3.png" alt="image" width="502" height="auto"> <img src="IMG/4.png" alt="image" width="502" height="auto">
 
 ### Prerequisites
 + Turbo C++ (>= 3.0)

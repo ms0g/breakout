@@ -13,8 +13,6 @@ public:
     void draw(Renderer* renderer);
 
 private:
-    void drawChar(Renderer* renderer, const int (*font)[FONT_SIZE][FONT_SIZE]);
-
     struct UIElement {
         struct {
             int x;
@@ -26,7 +24,10 @@ private:
         char color;
     };
 
-    UIElement score;
+    void drawChar(Renderer* renderer, UIElement* uiElement, const int (*font)[FONT_SIZE][FONT_SIZE]);
+
+    UIElement scoreText;
+    UIElement scoreValue;
     UIElement life;
 };
 

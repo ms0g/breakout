@@ -6,21 +6,39 @@
 #define SCORE_X 10
 #define SCORE_Y 10
 #define SCORE_GAP 6
+#define SCORE_TXT_GAP 35
 
 UI::UI() {
-    score.pos.x = SCORE_X;
-    score.pos.y = SCORE_Y;
-    score.val = 0;
-    score.color = WHITE;
+    scoreText.pos.x = SCORE_X;
+    scoreText.pos.y = SCORE_Y;
+    scoreText.val = 0;
+    scoreText.color = WHITE;
+
+    scoreValue.pos.x = SCORE_X + SCORE_TXT_GAP;
+    scoreValue.pos.y = SCORE_Y;
+    scoreValue.val = 0;
+    scoreValue.color = WHITE;
+
 }
 
 void UI::update(int value) {
-    score.val = value;
+    scoreValue.val = value;
 }
 
 void UI::draw(Renderer* renderer) {
+    drawChar(renderer, &scoreText, &S);
+    scoreText.pos.x += SCORE_GAP;
+    drawChar(renderer, &scoreText, &C);
+    scoreText.pos.x += SCORE_GAP;
+    drawChar(renderer, &scoreText, &O);
+    scoreText.pos.x += SCORE_GAP;
+    drawChar(renderer, &scoreText, &R);
+    scoreText.pos.x += SCORE_GAP;
+    drawChar(renderer, &scoreText, &E);
+    scoreText.pos.x += SCORE_GAP;
+    drawChar(renderer, &scoreText, &COLON);
 
-    string str_num = to_string(score.val);
+    string str_num = to_string(scoreValue.val);
     
     do {
         int i = (str_num.size - 1);
@@ -30,19 +48,20 @@ void UI::draw(Renderer* renderer) {
         // turn into integer
         int index = str_num.ptr[i] - '0';
 
-        drawChar(renderer, digitTable[index]);
+        drawChar(renderer, &scoreValue, digitTable[index]);
         
-        score.pos.x += SCORE_GAP;
+        scoreValue.pos.x += SCORE_GAP;
     } while (str_num.size--);
     
-    score.pos.x = SCORE_X;
+    scoreValue.pos.x = SCORE_X + SCORE_TXT_GAP;
+    scoreText.pos.x = SCORE_X;
 }
 
-void UI::drawChar(Renderer* renderer, const int (*font)[FONT_SIZE][FONT_SIZE]) {
+void UI::drawChar(Renderer* renderer, UIElement* uiElement, const int (*font)[FONT_SIZE][FONT_SIZE]) {
     for (int i = 0; i < FONT_SIZE; ++i) {
         for (int j = 0; j < FONT_SIZE; ++j) {
             if ((*font)[i][j]) {
-                renderer->putpixel(score.pos.x + j, score.pos.y + i, score.color);
+                renderer->putpixel(uiElement->pos.x + j, uiElement->pos.y + i, uiElement->color);
             }
         }
     }

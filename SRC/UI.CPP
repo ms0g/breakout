@@ -2,7 +2,7 @@
 #include "RENDERER.H"
 #include "UTILS.H"
 
-#define SCORE_X 10
+#define SCORE_X 12
 #define SCORE_Y 10
 #define SCORE_GAP 35
 

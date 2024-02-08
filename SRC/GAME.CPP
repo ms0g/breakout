@@ -69,7 +69,7 @@ void Game::processInput(void) {
     int key = kbhit();
 
     if (key == Q) {
-        isRunning = false;
+        isRunning = 0;
     } else if (key == L_ARROW) {
         paddle->move(LEFT);
     } else if (key == R_ARROW) {

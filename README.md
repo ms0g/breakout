@@ -4,7 +4,7 @@
 
 This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for DOS operating systems. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
 
-![breakout](IMG/1.png)
+<img src="IMG/1.png" alt="image" width="990" height="auto">
 
 ### Features
 + Faithful recreation of the classic Atari Breakout gameplay.

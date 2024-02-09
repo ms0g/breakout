@@ -62,7 +62,7 @@ void VGA::putpixel_s(int x, int y, char color) {
 }
 
 void VGA::putpixel_f(int x, int y, char color) {
-    offscreen[SCREEN_WIDTH * y + x] = color;
+    offscreen[(y << 8) + (y << 6) + x] = color;
 }
 
 void VGA::waitVRetrace(void) {

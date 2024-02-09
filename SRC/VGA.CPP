@@ -9,24 +9,17 @@ VGA::VGA() {
 
     if (offscreen) {
         _fmemset(offscreen, 0, 64000u);
-        setVidMode();
+        asm {
+            xor ah, ah      // change video mode
+            mov al, 0x13    // 320x200x256
+            int 0x10        //interrupt
+        }
     } 
 }
 
 VGA::~VGA() {
     farfree(offscreen);
-    setTextMode();
-}
-
-void VGA::setVidMode(void) {
-    asm {
-        xor ah, ah      // change video mode
-        mov al, 0x13    // 320x200x256
-        int 0x10        //interrupt
-    }
-}
-
-void VGA::setTextMode(void) {
+    // Return to the text mode
     asm {
         xor ah, ah
         mov al, 0x3

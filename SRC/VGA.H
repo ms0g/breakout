@@ -20,10 +20,6 @@ public:
     void updateVRAM(void);
 
 private:
-    void setVidMode(void);
-
-    void setTextMode(void);
-    
     unsigned char far* VRAM;
     unsigned char far* offscreen;
 };

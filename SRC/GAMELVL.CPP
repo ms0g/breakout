@@ -43,6 +43,14 @@ void GameLevel::init(const int level[ROW][COL]) {
     }
 }
 
+void GameLevel::update(void) {
+    activeBrickCount--;
+}
+
+int GameLevel::isLevelFinished(void) {
+    return activeBrickCount == 0;
+}
+
 void GameLevel::draw(Renderer* renderer) {
     for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {

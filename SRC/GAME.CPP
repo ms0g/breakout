@@ -81,18 +81,6 @@ void Game::update(void) {
 
     ball->move();
 
-    if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
-        
-        life--;
-        
-        if (life == 0) {
-            isRunning = 0;
-        }
-
-        return;
-    }
-
     doCollision();
 }
 
@@ -111,37 +99,44 @@ void Game::render(void) {
 }
 
 void Game::doCollision(void) {
-    if (checkCollision(ball, paddle)) {
+     if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
+        ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
+        
+        life--;
+        
+        if (life == 0) {
+            isRunning = 0;
+        }
+    } else if (checkCollision(ball, paddle)) {
         ball->velocity.y = -ball->velocity.y;
         ball->pos.y = paddle->pos.y - 5;
-        return;
-    }
-
-    GameLevel* level = &levels[currentLevel];
+    } else {
+        GameLevel* level = &levels[currentLevel];
     
-    for (int i = 0; i < BRICK_COUNT; ++i) {
-        GameObject* brick = &level->bricks[i];
-        
-        if (!brick->isActive) continue;
+        for (int i = 0; i < BRICK_COUNT; ++i) {
+            GameObject* brick = &level->bricks[i];
+            
+            if (!brick->isActive) continue;
 
-        if (checkAABBCollision(ball, brick)) {
-            brick->hitCount--;
-                
-            if (brick->hitCount == 0) {
-                brick->isActive = 0;
-                
-                score += brickScoreTable[brick->_color];
-                
-                level->activeBrickCount--;
-                
-                if (level->activeBrickCount == 0) {
-                    currentLevel++;
-                    ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
-                    return;
+            if (checkAABBCollision(ball, brick)) {
+                brick->hitCount--;
+                    
+                if (brick->hitCount == 0) {
+                    brick->isActive = 0;
+                    
+                    score += brickScoreTable[brick->_color];
+                    
+                    level->update();
+                    
+                    if (level->isLevelFinished()) {
+                        currentLevel++;
+                        ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
+                        break;
+                    }
                 }
+                    
+                ball->velocity.y = -ball->velocity.y;
             }
-                
-            ball->velocity.y = -ball->velocity.y;
         }
     }
 }

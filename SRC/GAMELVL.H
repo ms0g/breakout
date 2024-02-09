@@ -9,10 +9,15 @@ class GameLevel {
 public:
     void init(const int level[ROW][COL]);
 
+    void update(void);
+
     void draw(Renderer* renderer);
+
+    int isLevelFinished(void);
 
     GameObject bricks[BRICK_COUNT];
 
+private:
     int activeBrickCount;
 };
 

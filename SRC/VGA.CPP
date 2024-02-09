@@ -8,18 +8,30 @@ VGA::VGA() {
     offscreen = (unsigned char far*)farmalloc(64000u);
 
     if (offscreen) {
-        asm {
-            xor ah, ah      // change video mode
-            mov al, 0x13    // 320x200x256
-            int 0x10        //interrupt
-        }
-
         _fmemset(offscreen, 0, 64000u);
+        setVidMode();
     } 
 }
 
 VGA::~VGA() {
     farfree(offscreen);
+    setTextMode();
+}
+
+void VGA::setVidMode(void) {
+    asm {
+        xor ah, ah      // change video mode
+        mov al, 0x13    // 320x200x256
+        int 0x10        //interrupt
+    }
+}
+
+void VGA::setTextMode(void) {
+    asm {
+        xor ah, ah
+        mov al, 0x3
+        int 0x10
+    }
 }
 
 void VGA::clrscr(char color) {

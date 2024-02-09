@@ -48,10 +48,10 @@ Game::~Game() {
     delete paddle;
     
     delete ball;
-    
-    delete renderer;
 
     delete ui;
+
+    delete renderer;
 }
 
 void Game::run(void) {

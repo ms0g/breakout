@@ -14,7 +14,7 @@ string to_string(int val) {
     do {
         char c = digit_array[abs(quotient % 10)];
         _ptr[i++] = c;
-        quotient /= 10;
+        quotient = (quotient >> 1) / 5;
     } while (quotient);
     
     return_str.ptr = _ptr;

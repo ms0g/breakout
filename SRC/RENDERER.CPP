@@ -5,9 +5,9 @@ void Renderer::putpixel(int x, int y, char color) {
 }
 
 void Renderer::rectangle(int x, int y, int width, int height, char color) {
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            vga.putpixel_f(x + j, y + i, color);
+    for (int i = 0; i < width; i++) {
+        for (int j = 0; j < height; j++) {
+            vga.putpixel_f(x + i, y + j, color);
         }
     }
 }

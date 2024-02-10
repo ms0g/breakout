@@ -4,7 +4,7 @@
 
 #define SCORE_X 12
 #define SCORE_Y 10
-#define SCORE_GAP 36
+#define SCORE_GAP 35
 #define LIFE_X 200
 #define LIFE_Y SCORE_Y
 #define LIFE_GAP 30

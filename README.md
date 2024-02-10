@@ -34,9 +34,9 @@ mount C /path/to/PROJECT
 C:
 ```
 
-4. Navigate to the `TOOLS/tc3` directory within the project directory using DOS commands:
+4. Navigate to the `TOOLS/tcpp` directory within the project directory using DOS commands:
 ```bash
-C:\>cd TOOLS\tc3
+C:\>cd TOOLS\tcpp
 ```
 
 

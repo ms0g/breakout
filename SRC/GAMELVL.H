@@ -13,7 +13,7 @@ public:
 
     void draw(Renderer* renderer);
 
-    int isLevelFinished(void);
+    int isFinished(void);
 
     GameObject bricks[BRICK_COUNT];
 

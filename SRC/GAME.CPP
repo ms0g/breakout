@@ -128,7 +128,7 @@ void Game::doCollision(void) {
                     
                     level->update();
                     
-                    if (level->isLevelFinished()) {
+                    if (level->isFinished()) {
                         currentLevel++;
                         ball->reset(paddle->pos.x + (paddle->width / 2), paddle->pos.y - 5);
                         break;

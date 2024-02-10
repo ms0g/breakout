@@ -47,7 +47,7 @@ void GameLevel::update(void) {
     activeBrickCount--;
 }
 
-int GameLevel::isLevelFinished(void) {
+int GameLevel::isFinished(void) {
     return activeBrickCount == 0;
 }
 

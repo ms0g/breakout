@@ -4,10 +4,10 @@
 
 #define SCORE_X 12
 #define SCORE_Y 10
-#define SCORE_GAP 35
+#define SCORE_ADJ 35
 #define LIFE_X 200
 #define LIFE_Y SCORE_Y
-#define LIFE_GAP 30
+#define LIFE_ADJ 30
 #define ADJ 6
 
 UI::UI() {
@@ -16,7 +16,7 @@ UI::UI() {
     scoreText.val = 0;
     scoreText.color = WHITE;
 
-    scoreValue.pos.x = SCORE_X + SCORE_GAP;
+    scoreValue.pos.x = SCORE_X + SCORE_ADJ;
     scoreValue.pos.y = SCORE_Y;
     scoreValue.val = 0;
     scoreValue.color = WHITE;
@@ -27,7 +27,7 @@ UI::UI() {
     lifeText.val = 0;
     lifeText.color = WHITE;
 
-    lifeValue.pos.x = LIFE_X + LIFE_GAP;
+    lifeValue.pos.x = LIFE_X + LIFE_ADJ;
     lifeValue.pos.y = LIFE_Y;
     lifeValue.val = 0;
     lifeValue.color = WHITE;
@@ -62,8 +62,8 @@ void UI::draw(Renderer* renderer) {
         } while (str_num.size--); 
     }
 
-    scoreValue.pos.x = SCORE_X + SCORE_GAP;
-    lifeValue.pos.x = LIFE_X + LIFE_GAP;
+    scoreValue.pos.x = SCORE_X + SCORE_ADJ;
+    lifeValue.pos.x = LIFE_X + LIFE_ADJ;
     
 }
 

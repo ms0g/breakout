@@ -3,8 +3,8 @@
 
 #define BRICK_WIDTH     20
 #define BRICK_HEIGHT    5
-#define GAP             3
-#define START_GAP       12
+#define ADJ             3
+#define START_ADJ       12
 
 static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 
@@ -19,8 +19,8 @@ void GameLevel::init(const int level[ROW][COL]) {
         for (int j = 0; j < COL; ++j) {
             char color = level[i][j];
             
-            int posX = startX + START_GAP;
-            startX += (BRICK_WIDTH + GAP);
+            int posX = startX + START_ADJ;
+            startX += (BRICK_WIDTH + ADJ);
 
             if (color == BLACK) {
                 continue;
@@ -39,7 +39,7 @@ void GameLevel::init(const int level[ROW][COL]) {
         }
 
         startX = 0;
-        startY += (BRICK_HEIGHT + GAP);
+        startY += (BRICK_HEIGHT + ADJ);
     }
 }
 

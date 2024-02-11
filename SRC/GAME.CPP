@@ -56,7 +56,7 @@ Game::~Game() {
     delete renderer;
 }
 
-void Game::run(void) {
+void Game::loop(void) {
     while (isRunning) {
         processInput();
 

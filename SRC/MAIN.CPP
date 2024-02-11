@@ -3,7 +3,7 @@
 void main(void) {   
     Game* breakout = new Game();
 
-    breakout->run();
+    breakout->loop();
 
     delete breakout;
 }

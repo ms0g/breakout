@@ -13,7 +13,7 @@ public:
     
     ~Game();
 
-    void run(void);
+    void loop(void);
     
 private:
     void processInput(void);

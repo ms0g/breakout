@@ -36,6 +36,8 @@ private:
 
     int isRunning;
 
+    int done;
+
     int currentLevel;
 
     int score;

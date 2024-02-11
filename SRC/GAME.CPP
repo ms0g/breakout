@@ -9,13 +9,11 @@
 #include "UI.H"
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
-static const int HALF_OF_PADDLE;
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
-    HALF_OF_PADDLE = paddle->width >> 1;
     
-    ball = new Ball(paddle->pos.x + HALF_OF_PADDLE,  paddle->pos.y - 5, WHITE);
+    ball = new Ball(paddle->pos.x + (paddle->width >> 1),  paddle->pos.y - 5, WHITE);
 
     renderer = new Renderer();
 
@@ -44,6 +42,8 @@ Game::Game() {
     life = PLAYER_LIFE;
 
     isRunning = 1;
+
+    done = 0;
 }
 
 Game::~Game() {
@@ -59,10 +59,11 @@ Game::~Game() {
 void Game::run(void) {
     while (isRunning) {
         processInput();
-        
-        update();
-        
-        render();
+
+        if (!done) {
+            update();
+            render();
+        }
     }
 }
 
@@ -102,12 +103,12 @@ void Game::render(void) {
 
 void Game::doCollision(void) {
      if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->pos.x + HALF_OF_PADDLE, paddle->pos.y - 5);
+        ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
         
         life--;
         
         if (life == 0) {
-            isRunning = 0;
+            done = 1;
         }
     } else if (checkCollision(ball, paddle)) {
         ball->velocity.y = -ball->velocity.y;
@@ -132,7 +133,7 @@ void Game::doCollision(void) {
                     
                     if (level->isFinished()) {
                         currentLevel++;
-                        ball->reset(paddle->pos.x + HALF_OF_PADDLE, paddle->pos.y - 5);
+                        ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
                         break;
                     }
                 }

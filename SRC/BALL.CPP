@@ -2,7 +2,7 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
-#define BALL_SPEED 0.8
+#define BALL_SPEED 1.0
 #define BALL_WIDTH 3
 #define BALL_HEIGHT 3
 

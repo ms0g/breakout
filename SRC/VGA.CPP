@@ -59,9 +59,7 @@ void VGA::putpixel_f(int x, int y, char color) {
 }
 
 void VGA::waitVRetrace(void) {
-    asm {
-        cli
-    }
+    asm cli
 v1: 
     asm {
         mov dx, 0x03da

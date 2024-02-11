@@ -6,13 +6,13 @@
 class Renderer;
 class Ball: public GameObject {
 public:
-    Ball(int x, int y, char color);
+    Ball(float x, float y, char color);
 
     void move(void);
 
     void draw(Renderer* renderer);
 
-    void reset(int x, int y);
+    void reset(float x, float y);
 };
 
 #endif

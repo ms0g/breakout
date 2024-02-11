@@ -2,11 +2,11 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
-#define BALL_SPEED 1
+#define BALL_SPEED 0.8
 #define BALL_WIDTH 3
 #define BALL_HEIGHT 3
 
-Ball::Ball(int x, int y, char color) {
+Ball::Ball(float x, float y, char color) {
     pos.x = x;
     pos.y = y;
     width = BALL_WIDTH;
@@ -38,7 +38,7 @@ void Ball::draw(Renderer* renderer) {
     renderer->rectangle(pos.x, pos.y, width, height, _color);
 }
 
-void Ball::reset(int x, int y) {
+void Ball::reset(float x, float y) {
     pos.x = x;
     pos.y = y;
     velocity.x = -BALL_SPEED;

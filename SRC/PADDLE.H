@@ -11,7 +11,7 @@ enum Direction {
 class Renderer;
 class Paddle: public GameObject {
 public:
-    Paddle(int x, int y, char color);
+    Paddle(float x, float y, char color);
 
     void move(int direction);
 

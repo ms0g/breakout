@@ -2,11 +2,11 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
-#define PADDLE_SPEED 5
+#define PADDLE_SPEED 5.0
 #define PADDLE_WIDTH 35
 #define PADDLE_HEIGHT 5
 
-Paddle::Paddle(int x, int y, char color) {
+Paddle::Paddle(float x, float y, char color) {
     pos.x = x;
     pos.y = y;
     width = PADDLE_WIDTH;

@@ -4,16 +4,16 @@
 class GameObject {
 public:
     struct {
-        int x; 
-        int y;
+        float x; 
+        float y;
     } pos;
 
     int width; 
     int height;
         
     struct {
-        int x;
-        int y;
+        float x;
+        float y;
     } velocity;
 
     char _color;

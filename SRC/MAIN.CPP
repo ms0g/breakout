@@ -8,6 +8,6 @@ void main(void) {
 
     delete breakout;
     
-    cout << "\tDeveloped by M. Sami GURPINAR\n     in a lot of blood, sweat, and tears.\n";
+    cout << "\tDeveloped by M. Sami GURPINAR\n     In a lot of blood, sweat, and tears.\n";
 
 }

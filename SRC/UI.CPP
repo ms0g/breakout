@@ -97,8 +97,8 @@ void UI::drawTexts(Renderer* renderer) {
 void UI::drawChar(Renderer* renderer, UIElement* uiElement, const int (*font)[FONT_SIZE][FONT_SIZE]) {
     for (int i = 0; i < FONT_SIZE; ++i) {
         for (int j = 0; j < FONT_SIZE; ++j) {
-            if ((*font)[i][j]) {
-                renderer->putpixel(uiElement->pos.x + j, uiElement->pos.y + i, uiElement->color);
+            if ((*font)[j][i]) {
+                renderer->putpixel(uiElement->pos.x + i, uiElement->pos.y + j, uiElement->color);
             }
         }
     }

@@ -19,6 +19,8 @@ Game::Game() {
 
     ui = new UI();
 
+    initkb();
+
     GameLevel one;
     one.init(levelOne);
     levels[0] = one;
@@ -54,6 +56,8 @@ Game::~Game() {
     delete ui;
 
     delete renderer;
+
+    exitkb();
 }
 
 void Game::loop(void) {

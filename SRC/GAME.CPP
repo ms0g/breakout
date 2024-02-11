@@ -68,9 +68,9 @@ void Game::loop(void) {
 }
 
 void Game::processInput(void) {
-    int key = kbhit();
+    char key = kbhit();
 
-    if (key == Q) {
+    if (key == ESC) {
         isRunning = 0;
     } else if (key == L_ARROW) {
         paddle->move(LEFT);

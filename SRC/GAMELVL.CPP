@@ -43,12 +43,12 @@ void GameLevel::init(const int level[ROW][COL]) {
     }
 }
 
-void GameLevel::update(void) {
-    activeBrickCount--;
-}
-
 int GameLevel::isFinished(void) {
     return activeBrickCount == 0;
+}
+
+void GameLevel::update(void) {
+    activeBrickCount--;
 }
 
 void GameLevel::draw(Renderer* renderer) {
@@ -57,4 +57,8 @@ void GameLevel::draw(Renderer* renderer) {
             renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i]._color);
         }  
     }
+}
+
+GameObject* GameLevel::getBrick(int index) {
+    return &bricks[index];
 }

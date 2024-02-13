@@ -8,16 +8,18 @@ class Renderer;
 class GameLevel {
 public:
     void init(const int level[ROW][COL]);
-
+    
+    int isFinished(void);
+    
     void update(void);
 
     void draw(Renderer* renderer);
 
-    int isFinished(void);
-
-    GameObject bricks[BRICK_COUNT];
+    GameObject* getBrick(int index);
 
 private:
+    GameObject bricks[BRICK_COUNT];
+
     int activeBrickCount;
 };
 

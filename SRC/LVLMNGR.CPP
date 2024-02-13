@@ -19,17 +19,17 @@ LevelManager::LevelManager() {
     four.init(levelFour);
     levels[3] = four;
     
-    currentSceneIndex = 0;
+    currentLevelIndex = 0;
 }
 
 void LevelManager::drawCurrentLevel(Renderer* renderer) {
-    levels[currentSceneIndex].draw(renderer);
+    levels[currentLevelIndex].draw(renderer);
 }
 
 GameLevel* LevelManager::getCurrentLevel() {
-    return &levels[currentSceneIndex];
+    return &levels[currentLevelIndex];
 }
 
 void LevelManager::loadNextLevel() {
-    ++currentSceneIndex;
+    ++currentLevelIndex;
 }

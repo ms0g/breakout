@@ -17,7 +17,7 @@ public:
 private:
     GameLevel levels[4];
     
-    int currentSceneIndex;
+    int currentLevelIndex;
 
 };
 

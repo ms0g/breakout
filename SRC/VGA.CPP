@@ -1,7 +1,6 @@
 #include "VGA.H"
-#include <MALLOC.H>
-#include <STRING.H>
-#include "CONF.H"
+#include <malloc.h>
+#include <string.h>
 
 VGA::VGA() {
     VRAM = (unsigned char far*)0xA0000000L;

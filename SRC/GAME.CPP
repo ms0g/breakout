@@ -5,7 +5,7 @@
 #include "BALL.H"
 #include "CONF.H"
 #include "AABB.H"
-#include "SCENMNGR.H"
+#include "LVLMNGR.H"
 #include "UI.H"
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
@@ -17,7 +17,7 @@ Game::Game() {
 
     renderer = new Renderer();
     
-    sceneManager = new SceneManager();
+    levelManager = new LevelManager();
     
     ui = new UI();
 
@@ -41,7 +41,7 @@ Game::~Game() {
 
     delete renderer;
 
-    delete sceneManager;
+    delete levelManager;
 
     exitkb();
 }
@@ -86,7 +86,7 @@ void Game::render(void) {
     
     paddle->draw(renderer);
 
-    sceneManager->drawCurrentScene(renderer);
+    levelManager->drawCurrentLevel(renderer);
 
     renderer->updateBuffer();
 }
@@ -104,7 +104,7 @@ void Game::doCollision(void) {
         ball->velocity.y = -ball->velocity.y;
         ball->pos.y = paddle->pos.y - 5;
     } else {
-        GameLevel* level = sceneManager->getCurrentLevel();
+        GameLevel* level = levelManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
             GameObject* brick = level->getBrick(i);
@@ -122,7 +122,7 @@ void Game::doCollision(void) {
                     level->update();
                     
                     if (level->isFinished()) {
-                        sceneManager->loadNextScene();
+                        levelManager->loadNextLevel();
                         ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
                         break;
                     }

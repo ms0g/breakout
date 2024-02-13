@@ -1,8 +1,8 @@
-#include "SCENMNGR.H"
+#include "LVLMNGR.H"
 #include "RENDERER.H"
 #include "LEVELS.H"
 
-SceneManager::SceneManager() {
+LevelManager::LevelManager() {
     GameLevel one;
     one.init(levelOne);
     levels[0] = one;
@@ -22,14 +22,14 @@ SceneManager::SceneManager() {
     currentSceneIndex = 0;
 }
 
-void SceneManager::drawCurrentScene(Renderer* renderer) {
+void LevelManager::drawCurrentLevel(Renderer* renderer) {
     levels[currentSceneIndex].draw(renderer);
 }
 
-GameLevel* SceneManager::getCurrentLevel() {
+GameLevel* LevelManager::getCurrentLevel() {
     return &levels[currentSceneIndex];
 }
 
-void SceneManager::loadNextScene() {
+void LevelManager::loadNextLevel() {
     ++currentSceneIndex;
 }

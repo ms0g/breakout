@@ -4,7 +4,7 @@
 class Ball;
 class Paddle;
 class Renderer;
-class SceneManager;
+class LevelManager;
 class UI;
 class Game {
 public:
@@ -29,7 +29,7 @@ private:
 
     Renderer* renderer;
 
-    SceneManager* sceneManager;
+    LevelManager* levelManager;
 
     UI* ui;
 

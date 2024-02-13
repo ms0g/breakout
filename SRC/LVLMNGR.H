@@ -1,18 +1,18 @@
-#ifndef SCENMNGR_H
-#define SCENMNGR_H
+#ifndef LVLMNGR_H
+#define LVLMNGR_H
 
 #include "GAMELVL.H"
 
 class Renderer;
-class SceneManager {
+class LevelManager {
 public:
-    SceneManager();
+    LevelManager();
 
-    void drawCurrentScene(Renderer* renderer);
+    void drawCurrentLevel(Renderer* renderer);
 
     GameLevel* getCurrentLevel();
 
-    void loadNextScene();
+    void loadNextLevel();
 
 private:
     GameLevel levels[4];

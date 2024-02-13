@@ -5,7 +5,7 @@
 #include "BALL.H"
 #include "CONF.H"
 #include "AABB.H"
-#include "LEVELS.H"
+#include "SCENMNGR.H"
 #include "UI.H"
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
@@ -16,28 +16,12 @@ Game::Game() {
     ball = new Ball(paddle->pos.x + (paddle->width >> 1),  paddle->pos.y - 5, WHITE);
 
     renderer = new Renderer();
-
+    
+    sceneManager = new SceneManager();
+    
     ui = new UI();
 
     initkb();
-
-    GameLevel one;
-    one.init(levelOne);
-    levels[0] = one;
-
-    GameLevel two;
-    two.init(levelTwo);
-    levels[1] = two;
-
-    GameLevel three;
-    three.init(levelThree);
-    levels[2] = three;
-
-    GameLevel four;
-    four.init(levelFour);
-    levels[3] = four;
-    
-    currentLevel = 0;
 
     score = 0;
 
@@ -57,13 +41,15 @@ Game::~Game() {
 
     delete renderer;
 
+    delete sceneManager;
+
     exitkb();
 }
 
 void Game::loop(void) {
     while (isRunning) {
         processInput();
-
+        
         if (!done) {
             update();
             render();
@@ -100,7 +86,7 @@ void Game::render(void) {
     
     paddle->draw(renderer);
 
-    levels[currentLevel].draw(renderer);
+    sceneManager->drawCurrentScene(renderer);
 
     renderer->updateBuffer();
 }
@@ -118,10 +104,10 @@ void Game::doCollision(void) {
         ball->velocity.y = -ball->velocity.y;
         ball->pos.y = paddle->pos.y - 5;
     } else {
-        GameLevel* level = &levels[currentLevel];
+        GameLevel* level = sceneManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
-            GameObject* brick = &level->bricks[i];
+            GameObject* brick = level->getBrick(i);
             
             if (!brick->isActive) continue;
 
@@ -136,7 +122,7 @@ void Game::doCollision(void) {
                     level->update();
                     
                     if (level->isFinished()) {
-                        currentLevel++;
+                        sceneManager->loadNextScene();
                         ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
                         break;
                     }

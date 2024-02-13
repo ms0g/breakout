@@ -1,11 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "GAMELVL.H"
-
 class Ball;
 class Paddle;
 class Renderer;
+class SceneManager;
 class UI;
 class Game {
 public:
@@ -30,15 +29,13 @@ private:
 
     Renderer* renderer;
 
-    UI* ui;
+    SceneManager* sceneManager;
 
-    GameLevel levels[4];
+    UI* ui;
 
     int isRunning;
 
     int done;
-
-    int currentLevel;
 
     int score;
 

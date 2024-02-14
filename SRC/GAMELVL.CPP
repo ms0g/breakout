@@ -12,7 +12,7 @@ void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;
     int startY = 30;
 
-    activeBrickCount = BRICK_COUNT;
+    activeBrickCount = 0;
 
     int index = 0;
     for (int i = 0; i < ROW; ++i) {
@@ -36,6 +36,7 @@ void GameLevel::init(const int level[ROW][COL]) {
             obj.hitCount = brickHitCountTable[color];
            
             bricks[index++] = obj;
+            activeBrickCount++;
         }
 
         startX = 0;

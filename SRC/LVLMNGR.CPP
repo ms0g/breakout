@@ -32,4 +32,8 @@ GameLevel* LevelManager::getCurrentLevel() {
 
 void LevelManager::loadNextLevel() {
     ++currentLevelIndex;
+
+    if (currentLevelIndex > 3) {
+        currentLevelIndex = 0;
+    }
 }

@@ -32,7 +32,6 @@ private:
     UIElement lifeValue;
 
     UIElement* dynamicElements[2];
-
 };
 
 #endif

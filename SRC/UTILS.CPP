@@ -6,7 +6,7 @@ static const char* digit_array = "0123456789";
 
 string to_string(int val) {
     static char _ptr[4];
-    string return_str;
+    string strNum;
 
     int quotient = val;
     int i = 0;
@@ -17,9 +17,9 @@ string to_string(int val) {
         quotient = (quotient >> 1) / 5;
     } while (quotient);
     
-    return_str.ptr = _ptr;
-    return_str.size = i;
+    strNum.ptr = _ptr;
+    strNum.size = i;
 
-    return return_str;
+    return strNum;
 
 }

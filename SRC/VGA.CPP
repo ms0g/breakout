@@ -8,6 +8,7 @@ VGA::VGA() {
 
     if (offscreen) {
         _fmemset(offscreen, 0, 64000u);
+        
         asm {
             xor ah, ah      // change video mode
             mov al, 0x13    // 320x200x256

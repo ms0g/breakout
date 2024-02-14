@@ -44,7 +44,6 @@ private:
     void _circle(int xc, int yc, int x, int y, char color);
 
     VGA vga;
-
 };
 
 #endif

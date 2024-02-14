@@ -18,7 +18,6 @@ private:
     GameLevel levels[4];
     
     int currentLevelIndex;
-
 };
 
 #endif

@@ -37,6 +37,6 @@ void Ball::draw(Renderer* renderer) {
 void Ball::reset(float x, float y) {
     pos.x = x;
     pos.y = y;
-    velocity.x = -BALL_SPEED;
-    velocity.y = -BALL_SPEED;
+    velocity.x = -BALL_SPEED/2;
+    velocity.y = -BALL_SPEED/2;
 }

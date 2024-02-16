@@ -120,7 +120,7 @@ void Game::doCollision(void) {
         ball->velocity.y = ballYMove;
         
     } else {
-	GameLevel* level = levelManager->getCurrentLevel();
+	    GameLevel* level = levelManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
             GameObject* brick = level->getBrick(i);

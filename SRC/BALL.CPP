@@ -2,17 +2,13 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
-#define BALL_SPEED 1.0
-#define BALL_WIDTH 3
-#define BALL_HEIGHT 3
-
 Ball::Ball(float x, float y, char color) {
     pos.x = x;
     pos.y = y;
     width = BALL_WIDTH;
     height = BALL_HEIGHT;
-    velocity.x = -BALL_SPEED;
-    velocity.y = -BALL_SPEED;
+    velocity.x = -BALL_SPEED/2;
+    velocity.y = -BALL_SPEED/2;
     _color = color;
 }
 

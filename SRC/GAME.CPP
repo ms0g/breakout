@@ -7,18 +7,19 @@
 #include "AABB.H"
 #include "LVLMNGR.H"
 #include "UI.H"
+#include "MATH.H"
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
-    
+
     ball = new Ball(paddle->pos.x + (paddle->width >> 1),  paddle->pos.y - 5, WHITE);
 
     renderer = new Renderer();
-    
+
     levelManager = new LevelManager();
-    
+
     ui = new UI();
 
     initkb();
@@ -34,7 +35,7 @@ Game::Game() {
 
 Game::~Game() {
     delete paddle;
-    
+
     delete ball;
 
     delete ui;
@@ -101,10 +102,25 @@ void Game::doCollision(void) {
             done = 1;
         }
     } else if (checkCollision(ball, paddle)) {
-        ball->velocity.y = -ball->velocity.y;
-        ball->pos.y = paddle->pos.y - 5;
+
+        //determine where on the paddle we made a collision
+        float ballPosition =
+            (paddle->pos.x + (paddle->width/2))-
+            (ball->pos.x + (ball->width/2));
+
+        //bounce the ball off at an angle from 0 to 60 degrees
+        //based on how close we are to the edges of the paddle
+        float degrees = 60.0f * (ballPosition / ((float)paddle->width / 2));
+        float radians = degrees * (3.14159f/180.0f);
+
+        //calculate the new ball speeds based on that angle
+        float ballXMove = BALL_SPEED * sin(radians)*-1;
+        float ballYMove = BALL_SPEED * cos(radians)*-1;
+        ball->velocity.x = ballXMove;
+        ball->velocity.y = ballYMove;
+        
     } else {
-        GameLevel* level = levelManager->getCurrentLevel();
+	GameLevel* level = levelManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
             GameObject* brick = level->getBrick(i);

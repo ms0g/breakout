@@ -3,6 +3,10 @@
 
 #include "GAMEOBJ.H"
 
+#define BALL_SPEED 2.0
+#define BALL_WIDTH 3
+#define BALL_HEIGHT 3
+
 class Renderer;
 class Ball: public GameObject {
 public:

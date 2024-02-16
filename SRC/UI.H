@@ -22,6 +22,8 @@ private:
         int val;
 
         char color;
+
+        int isActive;
     };
 
     void drawTexts(Renderer* renderer);
@@ -30,6 +32,7 @@ private:
     UIElement scoreValue;
     UIElement lifeText;
     UIElement lifeValue;
+    UIElement gameOverText;
 
     UIElement* dynamicElements[2];
 };

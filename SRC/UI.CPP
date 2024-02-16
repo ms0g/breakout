@@ -15,22 +15,26 @@ UI::UI() {
     scoreText.pos.y = SCORE_Y;
     scoreText.val = 0;
     scoreText.color = WHITE;
+    scoreText.isActive = 1;
 
     scoreValue.pos.x = SCORE_X + SCORE_ADJ;
     scoreValue.pos.y = SCORE_Y;
     scoreValue.val = 0;
     scoreValue.color = WHITE;
+    scoreValue.isActive = 1;
 
     
     lifeText.pos.x = LIFE_X;
     lifeText.pos.y = LIFE_Y;
     lifeText.val = 0;
     lifeText.color = WHITE;
+    lifeText.isActive = 1;
 
     lifeValue.pos.x = LIFE_X + LIFE_ADJ;
     lifeValue.pos.y = LIFE_Y;
     lifeValue.val = 0;
     lifeValue.color = WHITE;
+    lifeValue.isActive = 1;
 
     dynamicElements[0] = &scoreValue;
     dynamicElements[1] = &lifeValue;

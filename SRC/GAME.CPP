@@ -1,4 +1,5 @@
 #include "GAME.H"
+#include <math.h>
 #include "KEYBRD.H"
 #include "PADDLE.H"
 #include "RENDERER.H"
@@ -7,7 +8,8 @@
 #include "AABB.H"
 #include "LVLMNGR.H"
 #include "UI.H"
-#include "MATH.H"
+
+#define PI 3.14159f
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
@@ -105,13 +107,13 @@ void Game::doCollision(void) {
 
         //determine where on the paddle we made a collision
         float ballPosition =
-            (paddle->pos.x + (paddle->width/2))-
-            (ball->pos.x + (ball->width/2));
+            (paddle->pos.x + (paddle->width >> 1))-
+            (ball->pos.x + (ball->width >> 1));
 
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle
-        float degrees = 60.0f * (ballPosition / ((float)paddle->width / 2));
-        float radians = degrees * (3.14159f/180.0f);
+        float degrees = 60.0f * (ballPosition / (float)(paddle->width >> 1));
+        float radians = degrees * (PI/180.0f);
 
         //calculate the new ball speeds based on that angle
         float ballXMove = BALL_SPEED * sin(radians)*-1;

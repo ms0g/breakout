@@ -22,17 +22,15 @@ private:
         int val;
 
         char color;
-
-        int isActive;
     };
 
-    void drawTexts(Renderer* renderer);
+    void drawText(char* s, int len, int x, int y, char color, Renderer* renderer);
 
     UIElement scoreText;
-    UIElement scoreValue;
+    UIElement scoreNum;
+
     UIElement lifeText;
-    UIElement lifeValue;
-    UIElement gameOverText;
+    UIElement lifeNum;
 
     UIElement* dynamicElements[2];
 };

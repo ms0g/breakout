@@ -15,39 +15,35 @@ UI::UI() {
     scoreText.pos.y = SCORE_Y;
     scoreText.val = 0;
     scoreText.color = WHITE;
-    scoreText.isActive = 1;
 
-    scoreValue.pos.x = SCORE_X + SCORE_ADJ;
-    scoreValue.pos.y = SCORE_Y;
-    scoreValue.val = 0;
-    scoreValue.color = WHITE;
-    scoreValue.isActive = 1;
+    scoreNum.pos.x = SCORE_X + SCORE_ADJ;
+    scoreNum.pos.y = SCORE_Y;
+    scoreNum.val = 0;
+    scoreNum.color = WHITE;
 
-    
     lifeText.pos.x = LIFE_X;
     lifeText.pos.y = LIFE_Y;
     lifeText.val = 0;
     lifeText.color = WHITE;
-    lifeText.isActive = 1;
 
-    lifeValue.pos.x = LIFE_X + LIFE_ADJ;
-    lifeValue.pos.y = LIFE_Y;
-    lifeValue.val = 0;
-    lifeValue.color = WHITE;
-    lifeValue.isActive = 1;
+    lifeNum.pos.x = LIFE_X + LIFE_ADJ;
+    lifeNum.pos.y = LIFE_Y;
+    lifeNum.val = 0;
+    lifeNum.color = WHITE;
 
-    dynamicElements[0] = &scoreValue;
-    dynamicElements[1] = &lifeValue;
+    dynamicElements[0] = &scoreNum;
+    dynamicElements[1] = &lifeNum;
 
 }
 
 void UI::update(int score, int life) {
-    scoreValue.val = score;
-    lifeValue.val = life;
+    scoreNum.val = score;
+    lifeNum.val = life;
 }
 
 void UI::draw(Renderer* renderer) {
-    drawTexts(renderer);
+    drawText("SCORE:", 6, scoreText.pos.x, scoreText.pos.y, scoreText.color, renderer);
+    drawText("LIFE:", 5 , lifeText.pos.x, lifeText.pos.y, lifeText.color, renderer);
 
     for (int i = 0; i < 2; ++i) {
         string str_num = to_string(dynamicElements[i]->val);
@@ -56,44 +52,24 @@ void UI::draw(Renderer* renderer) {
             int index = (str_num.size - 1);
             
             if (index < 0) break;
-            
-            // turn into integer
-            int num = str_num.ptr[index] - '0';
 
-            renderer->putchar(dynamicElements[i]->pos.x, dynamicElements[i]->pos.y, dynamicElements[i]->color, digitFontTable[num]);
+            renderer->putchar(
+                dynamicElements[i]->pos.x, 
+                dynamicElements[i]->pos.y, 
+                dynamicElements[i]->color, 
+                asciiFontTable[(int)str_num.ptr[index]]);
             
             dynamicElements[i]->pos.x += ADJ;
         } while (str_num.size--); 
     }
 
-    scoreValue.pos.x = SCORE_X + SCORE_ADJ;
-    lifeValue.pos.x = LIFE_X + LIFE_ADJ;
-    
+    scoreNum.pos.x = SCORE_X + SCORE_ADJ;
+    lifeNum.pos.x = LIFE_X + LIFE_ADJ;
 }
 
-void UI::drawTexts(Renderer* renderer) {
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &S);
-    scoreText.pos.x += ADJ;
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &C);
-    scoreText.pos.x += ADJ;
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &O);
-    scoreText.pos.x += ADJ;
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &R);
-    scoreText.pos.x += ADJ;
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &E);
-    scoreText.pos.x += ADJ;
-    renderer->putchar(scoreText.pos.x, scoreText.pos.y, scoreText.color, &COLON);
-
-    renderer->putchar(lifeText.pos.x, lifeText.pos.y, lifeText.color, &L);
-    lifeText.pos.x += ADJ;
-    renderer->putchar(lifeText.pos.x, lifeText.pos.y, lifeText.color, &I);
-    lifeText.pos.x += ADJ;
-    renderer->putchar(lifeText.pos.x, lifeText.pos.y, lifeText.color, &F);
-    lifeText.pos.x += ADJ;
-    renderer->putchar(lifeText.pos.x, lifeText.pos.y, lifeText.color, &E);
-    lifeText.pos.x += ADJ;
-    renderer->putchar(lifeText.pos.x, lifeText.pos.y, lifeText.color, &COLON);
-
-    scoreText.pos.x = SCORE_X;
-    lifeText.pos.x = LIFE_X;
+void UI::drawText(char* s, int len, int x, int y, char color, Renderer* renderer) {
+    for (int i = 0; i < len; ++i) {
+        renderer->putchar(x, y, color, asciiFontTable[(int)s[i]]);
+        x += ADJ;
+    }
 }

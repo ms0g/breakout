@@ -1,4 +1,5 @@
 #include "UI.H"
+#include <string.h>
 #include "RENDERER.H"
 #include "UTILS.H"
 
@@ -42,8 +43,8 @@ void UI::update(int score, int life) {
 }
 
 void UI::draw(Renderer* renderer) {
-    drawText("SCORE:", 6, scoreText.pos.x, scoreText.pos.y, scoreText.color, renderer);
-    drawText("LIFE:", 5 , lifeText.pos.x, lifeText.pos.y, lifeText.color, renderer);
+    drawText("SCORE:", scoreText.pos.x, scoreText.pos.y, scoreText.color, renderer);
+    drawText("LIFE:", lifeText.pos.x, lifeText.pos.y, lifeText.color, renderer);
 
     for (int i = 0; i < 2; ++i) {
         string str_num = to_string(dynamicElements[i]->val);
@@ -67,8 +68,8 @@ void UI::draw(Renderer* renderer) {
     lifeNum.pos.x = LIFE_X + LIFE_ADJ;
 }
 
-void UI::drawText(char* s, int len, int x, int y, char color, Renderer* renderer) {
-    for (int i = 0; i < len; ++i) {
+void UI::drawText(const char* s, int x, int y, char color, Renderer* renderer) {
+    for (int i = 0; i < strlen(s); ++i) {
         renderer->putchar(x, y, color, asciiFontTable[(int)s[i]]);
         x += ADJ;
     }

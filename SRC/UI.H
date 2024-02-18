@@ -24,7 +24,7 @@ private:
         char color;
     };
 
-    void drawText(char* s, int len, int x, int y, char color, Renderer* renderer);
+    void drawText(const char* s, int x, int y, char color, Renderer* renderer);
 
     UIElement scoreText;
     UIElement scoreNum;

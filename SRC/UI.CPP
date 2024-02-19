@@ -1,5 +1,6 @@
 #include "UI.H"
-#include <string.h>
+#include <STDLIB.H>
+#include <STRING.H>
 #include "RENDERER.H"
 #include "UTILS.H"
 
@@ -47,25 +48,17 @@ void UI::draw(Renderer* renderer) {
     drawText("LIFE:", lifeText.pos.x, lifeText.pos.y, lifeText.color, renderer);
 
     for (int i = 0; i < 2; ++i) {
-        string str_num = to_string(dynamicElements[i]->val);
+        char strNum[4];
         
-        do {
-            int index = (str_num.size - 1);
-            
-            if (index < 0) break;
-
-            renderer->putchar(
-                dynamicElements[i]->pos.x, 
-                dynamicElements[i]->pos.y, 
-                dynamicElements[i]->color, 
-                asciiFontTable[(int)str_num.ptr[index]]);
-            
-            dynamicElements[i]->pos.x += ADJ;
-        } while (str_num.size--); 
+        itoa(dynamicElements[i]->val, strNum, 10);
+        
+        drawText(
+            strNum, 
+            dynamicElements[i]->pos.x, 
+            dynamicElements[i]->pos.y, 
+            dynamicElements[i]->color, 
+            renderer);
     }
-
-    scoreNum.pos.x = SCORE_X + SCORE_ADJ;
-    lifeNum.pos.x = LIFE_X + LIFE_ADJ;
 }
 
 void UI::drawText(const char* s, int x, int y, char color, Renderer* renderer) {

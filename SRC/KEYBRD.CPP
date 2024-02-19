@@ -1,5 +1,5 @@
 #include "KEYBRD.H"
-#include <dos.h>
+#include <DOS.H>
 
 #define IRQ_PORT    0x20
 #define KBC_IRQ     0x09

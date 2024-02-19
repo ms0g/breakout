@@ -1,5 +1,5 @@
 #include "GAME.H"
-#include <math.h>
+#include <MATH.H>
 #include "KEYBRD.H"
 #include "PADDLE.H"
 #include "RENDERER.H"

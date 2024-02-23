@@ -1,9 +1,5 @@
 #include "RENDERER.H"
 
-void Renderer::putpixel(int x, int y, char color) {
-    vga.putpixel_f(x, y, color);
-}
-
 void Renderer::putchar(int x, int y, char color, const int (*font)[5][5]) {
     for (int i = 0; i < 5; ++i) {
         for (int j = 0; j < 5; ++j) {

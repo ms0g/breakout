@@ -55,7 +55,12 @@ void GameLevel::update(void) {
 void GameLevel::draw(Renderer* renderer) {
     for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {
-            renderer->rectangle(bricks[i].pos.x, bricks[i].pos.y, bricks[i].width, bricks[i].height, bricks[i]._color);
+            renderer->rectangle(
+                bricks[i].pos.x, 
+                bricks[i].pos.y, 
+                bricks[i].width, 
+                bricks[i].height, 
+                bricks[i]._color);
         }  
     }
 }

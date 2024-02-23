@@ -32,7 +32,7 @@ private:
     UIElement lifeText;
     UIElement lifeNum;
 
-    UIElement* dynamicElements[2];
+    UIElement* dynamicUIElements[2];
 };
 
 #endif

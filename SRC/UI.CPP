@@ -33,8 +33,8 @@ UI::UI() {
     lifeNum.val = 0;
     lifeNum.color = WHITE;
 
-    dynamicElements[0] = &scoreNum;
-    dynamicElements[1] = &lifeNum;
+    dynamicUIElements[0] = &scoreNum;
+    dynamicUIElements[1] = &lifeNum;
 
 }
 
@@ -50,13 +50,13 @@ void UI::draw(Renderer* renderer) {
     for (int i = 0; i < 2; ++i) {
         char strNum[4];
         
-        itoa(dynamicElements[i]->val, strNum, 10);
+        itoa(dynamicUIElements[i]->val, strNum, 10);
         
         drawText(
             strNum, 
-            dynamicElements[i]->pos.x, 
-            dynamicElements[i]->pos.y, 
-            dynamicElements[i]->color, 
+            dynamicUIElements[i]->pos.x, 
+            dynamicUIElements[i]->pos.y, 
+            dynamicUIElements[i]->color, 
             renderer);
     }
 }

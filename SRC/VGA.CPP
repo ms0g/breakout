@@ -60,19 +60,21 @@ void VGA::putpixel_f(int x, int y, char color) {
 
 void VGA::waitVRetrace(void) {
     asm cli
+    //If vert. retrace bit is set, wait for it to clear
 v1: 
     asm {
-        mov dx, 0x03da
-        in al, dx
-        test al, 0x08
-        jnz v1
+        mov dx, 0x03da  //dx <- VGA status register
+        in al, dx       //al <- status byte
+        test al, 0x08   //is bit 3 (vertical retrace bit) set
+        jnz v1          //If so, wait for it to clear
     }
+    //When it's cleared, wait for it to be set
 v2: 
     asm {
         mov dx, 0x03da
         in al, dx
         test al, 0x08
-        jz v2
+        jz v2           //loop back till vert. retrace bit is newly set
 
         sti
     }

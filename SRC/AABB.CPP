@@ -1,10 +1,5 @@
 #include "AABB.H"
 
-int checkCollision(GameObject* ball, GameObject* paddle) {
-    return ((ball->pos.y + ball->height >= paddle->pos.y) && 
-                (ball->pos.x > paddle->pos.x && ball->pos.x < (paddle->pos.x + paddle->width)));
-}
-
 int checkAABBCollision(GameObject* one, GameObject* two) {
     // collision x-axis?
     int collisionX = one->pos.x + one->width >= two->pos.x &&

@@ -103,7 +103,7 @@ void Game::doCollision(void) {
         if (life == 0) {
             done = 1;
         }
-    } else if (checkCollision(ball, paddle)) {
+    } else if (checkAABBCollision(ball, paddle)) {
 
         //determine where on the paddle we made a collision
         float ballPosition =

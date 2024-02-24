@@ -38,11 +38,6 @@ UI::UI() {
     gameOverText.val = 0;
     gameOverText.color = WHITE;
 
-    gameOverText.pos.x = 130;
-    gameOverText.pos.y = 130;
-    gameOverText.val = 0;
-    gameOverText.color = WHITE;
-
     dynamicUIElements[0] = &scoreNum;
     dynamicUIElements[1] = &lifeNum;
 

@@ -33,8 +33,20 @@ UI::UI() {
     lifeNum.val = 0;
     lifeNum.color = WHITE;
 
+    gameOverText.pos.x = 130;
+    gameOverText.pos.y = 130;
+    gameOverText.val = 0;
+    gameOverText.color = WHITE;
+
+    gameOverText.pos.x = 130;
+    gameOverText.pos.y = 130;
+    gameOverText.val = 0;
+    gameOverText.color = WHITE;
+
     dynamicUIElements[0] = &scoreNum;
     dynamicUIElements[1] = &lifeNum;
+
+    isGameOver = 0;
 
 }
 
@@ -58,6 +70,10 @@ void UI::draw(Renderer* renderer) {
             dynamicUIElements[i]->pos.y, 
             dynamicUIElements[i]->color, 
             renderer);
+    }
+
+    if (isGameOver) {
+        drawText("GAME OVER", gameOverText.pos.x, gameOverText.pos.y, gameOverText.color, renderer);
     }
 }
 

@@ -82,14 +82,14 @@ void Game::update(void) {
 
 void Game::render(void) {
     renderer->clear(BLACK);
-
-    ui->draw(renderer);
     
     ball->draw(renderer);
     
     paddle->draw(renderer);
 
     levelManager->drawCurrentLevel(renderer);
+
+    ui->draw(renderer);
 
     renderer->updateBuffer();
 }
@@ -102,6 +102,7 @@ void Game::doCollision(void) {
         
         if (life == 0) {
             done = 1;
+            ui->isGameOver = 1;
         }
     } else if (checkAABBCollision(ball, paddle)) {
 

@@ -12,6 +12,8 @@ public:
     
     void draw(Renderer* renderer);
 
+    int enableGameOver;
+
 private:
     struct UIElement {
         struct {
@@ -31,6 +33,8 @@ private:
 
     UIElement lifeText;
     UIElement lifeNum;
+
+    UIElement gameOverText;
 
     UIElement* dynamicUIElements[2];
 };

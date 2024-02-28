@@ -13,23 +13,33 @@ static volatile unsigned char _keys[256];
 static void interrupt (*old_irq)(...);
 
 static void interrupt kbc_irq_handler(...) {
-    unsigned char code, state, val = 1;
+    unsigned char code, val = 1;
     
-    asm cli
-    code = inportb(KBC_PORT);
-    
-    if (code & KBC_BREAK) {
-        val = 0;
-        code -= KBC_BREAK;
+    asm {
+        cli
+        in al, KBC_PORT
+        mov code, al
+        and al, KBC_BREAK
+        jz PRESSED
+        mov val, 0
+        mov al, code
+        sub al, KBC_BREAK
+        mov code, al
     }
-    
+PRESSED:   
     _keys[code] = val;
     
-    state = inportb(KBC_SCP);
-    outportb(KBC_SCP, state | SCP_KBC_DIS);
-    outportb(KBC_SCP, state);
-    outportb(IRQ_PORT, 0x20);
-    asm sti
+    asm {
+        in al, KBC_SCP
+        mov bl, al
+        or al, SCP_KBC_DIS
+        out KBC_SCP, al
+        mov al, bl
+        out KBC_SCP, al
+        mov al, 0x20
+        out IRQ_PORT, al
+        sti
+    }
 }
 
 void initkb(void) {

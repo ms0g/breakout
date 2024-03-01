@@ -7,8 +7,8 @@
 #define PADDLE_HEIGHT 5
 
 Paddle::Paddle(float x, float y, char color) {
-    pos.x = x;
-    pos.y = y;
+    position.x = x;
+    position.y = y;
     width = PADDLE_WIDTH;
     height = PADDLE_HEIGHT;
     velocity.x = PADDLE_SPEED;
@@ -17,16 +17,16 @@ Paddle::Paddle(float x, float y, char color) {
 
 void Paddle::move(int direction) {
     if (direction == LEFT) {
-        if (pos.x > 0) {
-            pos.x -= velocity.x;
+        if (position.x > 0) {
+            position.x -= velocity.x;
         }
     } else if (direction == RIGHT) {
-        if (pos.x < SCREEN_WIDTH - width) {
-                pos.x += velocity.x;
+        if (position.x < SCREEN_WIDTH - width) {
+                position.x += velocity.x;
         }
     }
 }
 
 void Paddle::draw(Renderer* renderer) {
-    renderer->rectangle(pos.x, pos.y, width, height, _color);
+    renderer->rectangle(position.x, position.y, width, height, _color);
 }

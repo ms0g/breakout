@@ -6,7 +6,7 @@ public:
     struct {
         float x; 
         float y;
-    } pos;
+    } position;
 
     int width; 
     int height;

@@ -3,8 +3,8 @@
 #include "RENDERER.H"
 
 Ball::Ball(float x, float y, char color) {
-    pos.x = x;
-    pos.y = y;
+    position.x = x;
+    position.y = y;
     width = BALL_WIDTH;
     height = BALL_HEIGHT;
     velocity.x = -BALL_SPEED/2;
@@ -13,30 +13,30 @@ Ball::Ball(float x, float y, char color) {
 }
 
 void Ball::move(void) {
-    pos.x += velocity.x;
-    pos.y += velocity.y;
+    position.x += velocity.x;
+    position.y += velocity.y;
 
-    if (pos.x < 0) {
+    if (position.x < 0) {
         velocity.x = -velocity.x;
-        pos.x = 0;
-    } else if (pos.x + width >= SCREEN_WIDTH) {
+        position.x = 0;
+    } else if (position.x + width >= SCREEN_WIDTH) {
         velocity.x = -velocity.x;
-        pos.x = SCREEN_WIDTH - width;
+        position.x = SCREEN_WIDTH - width;
     }
 
-    if (pos.y <= 0) {
+    if (position.y <= 0) {
         velocity.y = -velocity.y;
-        pos.y = 0;
+        position.y = 0;
     }
 }
 
 void Ball::draw(Renderer* renderer) {
-    renderer->rectangle(pos.x, pos.y, width, height, _color);
+    renderer->rectangle(position.x, position.y, width, height, _color);
 }
 
 void Ball::reset(float x, float y) {
-    pos.x = x;
-    pos.y = y;
+    position.x = x;
+    position.y = y;
     velocity.x = -BALL_SPEED/2;
     velocity.y = -BALL_SPEED/2;
 }

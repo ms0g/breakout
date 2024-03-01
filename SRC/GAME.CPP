@@ -16,7 +16,7 @@ static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
 
-    ball = new Ball(paddle->pos.x + (paddle->width >> 1),  paddle->pos.y - 5, WHITE);
+    ball = new Ball(paddle->position.x + (paddle->width >> 1),  paddle->position.y - 5, WHITE);
 
     renderer = new Renderer();
 
@@ -95,8 +95,8 @@ void Game::render(void) {
 }
 
 void Game::doCollision(void) {
-     if (ball->pos.y + ball->height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
+     if (ball->position.y + ball->height >= SCREEN_HEIGHT) {
+        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 5);
         
         life--;
         
@@ -107,13 +107,13 @@ void Game::doCollision(void) {
     } else if (checkAABBCollision(ball, paddle)) {
 
         //determine where on the paddle we made a collision
-        float ballPosition =
-            (paddle->pos.x + (paddle->width >> 1))-
-            (ball->pos.x + (ball->width >> 1));
+        float ballpositionition =
+            (paddle->position.x + (paddle->width >> 1))-
+            (ball->position.x + (ball->width >> 1));
 
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle
-        float degrees = 60.0f * (ballPosition / (float)(paddle->width >> 1));
+        float degrees = 60.0f * (ballpositionition / (float)(paddle->width >> 1));
         float radians = degrees * (PI/180.0f);
 
         //calculate the new ball speeds based on that angle
@@ -142,7 +142,7 @@ void Game::doCollision(void) {
                     
                     if (level->isFinished()) {
                         levelManager->loadNextLevel();
-                        ball->reset(paddle->pos.x + (paddle->width >> 1), paddle->pos.y - 5);
+                        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 5);
                         break;
                     }
                 }

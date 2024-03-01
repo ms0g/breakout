@@ -19,7 +19,7 @@ private:
         struct {
             int x;
             int y;
-        } pos;
+        } position;
       
         int val;
 

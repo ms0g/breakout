@@ -13,28 +13,28 @@
 #define ADJ 6
 
 UI::UI() {
-    scoreText.pos.x = SCORE_X;
-    scoreText.pos.y = SCORE_Y;
+    scoreText.position.x = SCORE_X;
+    scoreText.position.y = SCORE_Y;
     scoreText.val = 0;
     scoreText.color = WHITE;
 
-    scoreNum.pos.x = SCORE_X + SCORE_ADJ;
-    scoreNum.pos.y = SCORE_Y;
+    scoreNum.position.x = SCORE_X + SCORE_ADJ;
+    scoreNum.position.y = SCORE_Y;
     scoreNum.val = 0;
     scoreNum.color = WHITE;
 
-    lifeText.pos.x = LIFE_X;
-    lifeText.pos.y = LIFE_Y;
+    lifeText.position.x = LIFE_X;
+    lifeText.position.y = LIFE_Y;
     lifeText.val = 0;
     lifeText.color = WHITE;
 
-    lifeNum.pos.x = LIFE_X + LIFE_ADJ;
-    lifeNum.pos.y = LIFE_Y;
+    lifeNum.position.x = LIFE_X + LIFE_ADJ;
+    lifeNum.position.y = LIFE_Y;
     lifeNum.val = 0;
     lifeNum.color = WHITE;
 
-    gameOverText.pos.x = 130;
-    gameOverText.pos.y = 130;
+    gameOverText.position.x = 130;
+    gameOverText.position.y = 130;
     gameOverText.val = 0;
     gameOverText.color = WHITE;
 
@@ -51,8 +51,8 @@ void UI::update(int score, int life) {
 }
 
 void UI::draw(Renderer* renderer) {
-    drawText("SCORE:", scoreText.pos.x, scoreText.pos.y, scoreText.color, renderer);
-    drawText("LIFE:", lifeText.pos.x, lifeText.pos.y, lifeText.color, renderer);
+    drawText("SCORE:", scoreText.position.x, scoreText.position.y, scoreText.color, renderer);
+    drawText("LIFE:", lifeText.position.x, lifeText.position.y, lifeText.color, renderer);
 
     for (int i = 0; i < 2; ++i) {
         char strNum[4];
@@ -61,14 +61,14 @@ void UI::draw(Renderer* renderer) {
         
         drawText(
             strNum, 
-            dynamicUIElements[i]->pos.x, 
-            dynamicUIElements[i]->pos.y, 
+            dynamicUIElements[i]->position.x, 
+            dynamicUIElements[i]->position.y, 
             dynamicUIElements[i]->color, 
             renderer);
     }
 
     if (isGameOver) {
-        drawText("GAME OVER", gameOverText.pos.x, gameOverText.pos.y, gameOverText.color, renderer);
+        drawText("GAME OVER", gameOverText.position.x, gameOverText.position.y, gameOverText.color, renderer);
     }
 }
 

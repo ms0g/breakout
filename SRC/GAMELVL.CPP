@@ -19,7 +19,7 @@ void GameLevel::init(const int level[ROW][COL]) {
         for (int j = 0; j < COL; ++j) {
             char color = level[i][j];
             
-            int posX = startX + START_ADJ;
+            int positionX = startX + START_ADJ;
             startX += (BRICK_WIDTH + ADJ);
 
             if (color == BLACK) {
@@ -27,8 +27,8 @@ void GameLevel::init(const int level[ROW][COL]) {
             }
             
             GameObject obj;
-            obj.pos.x = posX;
-            obj.pos.y = startY;
+            obj.position.x = positionX;
+            obj.position.y = startY;
             obj.width = BRICK_WIDTH;
             obj.height = BRICK_HEIGHT;
             obj._color = color;
@@ -56,8 +56,8 @@ void GameLevel::draw(Renderer* renderer) {
     for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {
             renderer->rectangle(
-                bricks[i].pos.x, 
-                bricks[i].pos.y, 
+                bricks[i].position.x, 
+                bricks[i].position.y, 
                 bricks[i].width, 
                 bricks[i].height, 
                 bricks[i]._color);

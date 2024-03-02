@@ -51,9 +51,9 @@ void initkb(void) {
         cli
         mov  ax, es:[bx]                                 //loads the old interrupt handler address for IRQ 9
         mov  word ptr old_irq, ax                        //stores the low word (address) of the old interrupt handler in the variable old_irq.
-        mov  word ptr es:[bx], offset kbc_irq_handler    //replaces the old interrupt handler address with the address of kbc_irq_handler.
         mov  ax, es:[bx + 2]                             //loads the segment of the old interrupt handler into the ax register.
         mov  word ptr old_irq[2], ax                     //stores the high word (segment) of the old interrupt handler in the variable old_irq.
+        mov  word ptr es:[bx], offset kbc_irq_handler    //replaces the old interrupt handler address with the address of kbc_irq_handler.
         mov  es:[bx + 2], cs                             //replaces the old segment of the interrupt handler with the code segment (cs) of the current code.
         sti
         pop  es

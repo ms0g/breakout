@@ -41,15 +41,13 @@ PRESSED:
     }
 }
 
-/* 
-    https://wiki.osdev.org/Interrupt_Vector_Table
-
-    +-----------+-----------+
-    |  Segment  |  Offset   |
-    +-----------+-----------+
-    4           2           0 
- 
- */
+/*
+https://wiki.osdev.org/Interrupt_Vector_Table
++-----------+-----------+
+|  Segment  |  Offset   |
++-----------+-----------+
+4           2           0 
+*/
 void initkb(void) {
     asm {
         push bx

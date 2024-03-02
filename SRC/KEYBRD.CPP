@@ -30,10 +30,10 @@ PRESSED:
     
     asm {
         in al, KBC_SCP
-        mov bl, al
+        mov ah, al
         or al, SCP_KBC_DIS
         out KBC_SCP, al
-        mov al, bl
+        mov al, ah
         out KBC_SCP, al
         mov al, 0x20
         out IRQ_PORT, al

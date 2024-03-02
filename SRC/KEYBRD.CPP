@@ -41,6 +41,15 @@ PRESSED:
     }
 }
 
+/* 
+    https://wiki.osdev.org/Interrupt_Vector_Table
+
+    +-----------+-----------+
+    |  Segment  |  Offset   |
+    +-----------+-----------+
+    4           2           0 
+ 
+ */
 void initkb(void) {
     asm {
         push bx
@@ -50,7 +59,7 @@ void initkb(void) {
         mov  es, ax                                      //set up the segment register es to point to the beginning of the interrupt vector table.
         cli
         mov  ax, es:[bx]                                 //loads the old interrupt handler address for IRQ 9
-        mov  word ptr old_irq, ax                        //stores the low word (address) of the old interrupt handler in the variable old_irq.
+        mov  word ptr old_irq, ax                        //stores the low word (offset) of the old interrupt handler in the variable old_irq.
         mov  ax, es:[bx + 2]                             //loads the segment of the old interrupt handler into the ax register.
         mov  word ptr old_irq[2], ax                     //stores the high word (segment) of the old interrupt handler in the variable old_irq.
         mov  word ptr es:[bx], offset kbc_irq_handler    //replaces the old interrupt handler address with the address of kbc_irq_handler.
@@ -80,14 +89,13 @@ void exitkb(void) {
 }
 
 char kbhit(void) {
-    char key;
-
     if (_keys[R_ARROW]) {
-        key = R_ARROW;
+        return R_ARROW;
     } else if (_keys[L_ARROW]) {
-        key = L_ARROW;
+        return L_ARROW;
     } else if (_keys[ESC]) {
-        key = ESC;
+        return ESC;
+    } else {
+        return -1;
     }
-    return key;
 }

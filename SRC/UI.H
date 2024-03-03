@@ -27,6 +27,8 @@ private:
     };
 
     void drawText(const char* s, int x, int y, char color, Renderer* renderer);
+    
+    void drawNumb(int value, int x, int y, char color, Renderer* renderer);
 
     UIElement scoreText;
     UIElement scoreNum;
@@ -35,8 +37,6 @@ private:
     UIElement lifeNum;
 
     UIElement gameOverText;
-
-    UIElement* dynamicUIElements[2];
 };
 
 #endif

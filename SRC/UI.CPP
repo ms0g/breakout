@@ -38,9 +38,6 @@ UI::UI() {
     gameOverText.val = 0;
     gameOverText.color = WHITE;
 
-    dynamicUIElements[0] = &scoreNum;
-    dynamicUIElements[1] = &lifeNum;
-
     isGameOver = 0;
 
 }
@@ -52,20 +49,10 @@ void UI::update(int score, int life) {
 
 void UI::draw(Renderer* renderer) {
     drawText("SCORE:", scoreText.position.x, scoreText.position.y, scoreText.color, renderer);
+    drawNumb(scoreNum.val, scoreNum.position.x, scoreNum.position.y, scoreNum.color, renderer);
+    
     drawText("LIFE:", lifeText.position.x, lifeText.position.y, lifeText.color, renderer);
-
-    for (int i = 0; i < 2; ++i) {
-        char strNum[4];
-        
-        itoa(dynamicUIElements[i]->val, strNum, 10);
-        
-        drawText(
-            strNum, 
-            dynamicUIElements[i]->position.x, 
-            dynamicUIElements[i]->position.y, 
-            dynamicUIElements[i]->color, 
-            renderer);
-    }
+    drawNumb(lifeNum.val, lifeNum.position.x, lifeNum.position.y, lifeNum.color, renderer);
 
     if (isGameOver) {
         drawText("GAME OVER", gameOverText.position.x, gameOverText.position.y, gameOverText.color, renderer);
@@ -77,4 +64,12 @@ void UI::drawText(const char* s, int x, int y, char color, Renderer* renderer) {
         renderer->putchar(x, y, color, asciiFontTable[(int)s[i]]);
         x += ADJ;
     }
+}
+
+void UI::drawNumb(int value, int x, int y, char color, Renderer* renderer) {
+    char strNum[4];
+
+    itoa(value, strNum, 10);
+        
+    drawText(strNum, x, y, color, renderer);
 }

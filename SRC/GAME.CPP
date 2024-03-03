@@ -103,6 +103,7 @@ void Game::doCollision(void) {
         if (life == 0) {
             done = 1;
             ui->isGameOver = 1;
+            ui->update(score, life);
         }
     } else if (checkAABBCollision(ball, paddle)) {
 

@@ -16,7 +16,7 @@ static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
 
-    ball = new Ball(paddle->position.x + (paddle->width >> 1),  paddle->position.y - 5, WHITE);
+    ball = new Ball(paddle->position.x + (paddle->width >> 1),  paddle->position.y - 3, WHITE);
 
     renderer = new Renderer();
 
@@ -54,7 +54,7 @@ void Game::loop(void) {
         processInput();
         
         if (!done) {
-            update();
+            //update();
             render();
         }
     }
@@ -96,7 +96,7 @@ void Game::render(void) {
 
 void Game::doCollision(void) {
      if (ball->position.y + ball->height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 5);
+        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 3);
         
         life--;
         
@@ -143,7 +143,7 @@ void Game::doCollision(void) {
                     
                     if (level->isFinished()) {
                         levelManager->loadNextLevel();
-                        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 5);
+                        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 3);
                         break;
                     }
                 }

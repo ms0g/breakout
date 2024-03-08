@@ -54,7 +54,7 @@ void Game::loop(void) {
         processInput();
         
         if (!done) {
-            //update();
+            update();
             render();
         }
     }

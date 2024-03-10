@@ -1,8 +1,6 @@
 #ifndef UI_H
 #define UI_H
 
-#include "FONTS.H"
-
 class Renderer;
 class UI {
 public:
@@ -28,7 +26,7 @@ private:
 
     void drawText(const char* s, int x, int y, char color, Renderer* renderer);
     
-    void drawNumb(int value, int x, int y, char color, Renderer* renderer);
+    void drawNumber(int value, int x, int y, char color, Renderer* renderer);
 
     UIElement scoreText;
     UIElement scoreNum;

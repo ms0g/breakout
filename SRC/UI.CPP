@@ -2,7 +2,7 @@
 #include <STDLIB.H>
 #include <STRING.H>
 #include "RENDERER.H"
-#include "UTILS.H"
+#include "FONTS.H"
 
 #define SCORE_X 12
 #define SCORE_Y 10
@@ -49,10 +49,10 @@ void UI::update(int score, int life) {
 
 void UI::draw(Renderer* renderer) {
     drawText("SCORE:", scoreText.position.x, scoreText.position.y, scoreText.color, renderer);
-    drawNumb(scoreNum.val, scoreNum.position.x, scoreNum.position.y, scoreNum.color, renderer);
+    drawNumber(scoreNum.val, scoreNum.position.x, scoreNum.position.y, scoreNum.color, renderer);
     
     drawText("LIFE:", lifeText.position.x, lifeText.position.y, lifeText.color, renderer);
-    drawNumb(lifeNum.val, lifeNum.position.x, lifeNum.position.y, lifeNum.color, renderer);
+    drawNumber(lifeNum.val, lifeNum.position.x, lifeNum.position.y, lifeNum.color, renderer);
 
     if (isGameOver) {
         drawText("GAME OVER", gameOverText.position.x, gameOverText.position.y, gameOverText.color, renderer);
@@ -66,7 +66,7 @@ void UI::drawText(const char* s, int x, int y, char color, Renderer* renderer) {
     }
 }
 
-void UI::drawNumb(int value, int x, int y, char color, Renderer* renderer) {
+void UI::drawNumber(int value, int x, int y, char color, Renderer* renderer) {
     char strNum[4];
 
     itoa(value, strNum, 10);

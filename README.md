@@ -2,7 +2,7 @@
 
 ### Overview
 
-This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for DOS operating systems. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
+This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
 
 ### Features
 + Faithful recreation of the classic Atari Breakout gameplay.

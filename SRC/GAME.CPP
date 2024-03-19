@@ -149,6 +149,7 @@ void Game::doCollision(void) {
                 }
                     
                 ball->velocity.y = -ball->velocity.y;
+                break;
             }
         }
     }

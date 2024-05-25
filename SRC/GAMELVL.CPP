@@ -17,7 +17,7 @@ void GameLevel::init(const int level[ROW][COL]) {
     int index = 0;
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
-            char color = level[i][j];
+            int color = level[i][j];
             
             int positionX = startX + START_ADJ;
             startX += (BRICK_WIDTH + ADJ);
@@ -38,7 +38,7 @@ void GameLevel::init(const int level[ROW][COL]) {
             bricks[index++] = obj;
             activeBrickCount++;
         }
-
+      
         startX = 0;
         startY += (BRICK_HEIGHT + ADJ);
     }

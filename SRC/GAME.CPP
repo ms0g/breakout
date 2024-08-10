@@ -61,7 +61,7 @@ void Game::loop(void) {
 }
 
 void Game::processInput(void) {
-    char key = kbhit();
+    unsigned char key = kbhit();
 
     if (key == ESC) {
         isRunning = 0;
@@ -106,11 +106,9 @@ void Game::doCollision(void) {
             ui->update(score, life);
         }
     } else if (checkAABBCollision(ball, paddle)) {
-
         //determine where on the paddle we made a collision
         float ballposition =
-            (paddle->position.x + (paddle->width >> 1))-
-            (ball->position.x + (ball->width >> 1));
+            (paddle->position.x + (paddle->width >> 1)) - (ball->position.x + (ball->width >> 1));
 
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle

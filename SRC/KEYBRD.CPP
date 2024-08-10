@@ -86,7 +86,7 @@ void exitkb(void) {
     }
 }
 
-char kbhit(void) {
+unsigned char kbhit(void) {
     if (_keys[R_ARROW]) {
         return R_ARROW;
     }

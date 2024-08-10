@@ -9,7 +9,7 @@ void initkb(void);
 
 void exitkb(void);
 
-char kbhit(void);
+unsigned char kbhit(void);
 
 #endif
 

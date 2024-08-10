@@ -89,11 +89,15 @@ void exitkb(void) {
 char kbhit(void) {
     if (_keys[R_ARROW]) {
         return R_ARROW;
-    } else if (_keys[L_ARROW]) {
-        return L_ARROW;
-    } else if (_keys[ESC]) {
-        return ESC;
-    } else {
-        return -1;
     }
+    
+    if (_keys[L_ARROW]) {
+        return L_ARROW;
+    }
+    
+    if (_keys[ESC]) {
+        return ESC;
+    } 
+    
+    return -1;
 }

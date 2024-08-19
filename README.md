@@ -15,7 +15,7 @@ This project is a nostalgic re-implementation of the classic Atari Breakout game
 
 ### Prerequisites
 + Turbo C++ (>= 3.0)
-+ Turbo Assembler (>= 3.2)
++ Turbo Assembler (>= 4.1)
 + DOSBox or a real DOS computer
 
 ### Building
@@ -47,7 +47,7 @@ C:\>INSTALL.EXE
 
 6. Follow the on-screen prompts to complete the installation of the required build tools.
 
-7. Move the `MAKEFILE` and the source files into the `/TC/BIN/` directory within the project directory.
+7. Move the `MAKEFILE`,`TASM.EXE` and the source files into the `/TC/BIN/` directory within the project directory.
 
 8. After moving the files, return to DOSBox and navigate to the `/TC/BIN/` directory:
 ```bash

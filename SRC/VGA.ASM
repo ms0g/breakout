@@ -32,7 +32,7 @@ __waitvretrace endp
 __initMode proc
     push bp       
     mov bp, sp
-    mov ax, WORD PTR [bp+4]
+    mov ax, word ptr [bp+4]
     xor ah, ah         
     int 10h
     mov sp, bp
@@ -45,9 +45,9 @@ __initMode endp
 __putpixel proc
     push bp       
     mov bp, sp
-    mov ax, WORD PTR [bp+8]
-    mov dx, WORD PTR [bp+6]
-    mov cx, WORD PTR [bp+4]
+    mov ax, word ptr [bp+8]
+    mov dx, word ptr [bp+6]
+    mov cx, word ptr [bp+4]
     mov ah, 0Ch
     xor bh, bh                
     int 10h
@@ -61,7 +61,7 @@ __putpixel endp
 __clrscr proc
     push bp       
     mov bp, sp
-    mov bx, WORD PTR [bp+4]
+    mov bx, word ptr [bp+4]
     mov bh, bl
     xor bl, bl
     xor al, al

@@ -13,7 +13,6 @@ extern "C" {
     void _Cdecl _waitvretrace(void);
     void _Cdecl _putpixel(int x, int y, char color);
     void _Cdecl _initMode(int mode);
-    void _Cdecl _clrscr(char color);
 #ifdef __cplusplus
 }
 #endif

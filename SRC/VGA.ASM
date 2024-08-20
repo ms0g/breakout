@@ -54,3 +54,4 @@ __putpixel proc
     pop bp
     ret        
 __putpixel endp
+end

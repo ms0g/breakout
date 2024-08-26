@@ -5,6 +5,13 @@
 #include "CONF.H"
 
 class Renderer;
+class Brick: public GameObject {
+public:
+    int isActive;
+
+    int hitCount;
+};
+
 class GameLevel {
 public:
     void init(const int level[ROW][COL]);
@@ -15,10 +22,10 @@ public:
 
     void draw(Renderer* renderer);
 
-    GameObject* getBrick(int index);
+    Brick* getBrick(int index);
 
 private:
-    GameObject bricks[BRICK_COUNT];
+    Brick bricks[BRICK_COUNT];
 
     int activeBrickCount;
 };

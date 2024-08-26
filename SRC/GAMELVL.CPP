@@ -26,12 +26,12 @@ void GameLevel::init(const int level[ROW][COL]) {
                 continue;
             }
             
-            GameObject obj;
-            obj.position.x = positionX;
-            obj.position.y = startY;
-            obj.width = BRICK_WIDTH;
-            obj.height = BRICK_HEIGHT;
-            obj._color = color;
+            Brick obj;
+            obj.property.position.x = positionX;
+            obj.property.position.y = startY;
+            obj.property.width = BRICK_WIDTH;
+            obj.property.height = BRICK_HEIGHT;
+            obj.property.color = color;
             obj.isActive = 1;
             obj.hitCount = brickHitCountTable[color];
            
@@ -56,15 +56,15 @@ void GameLevel::draw(Renderer* renderer) {
     for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {
             renderer->rectangle(
-                bricks[i].position.x, 
-                bricks[i].position.y, 
-                bricks[i].width, 
-                bricks[i].height, 
-                bricks[i]._color);
+                bricks[i].property.position.x, 
+                bricks[i].property.position.y, 
+                bricks[i].property.width, 
+                bricks[i].property.height, 
+                bricks[i].property.color);
         }  
     }
 }
 
-GameObject* GameLevel::getBrick(int index) {
+Brick* GameLevel::getBrick(int index) {
     return &bricks[index];
 }

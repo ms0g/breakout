@@ -17,6 +17,11 @@ public:
     void draw(Renderer* renderer);
 
     void reset(float x, float y);
+
+    struct {
+        float x;
+        float y;
+    } velocity;
 };
 
 #endif

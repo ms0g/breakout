@@ -16,7 +16,7 @@ static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
 
-    ball = new Ball(paddle->position.x + (paddle->width >> 1),  paddle->position.y - 3, WHITE);
+    ball = new Ball(paddle->property.position.x + (paddle->property.width >> 1),  paddle->property.position.y - 3, WHITE);
 
     renderer = new Renderer();
 
@@ -95,8 +95,8 @@ void Game::render(void) {
 }
 
 void Game::doCollision(void) {
-     if (ball->position.y + ball->height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 3);
+     if (ball->property.position.y + ball->property.height >= SCREEN_HEIGHT) {
+        ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - 3);
         
         life--;
         
@@ -108,11 +108,11 @@ void Game::doCollision(void) {
     } else if (checkAABBCollision(ball, paddle)) {
         //determine where on the paddle we made a collision
         float ballposition =
-            (paddle->position.x + (paddle->width >> 1)) - (ball->position.x + (ball->width >> 1));
+            (paddle->property.position.x + (paddle->property.width >> 1)) - (ball->property.position.x + (ball->property.width >> 1));
 
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle
-        float degrees = 60.0f * (ballposition / (float)(paddle->width >> 1));
+        float degrees = 60.0f * (ballposition / (float)(paddle->property.width >> 1));
         float radians = degrees * (PI/180.0f);
 
         //calculate the new ball speeds based on that angle
@@ -125,7 +125,7 @@ void Game::doCollision(void) {
         GameLevel* level = levelManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
-            GameObject* brick = level->getBrick(i);
+            Brick* brick = level->getBrick(i);
             
             if (!brick->isActive) continue;
 
@@ -135,13 +135,13 @@ void Game::doCollision(void) {
                 if (brick->hitCount == 0) {
                     brick->isActive = 0;
                     
-                    score += brickScoreTable[brick->_color];
+                    score += brickScoreTable[brick->property.color];
                     
                     level->update();
                     
                     if (level->isFinished()) {
                         levelManager->loadNextLevel();
-                        ball->reset(paddle->position.x + (paddle->width >> 1), paddle->position.y - 3);
+                        ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - 3);
                         break;
                     }
                 }

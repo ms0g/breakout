@@ -7,26 +7,26 @@
 #define PADDLE_HEIGHT 5
 
 Paddle::Paddle(float x, float y, char color) {
-    position.x = x;
-    position.y = y;
-    width = PADDLE_WIDTH;
-    height = PADDLE_HEIGHT;
+    property.position.x = x;
+    property.position.y = y;
+    property.width = PADDLE_WIDTH;
+    property.height = PADDLE_HEIGHT;
     velocity.x = PADDLE_SPEED;
-    _color = color;
+    property.color = color;
 }
 
 void Paddle::move(int direction) {
     if (direction == LEFT) {
-        if (position.x > 0) {
-            position.x -= velocity.x;
+        if (property.position.x > 0) {
+            property.position.x -= velocity.x;
         }
     } else if (direction == RIGHT) {
-        if (position.x < SCREEN_WIDTH - width) {
-                position.x += velocity.x;
+        if (property.position.x < SCREEN_WIDTH - property.width) {
+            property.position.x += velocity.x;
         }
     }
 }
 
 void Paddle::draw(Renderer* renderer) {
-    renderer->rectangle(position.x, position.y, width, height, _color);
+    renderer->rectangle(property.position.x, property.position.y,property. width, property.height, property.color);
 }

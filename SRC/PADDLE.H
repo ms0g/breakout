@@ -16,6 +16,11 @@ public:
     void move(int direction);
 
     void draw(Renderer* renderer);
+    
+    struct {
+        float x;
+        float y;
+    } velocity;
 };
 
 #endif

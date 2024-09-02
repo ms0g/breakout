@@ -1,10 +1,10 @@
-# Atari Breakout Re-implementation for DOS
+# Atari Breakout Re-implementation for PC DOS
 
-### Overview
+## Overview
 
 This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
 
-### Features
+## Features
 + Faithful recreation of the classic Atari Breakout gameplay.
 + Retro-style graphics and user interface reminiscent of early gaming consoles.
 + Simple controls for easy and intuitive gameplay.
@@ -13,12 +13,12 @@ This project is a nostalgic re-implementation of the classic Atari Breakout game
 <img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">
 <img src="IMG/3.png" alt="image" width="402" height="auto"> <img src="IMG/4.png" alt="image" width="402" height="auto">
 
-### Prerequisites
+## Prerequisites
 + Turbo C++ (>= 3.0)
 + Turbo Assembler (>= 4.1)
 + DOSBox or a real DOS computer
 
-### Building
+## Building
 To install the required build tools and compile the source files, follow these steps:
 
 1. Ensure you have DOSBox installed on your system. If not, download and install DOSBox from [DOSBox website](https://www.dosbox.com/).
@@ -58,22 +58,22 @@ and start the build process:
 C:\>MAKE.EXE
 ```
 
-### How to play
-+ Use the arrow keys on your keyboard to move the paddle left and right.
-+ Hit the ball with the paddle to break the bricks at the top of the screen.
-+ Prevent the ball from falling off the bottom of the screen by keeping it in play with the paddle.
-+ Try to break as many bricks as possible to score points and advance through levels.
-+ Enjoy the nostalgic gaming experience of Atari Breakout on your DOS system!
+## How to play
+- Use the arrow keys on your keyboard to move the paddle left and right.
+- Hit the ball with the paddle to break the bricks at the top of the screen.
+- Prevent the ball from falling off the bottom of the screen by keeping it in play with the paddle.
+- Try to break as many bricks as possible to score points and advance through levels.
+- Enjoy the nostalgic gaming experience of Atari Breakout on your DOS system!
 
-### Contributing
+## Contributing
 
 Contributions to improve the game are welcome! If you have ideas for enhancements or bug fixes, feel free to fork the repository, make your changes, and submit a pull request.
 
-### License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Credits
+## Credits
 
 Developed by M. Sami Gürpınar
 

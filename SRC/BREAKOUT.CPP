@@ -1,5 +1,5 @@
 #include "GAME.H"
-#include <IOSTREAM.H>
+#include <iostream.h>
 
 void main(void) {   
     Game* breakout = new Game();

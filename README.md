@@ -4,14 +4,14 @@
 
 This project is a nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS. Bringing back the retro gaming experience, this project aims to recreate the addictive gameplay and simple graphics of the original game.
 
+<img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">
+<img src="IMG/3.png" alt="image" width="402" height="auto"> <img src="IMG/4.png" alt="image" width="402" height="auto">
+
 ## Features
 + Faithful recreation of the classic Atari Breakout gameplay.
 + Retro-style graphics and user interface reminiscent of early gaming consoles.
 + Simple controls for easy and intuitive gameplay.
 + 4 unique levels.
-
-<img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">
-<img src="IMG/3.png" alt="image" width="402" height="auto"> <img src="IMG/4.png" alt="image" width="402" height="auto">
 
 ## Prerequisites
 + Turbo C++ (>= 3.0)

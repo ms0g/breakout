@@ -67,7 +67,7 @@ Contributions to improve the game are welcome! If you have ideas for enhancement
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MPL-2.0 License. See the LICENSE file for details.
 
 ## Credits
 

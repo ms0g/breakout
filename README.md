@@ -41,7 +41,7 @@ C:\>INSTALL.EXE
 
 6. Follow the on-screen prompts to complete the installation.
 
-7. Move the `MAKEFILE`,`TASM.EXE` and the source files into the `/TC/BIN/` directory.
+7. Move the `MAKEFILE`, `COPTS.TXT`, `TOOLS/TASM.EXE`, and the source files into the `/TC/BIN/` directory.
 
 8. After moving the files, return to DOSBox and cd `/TC/BIN/`.
 ```bash

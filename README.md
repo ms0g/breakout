@@ -1,7 +1,5 @@
 # Atari Breakout Re-implementation for PC DOS
 
-## Overview
-
 A nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS.
 
 <img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">

@@ -1,6 +1,6 @@
-# Atari Breakout Re-implementation for PC DOS
+# Remake of the Atari Breakout for MS-DOS
 
-A nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS.
+A nostalgic remake of the classic Atari Breakout game, designed specifically for PC DOS.
 
 <img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">
 <img src="IMG/3.png" alt="image" width="402" height="auto"> <img src="IMG/4.png" alt="image" width="402" height="auto">

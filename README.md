@@ -67,8 +67,5 @@ Contributions to improve the game are welcome! If you have ideas for enhancement
 
 This project is licensed under the MPL-2.0 License. See the LICENSE file for details.
 
-## Credits
-
-Developed by M. Sami Gürpınar
 
 

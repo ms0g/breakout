@@ -1,4 +1,4 @@
-# Remake of the Atari Breakout for MS-DOS
+# Breakout
 
 A nostalgic remake of the classic Atari Breakout game, designed specifically for PC DOS.
 

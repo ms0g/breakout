@@ -1,8 +1,6 @@
-# Atari Breakout Re-implementation for PC DOS
+# Breakout
 
-## Overview
-
-A nostalgic re-implementation of the classic Atari Breakout game, designed specifically for PC DOS.
+A nostalgic remake of the classic Atari Breakout game, designed specifically for PC DOS.
 For the EXE file, download it from [itch.io](https://ms0g.itch.io/breakout).
 
 <img src="IMG/1.png" alt="image" width="402" height="auto"> <img src="IMG/2.png" alt="image" width="402" height="auto">
@@ -68,10 +66,7 @@ Contributions to improve the game are welcome! If you have ideas for enhancement
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MPL-2.0 License. See the LICENSE file for details.
 
-## Credits
-
-Developed by M. Sami Gürpınar
 
 

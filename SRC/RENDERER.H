@@ -27,20 +27,12 @@ public:
     void putchar(int x, int y, char color, const int (*font)[5][5]);
 
     void rectangle(int x, int y, int width, int height, char color);
-
-    /**
-     * Bresenham’s circle drawing algorithm.
-     * https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
-     */
-    void circle(int xc, int yc, int r, char color);
     
     void clear(char color);
 
     void updateBuffer(void);
 
 private:
-    void _circle(int xc, int yc, int x, int y, char color);
-
     VGA vga;
 };
 

@@ -27,7 +27,7 @@ private:
 
     Paddle* paddle;
 
-    Renderer* renderer;
+    const Renderer* renderer;
 
     LevelManager* levelManager;
 

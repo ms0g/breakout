@@ -20,7 +20,7 @@ public:
     
     void update(void);
 
-    void draw(Renderer* renderer);
+    void draw(const Renderer* renderer);
 
     Brick* getBrick(int index);
 

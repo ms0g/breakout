@@ -14,7 +14,7 @@ public:
 
     void move(void);
 
-    void draw(Renderer* renderer);
+    void draw(const Renderer* renderer);
 
     void reset(float x, float y);
 

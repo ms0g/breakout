@@ -15,7 +15,7 @@ public:
 
     void move(int direction);
 
-    void draw(Renderer* renderer);
+    void draw(const Renderer* renderer);
     
     struct {
         float x;

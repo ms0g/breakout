@@ -9,7 +9,7 @@ class LevelManager {
 public:
     LevelManager();
 
-    void drawCurrentLevel(Renderer* renderer);
+    void drawCurrentLevel(const Renderer* renderer);
 
     GameLevel* getCurrentLevel();
 

@@ -1,6 +1,6 @@
 #include "RENDERER.H"
 
-void Renderer::putchar(int x, int y, char color, const int (*font)[5][5]) {
+void Renderer::putchar(int x, int y, char color, const int (*font)[5][5]) const {
     for (int i = 0; i < 5; ++i) {
         for (int j = 0; j < 5; ++j) {
             if ((*font)[j][i]) {
@@ -10,7 +10,7 @@ void Renderer::putchar(int x, int y, char color, const int (*font)[5][5]) {
     }
 }
 
-void Renderer::rectangle(int x, int y, int width, int height, char color) {
+void Renderer::rectangle(int x, int y, int width, int height, char color) const {
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
             vga.putpixel(x + i, y + j, color);
@@ -18,10 +18,10 @@ void Renderer::rectangle(int x, int y, int width, int height, char color) {
     }
 }
 
-void Renderer::clear(char color) {
+void Renderer::clear(char color) const {
     vga.clroffscreen(color);
 }
 
-void Renderer::updateBuffer(void) {
+void Renderer::updateBuffer(void) const {
     vga.updateVRAM();
 }

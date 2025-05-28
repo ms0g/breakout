@@ -52,7 +52,7 @@ void GameLevel::update(void) {
     activeBrickCount--;
 }
 
-void GameLevel::draw(Renderer* renderer) {
+void GameLevel::draw(const Renderer* renderer) {
     for (int i = 0; i < BRICK_COUNT; ++i) {
         if (bricks[i].isActive) {
             renderer->rectangle(

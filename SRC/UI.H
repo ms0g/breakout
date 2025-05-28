@@ -8,7 +8,7 @@ public:
 
     void update(int score, int life);
     
-    void draw(Renderer* renderer);
+    void draw(const Renderer* renderer);
 
     int isGameOver;
 
@@ -24,9 +24,9 @@ private:
         char color;
     };
 
-    void drawText(const char* s, int x, int y, char color, Renderer* renderer);
+    void drawText(const char* s, int x, int y, char color, const Renderer* renderer);
     
-    void drawNumber(int value, int x, int y, char color, Renderer* renderer);
+    void drawNumber(int value, int x, int y, char color, const Renderer* renderer);
 
     UIElement scoreText;
     UIElement scoreNum;

@@ -30,7 +30,7 @@ void Ball::move(void) {
     }
 }
 
-void Ball::draw(Renderer* renderer) {
+void Ball::draw(const Renderer* renderer) {
     renderer->rectangle(property.position.x, property.position.y, property.width, property.height, property.color);
 }
 

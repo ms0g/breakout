@@ -24,7 +24,7 @@ LevelManager::LevelManager() {
     currentLevelIndex = 0;
 }
 
-void LevelManager::drawCurrentLevel(Renderer* renderer) {
+void LevelManager::drawCurrentLevel(const Renderer* renderer) {
     levels[currentLevelIndex].draw(renderer);
 }
 

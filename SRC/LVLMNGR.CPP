@@ -3,21 +3,23 @@
 #include "LEVELS.H"
 
 LevelManager::LevelManager() {
+    levels.reserve(4);
+
     GameLevel one;
     one.init(levelOne);
-    levels[0] = one;
+    levels.push_back(one);
 
     GameLevel two;
     two.init(levelTwo);
-    levels[1] = two;
+    levels.push_back(two);
 
     GameLevel three;
     three.init(levelThree);
-    levels[2] = three;
+    levels.push_back(three);
 
     GameLevel four;
     four.init(levelFour);
-    levels[3] = four;
+    levels.push_back(four);
     
     currentLevelIndex = 0;
 }

@@ -2,6 +2,7 @@
 #define LVLMNGR_H
 
 #include "GAMELVL.H"
+#include "VECTOR.H"
 
 class Renderer;
 class LevelManager {
@@ -15,7 +16,7 @@ public:
     void loadNextLevel();
 
 private:
-    GameLevel levels[4];
+    vector<GameLevel> levels;
     
     int currentLevelIndex;
 };

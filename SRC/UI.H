@@ -19,8 +19,11 @@ private:
             int y;
         } position;
       
-        int val;
-
+        union {
+            int num;
+            const char* str;
+        } val;
+        
         char color;
     };
 

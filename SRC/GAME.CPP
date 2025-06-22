@@ -10,7 +10,6 @@
 #include "UI.H"
 
 #define PI 3.14159f
-#define BALL_RESET_OFFSET_Y 3
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 

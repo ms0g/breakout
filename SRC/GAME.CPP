@@ -10,13 +10,14 @@
 #include "UI.H"
 
 #define PI 3.14159f
+#define BALL_RESET_OFFSET_Y 3
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
 Game::Game() {
     paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
 
-    ball = new Ball(paddle->property.position.x + (paddle->property.width >> 1),  paddle->property.position.y - 3, WHITE);
+    ball = new Ball(paddle->property.position.x + (paddle->property.width >> 1),  paddle->property.position.y - BALL_RESET_OFFSET_Y, WHITE);
 
     renderer = new Renderer();
 
@@ -96,7 +97,7 @@ void Game::render(void) {
 
 void Game::doCollision(void) {
      if (ball->property.position.y + ball->property.height >= SCREEN_HEIGHT) {
-        ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - 3);
+        resetBall();
         
         life--;
         
@@ -122,7 +123,7 @@ void Game::doCollision(void) {
         ball->velocity.y = ballYMove;
         
     } else {
-        GameLevel* level = levelManager->getCurrentLevel();
+        const GameLevel* level = levelManager->getCurrentLevel();
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
             Brick* brick = level->getBrick(i);
@@ -141,7 +142,7 @@ void Game::doCollision(void) {
                     
                     if (level->isFinished()) {
                         levelManager->loadNextLevel();
-                        ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - 3);
+                        resetBall();                       
                         break;
                     }
                 }
@@ -151,4 +152,8 @@ void Game::doCollision(void) {
             }
         }
     }
+}
+
+void Game::resetBall(void) {
+    ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - BALL_RESET_OFFSET_Y);
 }

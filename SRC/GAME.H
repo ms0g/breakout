@@ -23,6 +23,8 @@ private:
 
     void doCollision(void);
 
+    void resetBall(void);
+
     Ball* ball;
 
     Paddle* paddle;

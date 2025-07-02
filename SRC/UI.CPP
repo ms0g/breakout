@@ -8,7 +8,7 @@
 #define SCORE_Y 10
 #define SCORE_ADJ 35
 #define LIFE_X 200
-#define LIFE_Y SCORE_Y
+#define LIFE_Y 10
 #define LIFE_ADJ 30
 #define ADJ 6
 

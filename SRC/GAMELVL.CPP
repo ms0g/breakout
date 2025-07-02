@@ -1,4 +1,5 @@
 #include "GAMELVL.H"
+#include <string.h>
 #include "RENDERER.H"
 
 #define BRICK_WIDTH     20
@@ -11,10 +12,11 @@ static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 void GameLevel::init(const int level[ROW][COL]) {
     int startX = 0;
     int startY = 30;
-
-    activeBrickCount = 0;
-
     int index = 0;
+    activeBrickCount = 0;
+    
+    memset(bricks, 0, sizeof(bricks));
+    
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
             int color = level[i][j];
@@ -49,6 +51,9 @@ int GameLevel::isFinished(void) {
 }
 
 void GameLevel::update(void) {
+    if (activeBrickCount == 0) {
+        return;
+    }
     activeBrickCount--;
 }
 
@@ -66,5 +71,8 @@ void GameLevel::draw(const Renderer* renderer) {
 }
 
 Brick* GameLevel::getBrick(int index) {
+    if (index < 0 || index >= BRICK_COUNT) {
+        return NULL;
+    }
     return &bricks[index];
 }

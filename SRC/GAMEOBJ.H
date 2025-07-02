@@ -1,18 +1,15 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-class GameObject {
-public:
+typedef struct {
     struct {
-        struct {
-            float x; 
-            float y;
-        } position;
+        float x; 
+        float y;
+    } position;
     
-        int width; 
-        int height;
-        char color;
-    } property;
-};
+    int width; 
+    int height;
+    char color;
+} ObjectProperty;
 
 #endif

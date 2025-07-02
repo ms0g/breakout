@@ -14,9 +14,15 @@
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
 Game::Game() {
-    paddle = new Paddle(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
+    paddleInit(&paddle);
+    paddle.create(&paddle, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
 
-    ball = new Ball(paddle->property.position.x + (paddle->property.width >> 1),  paddle->property.position.y - BALL_RESET_OFFSET_Y, WHITE);
+    ballInit(&ball);
+    ball.create(
+        &ball, 
+        paddle.property.position.x + (paddle.property.width >> 1),
+        paddle.property.position.y - BALL_RESET_OFFSET_Y, 
+        0xF);
 
     levelManager = new LevelManager();
 
@@ -37,10 +43,6 @@ Game::Game() {
 
 Game::~Game() {
     rndExit();
-
-    delete paddle;
-
-    delete ball;
 
     delete levelManager;
 
@@ -64,16 +66,16 @@ void Game::processInput(void) {
     if (key == ESC) {
         isRunning = 0;
     } else if (key == L_ARROW) {
-        paddle->move(LEFT);
+        paddle.move(&paddle, LEFT);
     } else if (key == R_ARROW) {
-        paddle->move(RIGHT);
+        paddle.move(&paddle, RIGHT);
     }
 }
 
 void Game::update(void) {
     uiUpdate(score, life);
 
-    ball->move();
+    ball.move(&ball);
 
     doCollision();
 }
@@ -81,9 +83,9 @@ void Game::update(void) {
 void Game::render(void) {
     rndClear(0x0);
     
-    ball->draw();
+    ball.draw(&ball);
     
-    paddle->draw();
+    paddle.draw(&paddle);
 
     levelManager->drawCurrentLevel();
 
@@ -93,7 +95,7 @@ void Game::render(void) {
 }
 
 void Game::doCollision(void) {
-     if (ball->property.position.y + ball->property.height >= SCREEN_HEIGHT) {
+     if (ball.property.position.y + ball.property.height >= SCREEN_HEIGHT) {
         resetBall();
         
         life--;
@@ -103,21 +105,21 @@ void Game::doCollision(void) {
             isGameOver = 1;
             uiUpdate(score, life);
         }
-    } else if (checkAABBCollision(ball, paddle)) {
+    } else if (checkAABBCollision(&ball.property, &paddle.property)) {
         //determine where on the paddle we made a collision
         float ballposition =
-            (paddle->property.position.x + (paddle->property.width >> 1)) - (ball->property.position.x + (ball->property.width >> 1));
+            (paddle.property.position.x + (paddle.property.width >> 1)) - (ball.property.position.x + (ball.property.width >> 1));
 
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle
-        float degrees = 60.0f * (ballposition / (float)(paddle->property.width >> 1));
+        float degrees = 60.0f * (ballposition / (float)(paddle.property.width >> 1));
         float radians = degrees * (PI/180.0f);
 
         //calculate the new ball speeds based on that angle
         float ballXMove = BALL_SPEED * sin(radians)*-1;
         float ballYMove = BALL_SPEED * cos(radians)*-1;
-        ball->velocity.x = ballXMove;
-        ball->velocity.y = ballYMove;
+        ball.velocity.x = ballXMove;
+        ball.velocity.y = ballYMove;
         
     } else {
         const GameLevel* level = levelManager->getCurrentLevel();
@@ -127,7 +129,7 @@ void Game::doCollision(void) {
             
             if (!brick->isActive) continue;
 
-            if (checkAABBCollision(ball, brick)) {
+            if (checkAABBCollision(&ball.property, &brick->property)) {
                 brick->hitCount--;
                     
                 if (brick->hitCount == 0) {
@@ -144,7 +146,7 @@ void Game::doCollision(void) {
                     }
                 }
                     
-                ball->velocity.y = -ball->velocity.y;
+                ball.velocity.y = -ball.velocity.y;
                 break;
             }
         }
@@ -152,5 +154,8 @@ void Game::doCollision(void) {
 }
 
 void Game::resetBall(void) {
-    ball->reset(paddle->property.position.x + (paddle->property.width >> 1), paddle->property.position.y - BALL_RESET_OFFSET_Y);
+    ball.reset(
+        &ball, 
+        paddle.property.position.x + (paddle.property.width >> 1), 
+        paddle.property.position.y - BALL_RESET_OFFSET_Y);
 }

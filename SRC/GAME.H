@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-class Ball;
-class Paddle;
+#include "PADDLE.h"
+#include "BALL.h"
 class LevelManager;
 class Game {
 public:
@@ -23,9 +23,9 @@ private:
 
     void resetBall(void);
 
-    Ball* ball;
+    Ball ball;
 
-    Paddle* paddle;
+    Paddle paddle;
 
     LevelManager* levelManager;
 

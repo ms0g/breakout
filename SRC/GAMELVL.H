@@ -4,12 +4,13 @@
 #include "GAMEOBJ.H"
 #include "CONF.H"
 
-class Brick: public GameObject {
-public:
+typedef struct Brick {
+    ObjectProperty property;
+
     int isActive;
 
     int hitCount;
-};
+} Brick;
 
 class GameLevel {
 public:

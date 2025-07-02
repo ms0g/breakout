@@ -8,20 +8,36 @@
 #define BALL_HEIGHT 3
 #define BALL_RESET_OFFSET_Y 3
 
-class Ball: public GameObject {
-public:
-    Ball(float x, float y, char color);
 
-    void move(void);
-
-    void draw(void);
-
-    void reset(float x, float y);
-
+typedef struct Ball {
+    ObjectProperty property;
+    
     struct {
         float x;
         float y;
     } velocity;
-};
+
+    void (*create)(struct Ball*, float, float, char);
+    void (*move)(struct Ball*);
+    void (*draw)(struct Ball*);
+    void (*reset)(struct Ball*, float, float);
+} Ball;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+void ballInit(Ball* self);
+void ballCreate(Ball* self, float x, float y, char color);
+void ballMove(Ball* self);
+void ballDraw(Ball* self);
+void ballReset(Ball* self, float x, float y);
+  
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -24,7 +24,7 @@ Game::Game() {
 
     uiInit();
 
-    initkb();
+    kbInit();
 
     score = 0;
 
@@ -37,14 +37,14 @@ Game::Game() {
 
 Game::~Game() {
     rndExit();
-    
+
     delete paddle;
 
     delete ball;
 
     delete levelManager;
 
-    exitkb();
+    kbExit();
 }
 
 void Game::loop(void) {
@@ -59,7 +59,7 @@ void Game::loop(void) {
 }
 
 void Game::processInput(void) {
-    unsigned char key = kbhit();
+    unsigned char key = kbHit();
 
     if (key == ESC) {
         isRunning = 0;

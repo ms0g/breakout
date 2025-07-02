@@ -5,11 +5,18 @@
 #define L_ARROW     0x4B
 #define ESC         0x01
 
-void initkb(void);
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void exitkb(void);
+void kbInit(void);
 
-unsigned char kbhit(void);
+void kbExit(void);
 
+unsigned char kbHit(void);
+
+#ifdef __cplusplus
+}
+#endif
 #endif
 

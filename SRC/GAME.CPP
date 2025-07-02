@@ -18,11 +18,11 @@ Game::Game() {
 
     ball = new Ball(paddle->property.position.x + (paddle->property.width >> 1),  paddle->property.position.y - BALL_RESET_OFFSET_Y, WHITE);
 
-    renderer = new Renderer();
-
     levelManager = new LevelManager();
 
-    ui = new UI();
+    rndInit();
+
+    uiInit();
 
     initkb();
 
@@ -36,13 +36,11 @@ Game::Game() {
 }
 
 Game::~Game() {
+    rndExit();
+    
     delete paddle;
 
     delete ball;
-
-    delete ui;
-
-    delete renderer;
 
     delete levelManager;
 
@@ -73,7 +71,7 @@ void Game::processInput(void) {
 }
 
 void Game::update(void) {
-    ui->update(score, life);
+    uiUpdate(score, life);
 
     ball->move();
 
@@ -81,17 +79,17 @@ void Game::update(void) {
 }
 
 void Game::render(void) {
-    renderer->clear(BLACK);
+    rndClear(0x0);
     
-    ball->draw(renderer);
+    ball->draw();
     
-    paddle->draw(renderer);
+    paddle->draw();
 
-    levelManager->drawCurrentLevel(renderer);
+    levelManager->drawCurrentLevel();
 
-    ui->draw(renderer);
+    uiDraw();
 
-    renderer->updateBuffer();
+    rndUpdateBuffer();
 }
 
 void Game::doCollision(void) {
@@ -102,8 +100,8 @@ void Game::doCollision(void) {
         
         if (life == 0) {
             done = 1;
-            ui->isGameOver = 1;
-            ui->update(score, life);
+            isGameOver = 1;
+            uiUpdate(score, life);
         }
     } else if (checkAABBCollision(ball, paddle)) {
         //determine where on the paddle we made a collision

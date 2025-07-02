@@ -8,14 +8,13 @@ enum Direction {
     RIGHT
 };
 
-class Renderer;
 class Paddle: public GameObject {
 public:
     Paddle(float x, float y, char color);
 
     void move(int direction);
 
-    void draw(const Renderer* renderer);
+    void draw(void);
     
     struct {
         float x;

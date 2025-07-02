@@ -3,17 +3,23 @@
 
 #include "VGA.H"
 
-class Renderer {
-public:
-    Renderer();
-    ~Renderer();
-    void putchar(int x, int y, char color, const int (*font)[5][5]) const;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-    void rectangle(int x, int y, int width, int height, char color) const;
-    
-    void clear(char color) const;
+void rndInit(void);
 
-    void updateBuffer(void) const;
-};
+void rndExit(void);
+
+void rndPutchar(int x, int y, char color, const int (*font)[5][5]);
+
+void rndDrawRect(int x, int y, int width, int height, char color);
+
+void rndClear(char color);
+
+void rndUpdateBuffer(void);
+#ifdef __cplusplus
+}
+#endif
 
 #endif

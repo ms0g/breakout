@@ -27,6 +27,6 @@ void Paddle::move(int direction) {
     }
 }
 
-void Paddle::draw(const Renderer* renderer) {
-    renderer->rectangle(property.position.x, property.position.y,property. width, property.height, property.color);
+void Paddle::draw(void) {
+    rndDrawRect(property.position.x, property.position.y,property. width, property.height, property.color);
 }

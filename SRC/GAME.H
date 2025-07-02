@@ -3,9 +3,7 @@
 
 class Ball;
 class Paddle;
-class Renderer;
 class LevelManager;
-class UI;
 class Game {
 public:
     Game();
@@ -29,11 +27,7 @@ private:
 
     Paddle* paddle;
 
-    const Renderer* renderer;
-
     LevelManager* levelManager;
-
-    UI* ui;
 
     int isRunning;
 

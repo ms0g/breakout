@@ -1,43 +1,19 @@
 #ifndef UI_H
 #define UI_H
 
-class Renderer;
-class UI {
-public:
-    UI();
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-    void update(int score, int life);
-    
-    void draw(const Renderer* renderer);
+extern int isGameOver;
 
-    int isGameOver;
+void uiInit(void);
 
-private:
-    struct UIElement {
-        struct {
-            int x;
-            int y;
-        } position;
-      
-        union {
-            int num;
-            const char* str;
-        } val;
-        
-        char color;
-    };
+void uiUpdate(int score, int life);
 
-    void drawText(const char* s, int x, int y, char color, const Renderer* renderer);
-    
-    void drawNumber(int value, int x, int y, char color, const Renderer* renderer);
+void uiDraw(void);
 
-    UIElement scoreText;
-    UIElement scoreNum;
-
-    UIElement lifeText;
-    UIElement lifeNum;
-
-    UIElement gameOverText;
-};
-
+#ifdef __cplusplus
+}   
+#endif
 #endif

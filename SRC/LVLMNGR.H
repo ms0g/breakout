@@ -4,16 +4,15 @@
 #include "GAMELVL.H"
 #include "VECTOR.H"
 
-class Renderer;
 class LevelManager {
 public:
     LevelManager();
 
-    void drawCurrentLevel(const Renderer* renderer);
+    void drawCurrentLevel(void);
 
-    GameLevel* getCurrentLevel();
+    GameLevel* getCurrentLevel(void);
 
-    void loadNextLevel();
+    void loadNextLevel(void);
 
 private:
     vector<GameLevel> levels;

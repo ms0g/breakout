@@ -8,14 +8,13 @@
 #define BALL_HEIGHT 3
 #define BALL_RESET_OFFSET_Y 3
 
-class Renderer;
 class Ball: public GameObject {
 public:
     Ball(float x, float y, char color);
 
     void move(void);
 
-    void draw(const Renderer* renderer);
+    void draw(void);
 
     void reset(float x, float y);
 

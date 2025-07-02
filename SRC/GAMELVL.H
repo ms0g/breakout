@@ -4,7 +4,6 @@
 #include "GAMEOBJ.H"
 #include "CONF.H"
 
-class Renderer;
 class Brick: public GameObject {
 public:
     int isActive;
@@ -20,7 +19,7 @@ public:
     
     void update(void);
 
-    void draw(const Renderer* renderer);
+    void draw(void);
 
     Brick* getBrick(int index);
 

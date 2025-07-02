@@ -24,15 +24,15 @@ LevelManager::LevelManager() {
     currentLevelIndex = 0;
 }
 
-void LevelManager::drawCurrentLevel(const Renderer* renderer) {
-    levels[currentLevelIndex].draw(renderer);
+void LevelManager::drawCurrentLevel(void) {
+    levels[currentLevelIndex].draw();
 }
 
-GameLevel* LevelManager::getCurrentLevel() {
+GameLevel* LevelManager::getCurrentLevel(void) {
     return &levels[currentLevelIndex];
 }
 
-void LevelManager::loadNextLevel() {
+void LevelManager::loadNextLevel(void) {
     ++currentLevelIndex;
 
     if (currentLevelIndex > 3) {

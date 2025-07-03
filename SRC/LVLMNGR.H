@@ -8,15 +8,15 @@ typedef struct LevelManager{
     int currentLevelIndex;
 
     void (*new)(struct LevelManager* self);
-    void (*drawCurrentLevel)(struct LevelManager* self);
-    GameLevel* (*getCurrentLevel)(struct LevelManager* self);
+    void (*drawCurrentLevel)(const struct LevelManager* self);
+    GameLevel* (*getCurrentLevel)(const struct LevelManager* self);
     void (*loadNextLevel)(struct LevelManager* self);
 } LevelManager;
 
 void lmInit(LevelManager* self);
 void lmCreate(LevelManager* self);
-void lmDrawCurrentLevel(LevelManager* self);
-GameLevel* lmGetCurrentLevel(LevelManager* self);
+void lmDrawCurrentLevel(const LevelManager* self);
+GameLevel* lmGetCurrentLevel(const LevelManager* self);
 void lmLoadNextLevel(LevelManager* self);
 
 #endif

@@ -33,7 +33,7 @@ void paddleMove(Paddle* self, int direction) {
     }
 }
 
-void paddleDraw(Paddle* self) {
+void paddleDraw(const Paddle* self) {
     rndDrawRect(
         self->property.position.x, 
         self->property.position.y, 

@@ -18,12 +18,12 @@ typedef struct Paddle {
 
     void (*new)(struct Paddle*, float, float, char);
     void (*move)(struct Paddle*, int direction);
-    void (*draw)(struct Paddle*);
+    void (*draw)(const struct Paddle*);
 } Paddle;
 
 void paddleInit(Paddle* self);
 void paddleCreate(Paddle* self, float x, float y, char color);
 void paddleMove(Paddle* self, int direction);
-void paddleDraw(Paddle* self);
+void paddleDraw(const Paddle* self);
 
 #endif

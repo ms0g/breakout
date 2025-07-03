@@ -8,7 +8,6 @@
 #define BALL_HEIGHT 3
 #define BALL_RESET_OFFSET_Y 3
 
-
 typedef struct Ball {
     ObjectProperty property;
     
@@ -19,14 +18,14 @@ typedef struct Ball {
 
     void (*new)(struct Ball*, float, float, char);
     void (*move)(struct Ball*);
-    void (*draw)(struct Ball*);
+    void (*draw)(const struct Ball*);
     void (*reset)(struct Ball*, float, float);
 } Ball;
 
 void ballInit(Ball* self);
 void ballCreate(Ball* self, float x, float y, char color);
 void ballMove(Ball* self);
-void ballDraw(Ball* self);
+void ballDraw(const Ball* self);
 void ballReset(Ball* self, float x, float y);
   
 #endif

@@ -37,7 +37,7 @@ void ballMove(Ball* self) {
     }
 }
 
-void ballDraw(Ball* self) {
+void ballDraw(const Ball* self) {
     rndDrawRect(
         self->property.position.x, 
         self->property.position.y, 

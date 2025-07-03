@@ -12,7 +12,7 @@ void lmInit(LevelManager* self) {
 }
 
 void lmCreate(LevelManager* self) {
-    GameLevel one,two, three, four;
+    GameLevel one, two, three, four;
     
     glInit(&one);
     one.new(&one, levelOne);
@@ -33,11 +33,12 @@ void lmCreate(LevelManager* self) {
     self->currentLevelIndex = 0;
 }
 
-void lmDrawCurrentLevel(LevelManager* self) {
-    self->levels[self->currentLevelIndex].draw(&self->levels[self->currentLevelIndex]);
+void lmDrawCurrentLevel(const LevelManager* self) {
+    GameLevel* lvl = &self->levels[self->currentLevelIndex];
+    lvl->draw(lvl);
 }
 
-GameLevel* lmGetCurrentLevel(LevelManager* self) {
+GameLevel* lmGetCurrentLevel(const LevelManager* self) {
     return &self->levels[self->currentLevelIndex];
 }
 

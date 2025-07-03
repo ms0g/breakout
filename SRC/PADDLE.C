@@ -7,7 +7,7 @@
 #define PADDLE_HEIGHT 5
 
 void paddleInit(Paddle* self) {
-    self->create = paddleCreate;
+    self->new = paddleCreate;
     self->move = paddleMove;
     self->draw = paddleDraw;
 }

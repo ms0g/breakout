@@ -1,5 +1,5 @@
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
+#ifndef OBJPRTY_H
+#define OBJPRTY_H
 
 typedef struct {
     struct {

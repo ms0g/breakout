@@ -1,15 +1,8 @@
 #ifndef AABB_H
 #define AABB_H
 
-#include "GAMEOBJ.H"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "OBJPRTY.H"
 
 int checkAABBCollision(ObjectProperty* one, ObjectProperty* two);
-#ifdef __cplusplus
-}
-#endif
 
 #endif

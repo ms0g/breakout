@@ -3,7 +3,7 @@
 #include "RENDERER.H"
 
 void ballInit(Ball* self) {
-    self->create = ballCreate;
+    self->new = ballCreate;
     self->move = ballMove;
     self->draw = ballDraw;
     self->reset = ballReset;   

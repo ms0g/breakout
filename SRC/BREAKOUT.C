@@ -1,9 +1,9 @@
-#include "GAME.H"
 #include <math.h>
+#include <stdio.h>
 #include "KEYBRD.H"
 #include "PADDLE.H"
-#include "RENDERER.H"
 #include "BALL.H"
+#include "RENDERER.H"
 #include "CONF.H"
 #include "AABB.H"
 #include "LVLMNGR.H"
@@ -11,55 +11,20 @@
 
 #define PI 3.14159f
 
+static Ball ball;
+static Paddle paddle;
+static LevelManager levelManager;
+static int isRunning;
+static int done;
+static int score;
+static int life;
+
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
-Game::Game() {
-    paddleInit(&paddle);
-    paddle.create(&paddle, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
+static void doCollision(void);
+static void resetBall(void);
 
-    ballInit(&ball);
-    ball.create(
-        &ball, 
-        paddle.property.position.x + (paddle.property.width >> 1),
-        paddle.property.position.y - BALL_RESET_OFFSET_Y, 
-        0xF);
-
-    lmInit(&levelManager);
-    levelManager.create(&levelManager);
-
-    rndInit();
-
-    uiInit();
-
-    kbInit();
-
-    score = 0;
-
-    life = PLAYER_LIFE;
-
-    isRunning = 1;
-
-    done = 0;
-}
-
-Game::~Game() {
-    rndExit();
-
-    kbExit();
-}
-
-void Game::loop(void) {
-    while (isRunning) {
-        processInput();
-        
-        if (!done) {
-            update();
-            render();
-        }
-    }
-}
-
-void Game::processInput(void) {
+static void processInput(void) {
     unsigned char key = kbHit();
 
     if (key == ESC) {
@@ -71,7 +36,7 @@ void Game::processInput(void) {
     }
 }
 
-void Game::update(void) {
+static void update(void) {
     uiUpdate(score, life);
 
     ball.move(&ball);
@@ -79,7 +44,7 @@ void Game::update(void) {
     doCollision();
 }
 
-void Game::render(void) {
+static void render(void) {
     rndClear(0x0);
     
     ball.draw(&ball);
@@ -93,7 +58,7 @@ void Game::render(void) {
     rndUpdateBuffer();
 }
 
-void Game::doCollision(void) {
+static void doCollision(void) {
      if (ball.property.position.y + ball.property.height >= SCREEN_HEIGHT) {
         resetBall();
         
@@ -121,9 +86,10 @@ void Game::doCollision(void) {
         ball.velocity.y = ballYMove;
         
     } else {
+        int i;
         GameLevel* level = levelManager.getCurrentLevel(&levelManager);
     
-        for (int i = 0; i < BRICK_COUNT; ++i) {
+        for (i = 0; i < BRICK_COUNT; ++i) {
             Brick* brick = level->getBrick(level, i);
             
             if (!brick->isActive) continue;
@@ -152,9 +118,52 @@ void Game::doCollision(void) {
     }
 }
 
-void Game::resetBall(void) {
+static void resetBall(void) {
     ball.reset(
         &ball, 
         paddle.property.position.x + (paddle.property.width >> 1), 
         paddle.property.position.y - BALL_RESET_OFFSET_Y);
+}
+
+static void init(void) {
+    paddleInit(&paddle);
+    paddle.new(&paddle, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
+
+    ballInit(&ball);
+    ball.new(
+        &ball, 
+        paddle.property.position.x + (paddle.property.width >> 1),
+        paddle.property.position.y - BALL_RESET_OFFSET_Y, 
+        0xF);
+
+    lmInit(&levelManager);
+    levelManager.new(&levelManager);
+
+    rndInit();
+    uiInit();
+    kbInit();
+
+    score = done = 0;
+
+    life = PLAYER_LIFE;
+
+    isRunning = 1;
+}
+
+void main(void) {
+    init();
+    
+    while (isRunning) {
+        processInput();
+        
+        if (!done) {
+            update();
+            render();
+        }
+    }
+
+    rndExit();
+    kbExit();
+    
+    printf("%s", "\tDeveloped by M. Sami GURPINAR\n     In a lot of blood, sweat, and tears.\n");
 }

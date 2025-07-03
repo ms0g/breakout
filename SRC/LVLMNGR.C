@@ -3,7 +3,7 @@
 #include "LEVELS.H"
 
 void lmInit(LevelManager* self) {
-    self->create = lmCreate;
+    self->new = lmCreate;
     self->drawCurrentLevel = lmDrawCurrentLevel;
     self->getCurrentLevel = lmGetCurrentLevel;
     self->loadNextLevel = lmLoadNextLevel;
@@ -15,19 +15,19 @@ void lmCreate(LevelManager* self) {
     GameLevel one,two, three, four;
     
     glInit(&one);
-    one.create(&one, levelOne);
+    one.new(&one, levelOne);
     self->levels[0] = one;
 
     glInit(&two);
-    two.create(&two, levelTwo);
+    two.new(&two, levelTwo);
     self->levels[1] = two;
 
     glInit(&three);
-    three.create(&three, levelThree);
+    three.new(&three, levelThree);
     self->levels[2] = three;
 
     glInit(&four);
-    four.create(&four, levelFour);
+    four.new(&four, levelFour);
     self->levels[3] = four;
     
     self->currentLevelIndex = 0;

@@ -10,7 +10,7 @@
 static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 
 void glInit(GameLevel* self) {
-    self->create = glCreate;
+    self->new = glCreate;
     self->isFinished = glIsFinished;
     self->update = glUpdate;
     self->draw = glDraw;

@@ -1,8 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "VGA.H"
-
 void rndInit(void);
 
 void rndExit(void);

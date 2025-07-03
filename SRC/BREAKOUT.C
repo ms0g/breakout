@@ -127,7 +127,7 @@ static void resetBall(void) {
 
 static void init(void) {
     paddleInit(&paddle);
-    paddle.new(&paddle, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, MAGENTA);
+    paddle.new(&paddle, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 10, 0x5);
 
     ballInit(&ball);
     ball.new(

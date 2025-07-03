@@ -35,7 +35,7 @@ void glCreate(GameLevel* self, const int level[ROW][COL]) {
             int positionX = startX + START_ADJ;
             startX += (BRICK_WIDTH + ADJ);
 
-            if (color == BLACK) {
+            if (color == 0x0) {
                 continue;
             }
             

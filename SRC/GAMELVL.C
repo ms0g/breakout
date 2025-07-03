@@ -53,8 +53,8 @@ static void glCreate(GameLevel* this, const int (*level)[COL]) {
             obj.isActive = 1;
             obj.hitCount = brickHitCountTable[color];
            
-            self->bricks[index++] = obj;
-            self->activeBrickCount++;
+            this->bricks[index++] = obj;
+            this->activeBrickCount++;
         }
       
         startX = 0;

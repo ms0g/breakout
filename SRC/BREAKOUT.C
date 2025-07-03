@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include "VGA.H"
 #include "KEYBRD.H"
 #include "PADDLE.H"
 #include "BALL.H"
@@ -45,7 +46,7 @@ static void update(void) {
 }
 
 static void render(void) {
-    rndClear(0x0);
+    vgaClearOffscreen(0x0);
     
     ball.draw(&ball);
     
@@ -55,7 +56,7 @@ static void render(void) {
 
     uiDraw();
 
-    rndUpdateBuffer();
+    vgaUpdateVram();
 }
 
 static void doCollision(void) {
@@ -139,7 +140,7 @@ static void init(void) {
     lmInit(&levelManager);
     levelManager.new(&levelManager);
 
-    rndInit();
+    vgaInit();
     uiInit();
     kbInit();
 
@@ -162,7 +163,7 @@ void main(void) {
         }
     }
 
-    rndExit();
+    vgaExit();
     kbExit();
     
     printf("%s", "\tDeveloped by M. Sami GURPINAR\n     In a lot of blood, sweat, and tears.\n");

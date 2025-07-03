@@ -1,14 +1,6 @@
 #include "RENDERER.H"
 #include "VGA.H"
 
-void rndInit(void) {
-    vgaInit();
-}
-
-void rndExit(void) {
-    vgaExit();
-}
-
 void rndPutchar(int x, int y, char color, const int (*font)[5][5]) {
     int i, j;
     for (i = 0; i < 5; ++i) {
@@ -27,12 +19,4 @@ void rndDrawRect(int x, int y, int width, int height, char color) {
             vgaPutPixel(x + i, y + j, color);
         }
     }
-}
-
-void rndClear(char color) {
-    vgaClearOffscreen(color);
-}
-
-void rndUpdateBuffer(void) {
-    vgaUpdateVram();
 }

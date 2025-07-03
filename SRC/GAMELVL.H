@@ -18,7 +18,7 @@ typedef struct GameLevel{
     int (*isFinished)(const struct GameLevel* self);
     void (*update)(struct GameLevel* self);
     void (*draw)(const struct GameLevel* self);
-    Brick* (*getBrick)(const struct GameLevel* self, int index);
+    Brick* (*getBrick)(struct GameLevel* self, int index);
 } GameLevel;
 
 void glInit(GameLevel* self);
@@ -26,6 +26,6 @@ void glCreate(GameLevel* self, const int level[ROW][COL]);
 int glIsFinished(const GameLevel* self);
 void glUpdate(GameLevel* self);
 void glDraw(const GameLevel* self);
-Brick* glGetBrick(const GameLevel* self, int index);
+Brick* glGetBrick(GameLevel* self, int index);
 
 #endif

@@ -81,7 +81,7 @@ void glDraw(const GameLevel* self) {
     }
 }
 
-Brick* glGetBrick(const GameLevel* self, int index) {
+Brick* glGetBrick(GameLevel* self, int index) {
     if (index < 0 || index >= BRICK_COUNT) {
         return NULL;
     }

@@ -9,14 +9,14 @@ typedef struct LevelManager{
 
     void (*new)(struct LevelManager* self);
     void (*drawCurrentLevel)(const struct LevelManager* self);
-    GameLevel* (*getCurrentLevel)(const struct LevelManager* self);
+    GameLevel* (*getCurrentLevel)(struct LevelManager* self);
     void (*loadNextLevel)(struct LevelManager* self);
 } LevelManager;
 
 void lmInit(LevelManager* self);
 void lmCreate(LevelManager* self);
 void lmDrawCurrentLevel(const LevelManager* self);
-GameLevel* lmGetCurrentLevel(const LevelManager* self);
+GameLevel* lmGetCurrentLevel(LevelManager* self);
 void lmLoadNextLevel(LevelManager* self);
 
 #endif

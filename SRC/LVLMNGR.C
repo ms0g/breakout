@@ -34,11 +34,11 @@ void lmCreate(LevelManager* self) {
 }
 
 void lmDrawCurrentLevel(const LevelManager* self) {
-    GameLevel* lvl = &self->levels[self->currentLevelIndex];
-    lvl->draw(lvl);
+    const GameLevel* currentLevel = &self->levels[self->currentLevelIndex];
+    currentLevel->draw(currentLevel);
 }
 
-GameLevel* lmGetCurrentLevel(const LevelManager* self) {
+GameLevel* lmGetCurrentLevel(LevelManager* self) {
     return &self->levels[self->currentLevelIndex];
 }
 

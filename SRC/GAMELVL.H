@@ -12,22 +12,28 @@ typedef struct Brick {
     int hitCount;
 } Brick;
 
-class GameLevel {
-public:
-    void init(const int level[ROW][COL]);
-    
-    int isFinished(void);
-    
-    void update(void);
-
-    void draw(void);
-
-    Brick* getBrick(int index);
-
-private:
+typedef struct GameLevel{
     Brick bricks[BRICK_COUNT];
-
     int activeBrickCount;
-};
 
+    void (*create)(struct GameLevel* self, const int level[ROW][COL]);
+    int (*isFinished)(const struct GameLevel* self);
+    void (*update)(struct GameLevel* self);
+    void (*draw)(const struct GameLevel* self);
+    Brick* (*getBrick)(const struct GameLevel* self, int index);
+} GameLevel;
+
+#ifdef __cplusplus
+extern "C" {
+#endif  
+
+void glInit(GameLevel* self);
+void glCreate(GameLevel* self, const int level[ROW][COL]);
+int glIsFinished(const GameLevel* self);
+void glUpdate(GameLevel* self);
+void glDraw(const GameLevel* self);
+Brick* glGetBrick(const GameLevel* self, int index);
+#ifdef __cplusplus
+}
+#endif
 #endif

@@ -24,7 +24,8 @@ Game::Game() {
         paddle.property.position.y - BALL_RESET_OFFSET_Y, 
         0xF);
 
-    levelManager = new LevelManager();
+    lmInit(&levelManager);
+    levelManager.create(&levelManager);
 
     rndInit();
 
@@ -43,8 +44,6 @@ Game::Game() {
 
 Game::~Game() {
     rndExit();
-
-    delete levelManager;
 
     kbExit();
 }
@@ -87,7 +86,7 @@ void Game::render(void) {
     
     paddle.draw(&paddle);
 
-    levelManager->drawCurrentLevel();
+    levelManager.drawCurrentLevel(&levelManager);
 
     uiDraw();
 
@@ -122,10 +121,10 @@ void Game::doCollision(void) {
         ball.velocity.y = ballYMove;
         
     } else {
-        const GameLevel* level = levelManager->getCurrentLevel();
+        GameLevel* level = levelManager.getCurrentLevel(&levelManager);
     
         for (int i = 0; i < BRICK_COUNT; ++i) {
-            Brick* brick = level->getBrick(i);
+            Brick* brick = level->getBrick(level, i);
             
             if (!brick->isActive) continue;
 
@@ -137,10 +136,10 @@ void Game::doCollision(void) {
                     
                     score += brickScoreTable[brick->property.color];
                     
-                    level->update();
+                    level->update(level);
                     
-                    if (level->isFinished()) {
-                        levelManager->loadNextLevel();
+                    if (level->isFinished(level)) {
+                        levelManager.loadNextLevel(&levelManager);
                         resetBall();                       
                         break;
                     }

@@ -1,0 +1,50 @@
+#include "LVLMNGR.H"
+#include "RENDERER.H"
+#include "LEVELS.H"
+
+void lmInit(LevelManager* self) {
+    self->create = lmCreate;
+    self->drawCurrentLevel = lmDrawCurrentLevel;
+    self->getCurrentLevel = lmGetCurrentLevel;
+    self->loadNextLevel = lmLoadNextLevel;
+
+    self->currentLevelIndex = 0;
+}
+
+void lmCreate(LevelManager* self) {
+    GameLevel one,two, three, four;
+    
+    glInit(&one);
+    one.create(&one, levelOne);
+    self->levels[0] = one;
+
+    glInit(&two);
+    two.create(&two, levelTwo);
+    self->levels[1] = two;
+
+    glInit(&three);
+    three.create(&three, levelThree);
+    self->levels[2] = three;
+
+    glInit(&four);
+    four.create(&four, levelFour);
+    self->levels[3] = four;
+    
+    self->currentLevelIndex = 0;
+}
+
+void lmDrawCurrentLevel(LevelManager* self) {
+    self->levels[self->currentLevelIndex].draw(&self->levels[self->currentLevelIndex]);
+}
+
+GameLevel* lmGetCurrentLevel(LevelManager* self) {
+    return &self->levels[self->currentLevelIndex];
+}
+
+void lmLoadNextLevel(LevelManager* self) {
+    ++self->currentLevelIndex;
+
+    if (self->currentLevelIndex > 3) {
+        self->currentLevelIndex = 0;
+    }
+}

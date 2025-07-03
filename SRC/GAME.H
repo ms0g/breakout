@@ -3,7 +3,7 @@
 
 #include "PADDLE.h"
 #include "BALL.h"
-class LevelManager;
+#include "LVLMNGR.h"
 class Game {
 public:
     Game();
@@ -27,7 +27,7 @@ private:
 
     Paddle paddle;
 
-    LevelManager* levelManager;
+    LevelManager levelManager;
 
     int isRunning;
 

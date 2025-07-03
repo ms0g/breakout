@@ -2,6 +2,11 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
+static void ballCreate(Ball* self, float x, float y, char color);
+static void ballMove(Ball* self);
+static void ballDraw(const Ball* self);
+static void ballReset(Ball* self, float x, float y);
+
 void ballInit(Ball* self) {
     self->new = ballCreate;
     self->move = ballMove;
@@ -9,7 +14,7 @@ void ballInit(Ball* self) {
     self->reset = ballReset;   
 }
 
-void ballCreate(Ball* self, float x, float y, char color) {
+static void ballCreate(Ball* self, float x, float y, char color) {
     self->property.position.x = x;
     self->property.position.y = y;
     self->property.width = BALL_WIDTH;
@@ -19,7 +24,7 @@ void ballCreate(Ball* self, float x, float y, char color) {
     self->property.color = color;
 }
 
-void ballMove(Ball* self) {
+static void ballMove(Ball* self) {
     self->property.position.x += self->velocity.x;
     self->property.position.y += self->velocity.y;
 
@@ -37,7 +42,7 @@ void ballMove(Ball* self) {
     }
 }
 
-void ballDraw(const Ball* self) {
+static void ballDraw(const Ball* self) {
     rndDrawRect(
         self->property.position.x, 
         self->property.position.y, 
@@ -46,7 +51,7 @@ void ballDraw(const Ball* self) {
         self->property.color);
 }
 
-void ballReset(Ball* self, float x, float y) {
+static void ballReset(Ball* self, float x, float y) {
     self->property.position.x = x;
     self->property.position.y = y;
     self->velocity.x = -BALL_SPEED/2;

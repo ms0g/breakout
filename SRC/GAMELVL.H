@@ -22,10 +22,5 @@ typedef struct GameLevel{
 } GameLevel;
 
 void glInit(GameLevel* self);
-void glCreate(GameLevel* self, const int level[ROW][COL]);
-int glIsFinished(const GameLevel* self);
-void glUpdate(GameLevel* self);
-void glDraw(const GameLevel* self);
-Brick* glGetBrick(GameLevel* self, int index);
 
 #endif

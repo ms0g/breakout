@@ -23,9 +23,5 @@ typedef struct Ball {
 } Ball;
 
 void ballInit(Ball* self);
-void ballCreate(Ball* self, float x, float y, char color);
-void ballMove(Ball* self);
-void ballDraw(const Ball* self);
-void ballReset(Ball* self, float x, float y);
   
 #endif

@@ -2,6 +2,11 @@
 #include "RENDERER.H"
 #include "LEVELS.H"
 
+static void lmCreate(LevelManager* self);
+static void lmDrawCurrentLevel(const LevelManager* self);
+static GameLevel* lmGetCurrentLevel(LevelManager* self);
+static void lmLoadNextLevel(LevelManager* self);
+
 void lmInit(LevelManager* self) {
     self->new = lmCreate;
     self->drawCurrentLevel = lmDrawCurrentLevel;
@@ -11,7 +16,7 @@ void lmInit(LevelManager* self) {
     self->currentLevelIndex = 0;
 }
 
-void lmCreate(LevelManager* self) {
+static void lmCreate(LevelManager* self) {
     GameLevel one, two, three, four;
     
     glInit(&one);
@@ -33,16 +38,16 @@ void lmCreate(LevelManager* self) {
     self->currentLevelIndex = 0;
 }
 
-void lmDrawCurrentLevel(const LevelManager* self) {
+static void lmDrawCurrentLevel(const LevelManager* self) {
     const GameLevel* currentLevel = &self->levels[self->currentLevelIndex];
     currentLevel->draw(currentLevel);
 }
 
-GameLevel* lmGetCurrentLevel(LevelManager* self) {
+static GameLevel* lmGetCurrentLevel(LevelManager* self) {
     return &self->levels[self->currentLevelIndex];
 }
 
-void lmLoadNextLevel(LevelManager* self) {
+static void lmLoadNextLevel(LevelManager* self) {
     ++self->currentLevelIndex;
 
     if (self->currentLevelIndex > 3) {

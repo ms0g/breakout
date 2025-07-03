@@ -14,9 +14,5 @@ typedef struct LevelManager{
 } LevelManager;
 
 void lmInit(LevelManager* self);
-void lmCreate(LevelManager* self);
-void lmDrawCurrentLevel(const LevelManager* self);
-GameLevel* lmGetCurrentLevel(LevelManager* self);
-void lmLoadNextLevel(LevelManager* self);
 
 #endif

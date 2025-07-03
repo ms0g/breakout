@@ -6,13 +6,17 @@
 #define PADDLE_WIDTH 30
 #define PADDLE_HEIGHT 5
 
+static void paddleCreate(Paddle* self, float x, float y, char color);
+static void paddleMove(Paddle* self, int direction);
+static void paddleDraw(const Paddle* self);
+
 void paddleInit(Paddle* self) {
     self->new = paddleCreate;
     self->move = paddleMove;
     self->draw = paddleDraw;
 }
 
-void paddleCreate(Paddle* self, float x, float y, char color) {
+static void paddleCreate(Paddle* self, float x, float y, char color) {
     self->property.position.x = x;
     self->property.position.y = y;
     self->property.width = PADDLE_WIDTH;
@@ -21,7 +25,7 @@ void paddleCreate(Paddle* self, float x, float y, char color) {
     self->property.color = color;
 }
 
-void paddleMove(Paddle* self, int direction) {
+static void paddleMove(Paddle* self, int direction) {
     if (direction == LEFT) {
         if (self->property.position.x > 0) {
             self->property.position.x -= self->velocity.x;
@@ -33,7 +37,7 @@ void paddleMove(Paddle* self, int direction) {
     }
 }
 
-void paddleDraw(const Paddle* self) {
+static void paddleDraw(const Paddle* self) {
     rndDrawRect(
         self->property.position.x, 
         self->property.position.y, 

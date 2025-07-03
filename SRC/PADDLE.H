@@ -22,8 +22,5 @@ typedef struct Paddle {
 } Paddle;
 
 void paddleInit(Paddle* self);
-void paddleCreate(Paddle* self, float x, float y, char color);
-void paddleMove(Paddle* self, int direction);
-void paddleDraw(const Paddle* self);
 
 #endif

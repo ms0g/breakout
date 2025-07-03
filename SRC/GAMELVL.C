@@ -9,6 +9,12 @@
 
 static const int brickHitCountTable[16] = {0,0,1,0,3,0,4,0,0,0,0,0,2,0,1,0};
 
+static void glCreate(GameLevel* self, const int level[ROW][COL]);
+static int glIsFinished(const GameLevel* self);
+static void glUpdate(GameLevel* self);
+static void glDraw(const GameLevel* self);
+static Brick* glGetBrick(GameLevel* self, int index);
+
 void glInit(GameLevel* self) {
     self->new = glCreate;
     self->isFinished = glIsFinished;
@@ -21,7 +27,7 @@ void glInit(GameLevel* self) {
     memset(self->bricks, 0, sizeof(self->bricks));
 }
 
-void glCreate(GameLevel* self, const int level[ROW][COL]) {
+static void glCreate(GameLevel* self, const int level[ROW][COL]) {
     int startX = 0;
     int startY = 30;
     int index = 0;
@@ -56,18 +62,18 @@ void glCreate(GameLevel* self, const int level[ROW][COL]) {
     }
 }
 
-int glIsFinished(const GameLevel* self) {
+static int glIsFinished(const GameLevel* self) {
     return self->activeBrickCount == 0;
 }
 
-void glUpdate(GameLevel* self) {
+static void glUpdate(GameLevel* self) {
     if (self->activeBrickCount == 0) {
         return;
     }
     self->activeBrickCount--;
 }
 
-void glDraw(const GameLevel* self) {
+static void glDraw(const GameLevel* self) {
     int i;
     for (i = 0; i < BRICK_COUNT; ++i) {
         if (self->bricks[i].isActive) {
@@ -81,7 +87,7 @@ void glDraw(const GameLevel* self) {
     }
 }
 
-Brick* glGetBrick(GameLevel* self, int index) {
+static Brick* glGetBrick(GameLevel* self, int index) {
     if (index < 0 || index >= BRICK_COUNT) {
         return NULL;
     }

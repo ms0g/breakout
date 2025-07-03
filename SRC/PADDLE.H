@@ -10,11 +10,7 @@ enum Direction {
 
 typedef struct Paddle {
     ObjectProperty property;
-    
-    struct {
-        float x;
-        float y;
-    } velocity;
+    Velocity velocity;
 
     void (*new)(struct Paddle*, float, float, char);
     void (*move)(struct Paddle*, int direction);

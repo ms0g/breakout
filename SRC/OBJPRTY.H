@@ -12,4 +12,9 @@ typedef struct {
     char color;
 } ObjectProperty;
 
+typedef struct {
+    float x;
+    float y;
+} Velocity;
+
 #endif

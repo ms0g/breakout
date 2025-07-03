@@ -10,11 +10,7 @@
 
 typedef struct Ball {
     ObjectProperty property;
-    
-    struct {
-        float x;
-        float y;
-    } velocity;
+    Velocity velocity;
 
     void (*new)(struct Ball*, float, float, char);
     void (*move)(struct Ball*);

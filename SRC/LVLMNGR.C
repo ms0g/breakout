@@ -2,55 +2,55 @@
 #include "RENDERER.H"
 #include "LEVELS.H"
 
-static void lmCreate(LevelManager* self);
-static void lmDrawCurrentLevel(const LevelManager* self);
-static GameLevel* lmGetCurrentLevel(LevelManager* self);
-static void lmLoadNextLevel(LevelManager* self);
+static void lmCreate(LevelManager* this);
+static void lmDrawCurrentLevel(const LevelManager* this);
+static GameLevel* lmGetCurrentLevel(LevelManager* this);
+static void lmLoadNextLevel(LevelManager* this);
 
-void lmInit(LevelManager* self) {
-    self->new = lmCreate;
-    self->drawCurrentLevel = lmDrawCurrentLevel;
-    self->getCurrentLevel = lmGetCurrentLevel;
-    self->loadNextLevel = lmLoadNextLevel;
+void lmInit(LevelManager* this) {
+    this->new = lmCreate;
+    this->drawCurrentLevel = lmDrawCurrentLevel;
+    this->getCurrentLevel = lmGetCurrentLevel;
+    this->loadNextLevel = lmLoadNextLevel;
 
-    self->currentLevelIndex = 0;
+    this->currentLevelIndex = 0;
 }
 
-static void lmCreate(LevelManager* self) {
+static void lmCreate(LevelManager* this) {
     GameLevel one, two, three, four;
     
     glInit(&one);
     one.new(&one, levelOne);
-    self->levels[0] = one;
+    this->levels[0] = one;
 
     glInit(&two);
     two.new(&two, levelTwo);
-    self->levels[1] = two;
+    this->levels[1] = two;
 
     glInit(&three);
     three.new(&three, levelThree);
-    self->levels[2] = three;
+    this->levels[2] = three;
 
     glInit(&four);
     four.new(&four, levelFour);
-    self->levels[3] = four;
+    this->levels[3] = four;
     
-    self->currentLevelIndex = 0;
+    this->currentLevelIndex = 0;
 }
 
-static void lmDrawCurrentLevel(const LevelManager* self) {
-    const GameLevel* currentLevel = &self->levels[self->currentLevelIndex];
+static void lmDrawCurrentLevel(const LevelManager* this) {
+    const GameLevel* currentLevel = &this->levels[this->currentLevelIndex];
     currentLevel->draw(currentLevel);
 }
 
-static GameLevel* lmGetCurrentLevel(LevelManager* self) {
-    return &self->levels[self->currentLevelIndex];
+static GameLevel* lmGetCurrentLevel(LevelManager* this) {
+    return &this->levels[this->currentLevelIndex];
 }
 
-static void lmLoadNextLevel(LevelManager* self) {
-    ++self->currentLevelIndex;
+static void lmLoadNextLevel(LevelManager* this) {
+    ++this->currentLevelIndex;
 
-    if (self->currentLevelIndex > 3) {
-        self->currentLevelIndex = 0;
+    if (this->currentLevelIndex > 3) {
+        this->currentLevelIndex = 0;
     }
 }

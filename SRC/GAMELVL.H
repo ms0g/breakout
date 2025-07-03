@@ -10,17 +10,17 @@ typedef struct Brick {
     int hitCount;
 } Brick;
 
-typedef struct GameLevel{
+typedef struct GameLevel {
     Brick bricks[BRICK_COUNT];
     int activeBrickCount;
 
-    void (*new)(struct GameLevel* self, const int level[ROW][COL]);
-    int (*isFinished)(const struct GameLevel* self);
-    void (*update)(struct GameLevel* self);
-    void (*draw)(const struct GameLevel* self);
-    Brick* (*getBrick)(struct GameLevel* self, int index);
+    void (*new)(struct GameLevel*, const int (*level)[COL]);
+    int (*isFinished)(const struct GameLevel*);
+    void (*update)(struct GameLevel*);
+    void (*draw)(const struct GameLevel*);
+    Brick* (*getBrick)(struct GameLevel*, int);
 } GameLevel;
 
-void glInit(GameLevel* self);
+void glInit(GameLevel* this);
 
 #endif

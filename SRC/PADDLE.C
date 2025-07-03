@@ -6,42 +6,42 @@
 #define PADDLE_WIDTH 30
 #define PADDLE_HEIGHT 5
 
-static void paddleCreate(Paddle* self, float x, float y, char color);
-static void paddleMove(Paddle* self, int direction);
-static void paddleDraw(const Paddle* self);
+static void paddleCreate(Paddle* this, float x, float y, char color);
+static void paddleMove(Paddle* this, int direction);
+static void paddleDraw(const Paddle* this);
 
-void paddleInit(Paddle* self) {
-    self->new = paddleCreate;
-    self->move = paddleMove;
-    self->draw = paddleDraw;
+void paddleInit(Paddle* this) {
+    this->new = paddleCreate;
+    this->move = paddleMove;
+    this->draw = paddleDraw;
 }
 
-static void paddleCreate(Paddle* self, float x, float y, char color) {
-    self->property.position.x = x;
-    self->property.position.y = y;
-    self->property.width = PADDLE_WIDTH;
-    self->property.height = PADDLE_HEIGHT;
-    self->velocity.x = PADDLE_SPEED;
-    self->property.color = color;
+static void paddleCreate(Paddle* this, float x, float y, char color) {
+    this->property.position.x = x;
+    this->property.position.y = y;
+    this->property.width = PADDLE_WIDTH;
+    this->property.height = PADDLE_HEIGHT;
+    this->velocity.x = PADDLE_SPEED;
+    this->property.color = color;
 }
 
-static void paddleMove(Paddle* self, int direction) {
+static void paddleMove(Paddle* this, int direction) {
     if (direction == LEFT) {
-        if (self->property.position.x > 0) {
-            self->property.position.x -= self->velocity.x;
+        if (this->property.position.x > 0) {
+            this->property.position.x -= this->velocity.x;
         }
     } else if (direction == RIGHT) {
-        if (self->property.position.x < SCREEN_WIDTH - self->property.width) {
-            self->property.position.x += self->velocity.x;
+        if (this->property.position.x < SCREEN_WIDTH - this->property.width) {
+            this->property.position.x += this->velocity.x;
         }
     }
 }
 
-static void paddleDraw(const Paddle* self) {
+static void paddleDraw(const Paddle* this) {
     rndDrawRect(
-        self->property.position.x, 
-        self->property.position.y, 
-        self->property.width, 
-        self->property.height, 
-        self->property.color);
+        this->property.position.x, 
+        this->property.position.y, 
+        this->property.width, 
+        this->property.height, 
+        this->property.color);
 }

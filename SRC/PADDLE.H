@@ -13,10 +13,10 @@ typedef struct Paddle {
     Velocity velocity;
 
     void (*new)(struct Paddle*, float, float, char);
-    void (*move)(struct Paddle*, int direction);
+    void (*move)(struct Paddle*, int);
     void (*draw)(const struct Paddle*);
 } Paddle;
 
-void paddleInit(Paddle* self);
+void paddleInit(Paddle* this);
 
 #endif

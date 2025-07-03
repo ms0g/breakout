@@ -18,6 +18,6 @@ typedef struct Ball {
     void (*reset)(struct Ball*, float, float);
 } Ball;
 
-void ballInit(Ball* self);
+void ballInit(Ball* this);
   
 #endif

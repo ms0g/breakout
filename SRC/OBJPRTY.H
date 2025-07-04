@@ -1,7 +1,7 @@
 #ifndef OBJPRTY_H
 #define OBJPRTY_H
 
-typedef struct {
+typedef struct ObjectProperty {
     struct {
         float x; 
         float y;

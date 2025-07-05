@@ -15,9 +15,9 @@ typedef struct GameLevel {
     int activeBrickCount;
 
     void (*new)(struct GameLevel*, const int (*level)[COL]);
-    int (*isFinished)(const struct GameLevel*);
     void (*update)(struct GameLevel*);
     void (*draw)(const struct GameLevel*);
+    int (*isFinished)(const struct GameLevel*);
     Brick* (*getBrick)(struct GameLevel*, int);
 } GameLevel;
 

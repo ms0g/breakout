@@ -6,17 +6,17 @@
 #define PADDLE_WIDTH 30
 #define PADDLE_HEIGHT 5
 
-static void paddleCreate(Paddle* this, float x, float y, char color);
+static void paddleNew(Paddle* this, float x, float y, char color);
 static void paddleMove(Paddle* this, int direction);
 static void paddleDraw(const Paddle* this);
 
 void paddleInit(Paddle* this) {
-    this->new = paddleCreate;
+    this->new = paddleNew;
     this->move = paddleMove;
     this->draw = paddleDraw;
 }
 
-static void paddleCreate(Paddle* this, float x, float y, char color) {
+static void paddleNew(Paddle* this, float x, float y, char color) {
     this->property.position.x = x;
     this->property.position.y = y;
     this->property.width = PADDLE_WIDTH;

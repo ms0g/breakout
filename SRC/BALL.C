@@ -2,19 +2,19 @@
 #include "CONF.H"
 #include "RENDERER.H"
 
-static void ballCreate(Ball* this, float x, float y, char color);
+static void ballNew(Ball* this, float x, float y, char color);
 static void ballMove(Ball* this);
 static void ballDraw(const Ball* this);
 static void ballReset(Ball* this, float x, float y);
 
 void ballInit(Ball* this) {
-    this->new = ballCreate;
+    this->new = ballNew;
     this->move = ballMove;
     this->draw = ballDraw;
     this->reset = ballReset;   
 }
 
-static void ballCreate(Ball* this, float x, float y, char color) {
+static void ballNew(Ball* this, float x, float y, char color) {
     this->property.position.x = x;
     this->property.position.y = y;
     this->property.width = BALL_WIDTH;

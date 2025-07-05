@@ -2,13 +2,13 @@
 #include "RENDERER.H"
 #include "LEVELS.H"
 
-static void lmCreate(LevelManager* this);
+static void lmNew(LevelManager* this);
 static void lmDrawCurrentLevel(const LevelManager* this);
 static GameLevel* lmGetCurrentLevel(LevelManager* this);
 static void lmLoadNextLevel(LevelManager* this);
 
 void lmInit(LevelManager* this) {
-    this->new = lmCreate;
+    this->new = lmNew;
     this->drawCurrentLevel = lmDrawCurrentLevel;
     this->getCurrentLevel = lmGetCurrentLevel;
     this->loadNextLevel = lmLoadNextLevel;
@@ -16,7 +16,7 @@ void lmInit(LevelManager* this) {
     this->currentLevelIndex = 0;
 }
 
-static void lmCreate(LevelManager* this) {
+static void lmNew(LevelManager* this) {
     GameLevel one, two, three, four;
     
     glInit(&one);

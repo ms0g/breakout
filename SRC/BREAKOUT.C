@@ -19,6 +19,7 @@ static int isRunning;
 static int done;
 static int score;
 static int life;
+static int isGameOver;
 
 static const int brickScoreTable[16] = {0,0,10,0,30,0,40,0,0,0,0,0,20,0,10,0};
 
@@ -54,7 +55,7 @@ static void render(void) {
 
     levelManager.drawCurrentLevel(&levelManager);
 
-    uiDraw();
+    uiDraw(isGameOver);
 
     vgaUpdateVram();
 }
@@ -144,7 +145,7 @@ static void init(void) {
     uiInit();
     kbInit();
 
-    score = done = 0;
+    score = done = isGameOver = 0;
 
     life = PLAYER_LIFE;
 

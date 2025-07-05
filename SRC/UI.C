@@ -27,7 +27,6 @@ static UIElement scoreNum;
 static UIElement lifeText;
 static UIElement lifeNum;
 static UIElement gameOverText;
-int isGameOver;
 
 static void drawText(const char* s, int x, int y, char color);
 static void drawNumber(int num, int x, int y, char color);
@@ -57,8 +56,6 @@ void uiInit(void) {
     gameOverText.property.position.y = 130;
     gameOverText.property.color = 0xF;
     gameOverText.val.str = "GAME OVER";
-   
-    isGameOver = 0;
 }
 
 void uiUpdate(int score, int life) {
@@ -66,7 +63,7 @@ void uiUpdate(int score, int life) {
     lifeNum.val.num = life;
 }
 
-void uiDraw(void) {
+void uiDraw(int isGameOver) {
     drawText(scoreText.val.str, scoreText.property.position.x, scoreText.property.position.y, scoreText.property.color);
     drawNumber(scoreNum.val.num, scoreNum.property.position.x, scoreNum.property.position.y, scoreNum.property.color);
     

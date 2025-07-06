@@ -77,14 +77,14 @@ void uiDraw(int isGameOver) {
 
 static void drawText(const char* s, int x, int y, char color) {
     int i;
-    for (i = 0; i < strlen(s); ++i) {
+    for (i = 0; i < s[i] != '\0'; ++i) {
         rndPutchar(x, y, color, asciiFontTable[(int)s[i]]);
         x += ADJ;
     }
 }
 
 static void drawNumber(int num, int x, int y, char color) {
-    char strNum[4];
+    char strNum[6];
 
     itoa(num, strNum, 10);
         

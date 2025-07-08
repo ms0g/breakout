@@ -30,7 +30,7 @@ void glInit(GameLevel* this) {
 static void glNew(GameLevel* this, const int (*level)[COL]) {
     int startX = 0;
     int startY = 30;
-    int index = 0;
+    int posx, posy;
     int i, j;
     Brick obj;
     
@@ -38,23 +38,23 @@ static void glNew(GameLevel* this, const int (*level)[COL]) {
         for (j = 0; j < COL; ++j) {
             int color = level[i][j];
             
-            int positionX = startX + START_ADJ;
-            startX += (BRICK_WIDTH + ADJ);
-
             if (color == 0x0) {
                 continue;
             }
             
-            obj.property.position.x = positionX;
-            obj.property.position.y = startY;
+            posx = startX + START_ADJ;
+            posy = startY;
+
+            obj.property.position.x = posx;
+            obj.property.position.y = posy;
             obj.property.width = BRICK_WIDTH;
             obj.property.height = BRICK_HEIGHT;
             obj.property.color = color;
             obj.isActive = 1;
             obj.hitCount = brickHitCountTable[color];
            
-            this->bricks[index++] = obj;
-            this->activeBrickCount++;
+            this->bricks[this->activeBrickCount++] = obj;
+            startX += (BRICK_WIDTH + ADJ);
         }
       
         startX = 0;

@@ -79,7 +79,7 @@ static void doCollision(void) {
         //bounce the ball off at an angle from 0 to 60 degrees
         //based on how close we are to the edges of the paddle
         float degrees = 60.0f * (ballposition / (float)(paddle.property.width >> 1));
-        float radians = degrees * (PI/180.0f);
+        float radians = degrees * (PI / 180.0f);
 
         //calculate the new ball speeds based on that angle
         float ballXMove = BALL_SPEED * sin(radians)*-1;

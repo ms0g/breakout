@@ -22,6 +22,7 @@ static void paddleNew(Paddle* this, float x, float y, char color) {
     this->property.width = PADDLE_WIDTH;
     this->property.height = PADDLE_HEIGHT;
     this->velocity.x = PADDLE_SPEED;
+    this->velocity.y = 0.0;
     this->property.color = color;
 }
 

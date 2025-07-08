@@ -2,6 +2,6 @@
 #define AABB_H
 
 struct ObjectProperty;
-int checkAABBCollision(struct ObjectProperty* one, struct ObjectProperty* two);
+int checkAABBCollision(const struct ObjectProperty* one, const struct ObjectProperty* two);
 
 #endif

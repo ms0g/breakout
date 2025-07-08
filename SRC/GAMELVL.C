@@ -45,11 +45,11 @@ static void glNew(GameLevel* this, const int (*level)[COL]) {
             posx = startX + START_ADJ;
             posy = startY;
 
-            obj.property.position.x = posx;
-            obj.property.position.y = posy;
-            obj.property.width = BRICK_WIDTH;
-            obj.property.height = BRICK_HEIGHT;
-            obj.property.color = color;
+            obj.base.position.x = posx;
+            obj.base.position.y = posy;
+            obj.base.width = BRICK_WIDTH;
+            obj.base.height = BRICK_HEIGHT;
+            obj.base.color = color;
             obj.isActive = 1;
             obj.hitCount = brickHitCountTable[color];
            
@@ -74,11 +74,11 @@ static void glDraw(const GameLevel* this) {
     for (i = 0; i < BRICK_COUNT; ++i) {
         if (this->bricks[i].isActive) {
             rndDrawRect(
-                this->bricks[i].property.position.x, 
-                this->bricks[i].property.position.y, 
-                this->bricks[i].property.width, 
-                this->bricks[i].property.height, 
-                this->bricks[i].property.color);
+                this->bricks[i].base.position.x, 
+                this->bricks[i].base.position.y, 
+                this->bricks[i].base.width, 
+                this->bricks[i].base.height, 
+                this->bricks[i].base.color);
         }  
     }
 }

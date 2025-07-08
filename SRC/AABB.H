@@ -1,7 +1,7 @@
 #ifndef AABB_H
 #define AABB_H
 
-struct ObjectProperty;
-int checkAABBCollision(const struct ObjectProperty* one, const struct ObjectProperty* two);
+struct GameObject;
+int checkAABBCollision(const struct GameObject* one, const struct GameObject* two);
 
 #endif

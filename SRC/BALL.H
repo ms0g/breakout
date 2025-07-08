@@ -1,7 +1,7 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include "OBJPRTY.H"
+#include "GAMEOBJ.H"
 
 #define BALL_SPEED 2.0
 #define BALL_WIDTH 3
@@ -9,7 +9,7 @@
 #define BALL_RESET_OFFSET_Y 3
 
 typedef struct Ball {
-    ObjectProperty property;
+    GameObject base;
     Velocity velocity;
 
     void (*new)(struct Ball*, float, float, char);

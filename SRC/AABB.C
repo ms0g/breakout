@@ -1,7 +1,7 @@
 #include "AABB.H"
-#include "OBJPRTY.H"
+#include "GAMEOBJ.H"
 
-int checkAABBCollision(const struct ObjectProperty* one, const struct ObjectProperty* two) {
+int checkAABBCollision(const struct GameObject* one, const struct GameObject* two) {
     // collision x-axis?
     int collisionX = one->position.x + one->width >= two->position.x &&
         two->position.x + two->width >= one->position.x;

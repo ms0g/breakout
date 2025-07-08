@@ -1,11 +1,11 @@
 #ifndef GAMELVL_H
 #define GAMELVL_H
 
-#include "OBJPRTY.H"
+#include "GAMEOBJ.H"
 #include "CONF.H"
 
 typedef struct Brick {
-    ObjectProperty property;
+    GameObject base;
     int isActive;
     int hitCount;
 } Brick;

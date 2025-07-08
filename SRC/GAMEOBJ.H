@@ -1,7 +1,7 @@
-#ifndef OBJPRTY_H
-#define OBJPRTY_H
+#ifndef GAMEOBJ_H
+#define GAMEOBJ_H
 
-typedef struct ObjectProperty {
+typedef struct GameObject {
     struct {
         float x; 
         float y;
@@ -10,7 +10,7 @@ typedef struct ObjectProperty {
     int width; 
     int height;
     char color;
-} ObjectProperty;
+} GameObject;
 
 typedef struct {
     float x;

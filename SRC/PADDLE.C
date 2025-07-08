@@ -17,32 +17,32 @@ void paddleInit(Paddle* this) {
 }
 
 static void paddleNew(Paddle* this, float x, float y, char color) {
-    this->property.position.x = x;
-    this->property.position.y = y;
-    this->property.width = PADDLE_WIDTH;
-    this->property.height = PADDLE_HEIGHT;
+    this->base.position.x = x;
+    this->base.position.y = y;
+    this->base.width = PADDLE_WIDTH;
+    this->base.height = PADDLE_HEIGHT;
     this->velocity.x = PADDLE_SPEED;
     this->velocity.y = 0.0;
-    this->property.color = color;
+    this->base.color = color;
 }
 
 static void paddleMove(Paddle* this, int direction) {
     if (direction == LEFT) {
-        if (this->property.position.x > 0) {
-            this->property.position.x -= this->velocity.x;
+        if (this->base.position.x > 0) {
+            this->base.position.x -= this->velocity.x;
         }
     } else if (direction == RIGHT) {
-        if (this->property.position.x < SCREEN_WIDTH - this->property.width) {
-            this->property.position.x += this->velocity.x;
+        if (this->base.position.x < SCREEN_WIDTH - this->base.width) {
+            this->base.position.x += this->velocity.x;
         }
     }
 }
 
 static void paddleDraw(const Paddle* this) {
     rndDrawRect(
-        this->property.position.x, 
-        this->property.position.y, 
-        this->property.width, 
-        this->property.height, 
-        this->property.color);
+        this->base.position.x, 
+        this->base.position.y, 
+        this->base.width, 
+        this->base.height, 
+        this->base.color);
 }

@@ -15,45 +15,45 @@ void ballInit(Ball* this) {
 }
 
 static void ballNew(Ball* this, float x, float y, char color) {
-    this->property.position.x = x;
-    this->property.position.y = y;
-    this->property.width = BALL_WIDTH;
-    this->property.height = BALL_HEIGHT;
+    this->base.position.x = x;
+    this->base.position.y = y;
+    this->base.width = BALL_WIDTH;
+    this->base.height = BALL_HEIGHT;
     this->velocity.x = -BALL_SPEED/2;
     this->velocity.y = -BALL_SPEED/2;
-    this->property.color = color;
+    this->base.color = color;
 }
 
 static void ballMove(Ball* this) {
-    this->property.position.x += this->velocity.x;
-    this->property.position.y += this->velocity.y;
+    this->base.position.x += this->velocity.x;
+    this->base.position.y += this->velocity.y;
 
-    if (this->property.position.x < 0) {
+    if (this->base.position.x < 0) {
         this->velocity.x = -this->velocity.x;
-        this->property.position.x = 0;
-    } else if (this->property.position.x + this->property.width >= SCREEN_WIDTH) {
+        this->base.position.x = 0;
+    } else if (this->base.position.x + this->base.width >= SCREEN_WIDTH) {
         this->velocity.x = -this->velocity.x;
-        this->property.position.x = SCREEN_WIDTH - this->property.width;
+        this->base.position.x = SCREEN_WIDTH - this->base.width;
     }
 
-    if (this->property.position.y <= 0) {
+    if (this->base.position.y <= 0) {
         this->velocity.y = -this->velocity.y;
-        this->property.position.y = 0;
+        this->base.position.y = 0;
     }
 }
 
 static void ballDraw(const Ball* this) {
     rndDrawRect(
-        this->property.position.x, 
-        this->property.position.y, 
-        this->property.width, 
-        this->property.height, 
-        this->property.color);
+        this->base.position.x, 
+        this->base.position.y, 
+        this->base.width, 
+        this->base.height, 
+        this->base.color);
 }
 
 static void ballReset(Ball* this, float x, float y) {
-    this->property.position.x = x;
-    this->property.position.y = y;
+    this->base.position.x = x;
+    this->base.position.y = y;
     this->velocity.x = -BALL_SPEED/2;
     this->velocity.y = -BALL_SPEED/2;
 }

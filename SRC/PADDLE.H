@@ -1,7 +1,7 @@
 #ifndef PADDLE_H
 #define PADDLE_H
 
-#include "OBJPRTY.H"
+#include "GAMEOBJ.H"
 
 enum Direction {
     LEFT,
@@ -9,7 +9,7 @@ enum Direction {
 };
 
 typedef struct Paddle {
-    ObjectProperty property;
+    GameObject base;
     Velocity velocity;
 
     void (*new)(struct Paddle*, float, float, char);

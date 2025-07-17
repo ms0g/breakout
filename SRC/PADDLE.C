@@ -27,14 +27,19 @@ static void paddleNew(Paddle* this, float x, float y, char color) {
 }
 
 static void paddleMove(Paddle* this, int direction) {
-    if (direction == LEFT) {
-        if (this->base.position.x > 0) {
-            this->base.position.x -= this->velocity.x;
-        }
-    } else if (direction == RIGHT) {
-        if (this->base.position.x < SCREEN_WIDTH - this->base.width) {
-            this->base.position.x += this->velocity.x;
-        }
+    switch (direction) {
+        case LEFT:
+            if (this->base.position.x > 0) {
+                this->base.position.x -= this->velocity.x;
+            }
+            break;
+        case RIGHT:
+            if (this->base.position.x < SCREEN_WIDTH - this->base.width) {
+                this->base.position.x += this->velocity.x;
+            }
+            break;
+        default:
+            break;
     }
 }
 

@@ -72,14 +72,17 @@ static void glUpdate(GameLevel* this) {
 static void glDraw(const GameLevel* this) {
     int i;
     for (i = 0; i < BRICK_COUNT; ++i) {
-        if (this->bricks[i].isActive) {
-            rndDrawRect(
-                this->bricks[i].base.position.x, 
-                this->bricks[i].base.position.y, 
-                this->bricks[i].base.width, 
-                this->bricks[i].base.height, 
-                this->bricks[i].base.color);
-        }  
+        if (!this->bricks[i].isActive) {
+            continue;
+        }
+      
+        rndDrawRect(
+            this->bricks[i].base.position.x, 
+            this->bricks[i].base.position.y, 
+            this->bricks[i].base.width, 
+            this->bricks[i].base.height, 
+            this->bricks[i].base.color);
+        
     }
 }
 

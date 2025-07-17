@@ -15,6 +15,7 @@
 static Ball ball;
 static Paddle paddle;
 static LevelManager levelManager;
+static GameLevel* currentLevel;
 static int isRunning;
 static int done;
 static int score;
@@ -53,7 +54,8 @@ static void render(void) {
     
     paddle.draw(&paddle);
 
-    levelManager.drawCurrentLevel(&levelManager);
+    currentLevel = levelManager.getCurrentLevel(&levelManager);
+    currentLevel->draw(currentLevel);
 
     uiDraw(isGameOver);
 
@@ -88,7 +90,7 @@ static void doCollision(void) {
         ball.velocity.y = ballYMove;
     } else {
         int i;
-        GameLevel* currentLevel = levelManager.getCurrentLevel(&levelManager);
+        currentLevel = levelManager.getCurrentLevel(&levelManager);
     
         for (i = 0; i < BRICK_COUNT; ++i) {
             Brick* brick = currentLevel->getBrick(currentLevel, i);

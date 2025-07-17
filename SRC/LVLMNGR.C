@@ -3,13 +3,11 @@
 #include "LEVELS.H"
 
 static void lmNew(LevelManager* this);
-static void lmDrawCurrentLevel(const LevelManager* this);
 static GameLevel* lmGetCurrentLevel(LevelManager* this);
 static void lmLoadNextLevel(LevelManager* this);
 
 void lmInit(LevelManager* this) {
     this->new = lmNew;
-    this->drawCurrentLevel = lmDrawCurrentLevel;
     this->getCurrentLevel = lmGetCurrentLevel;
     this->loadNextLevel = lmLoadNextLevel;
 
@@ -36,11 +34,6 @@ static void lmNew(LevelManager* this) {
     this->levels[3] = four;
     
     this->currentLevelIndex = 0;
-}
-
-static void lmDrawCurrentLevel(const LevelManager* this) {
-    const GameLevel* currentLevel = &this->levels[this->currentLevelIndex];
-    currentLevel->draw(currentLevel);
 }
 
 static GameLevel* lmGetCurrentLevel(LevelManager* this) {

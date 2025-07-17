@@ -8,7 +8,6 @@ typedef struct LevelManager {
     int currentLevelIndex;
 
     void (*new)(struct LevelManager*);
-    void (*drawCurrentLevel)(const struct LevelManager*);
     GameLevel* (*getCurrentLevel)(struct LevelManager*);
     void (*loadNextLevel)(struct LevelManager*);
 } LevelManager;

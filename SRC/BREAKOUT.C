@@ -86,13 +86,12 @@ static void doCollision(void) {
         float ballYMove = BALL_SPEED * cos(radians)*-1;
         ball.velocity.x = ballXMove;
         ball.velocity.y = ballYMove;
-        
     } else {
         int i;
-        GameLevel* level = levelManager.getCurrentLevel(&levelManager);
+        GameLevel* currentLevel = levelManager.getCurrentLevel(&levelManager);
     
         for (i = 0; i < BRICK_COUNT; ++i) {
-            Brick* brick = level->getBrick(level, i);
+            Brick* brick = currentLevel->getBrick(currentLevel, i);
             
             if (!brick->isActive) continue;
 
@@ -104,9 +103,9 @@ static void doCollision(void) {
                     
                     score += brickScoreTable[brick->base.color];
                     
-                    level->update(level);
+                    currentLevel->update(currentLevel);
                     
-                    if (level->isFinished(level)) {
+                    if (currentLevel->isFinished(currentLevel)) {
                         levelManager.loadNextLevel(&levelManager);
                         resetBall();                       
                         break;

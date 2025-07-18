@@ -66,6 +66,7 @@ static void glUpdate(GameLevel* this) {
     if (this->activeBrickCount == 0) {
         return;
     }
+
     this->activeBrickCount--;
 }
 
@@ -82,7 +83,6 @@ static void glDraw(const GameLevel* this) {
             this->bricks[i].base.width, 
             this->bricks[i].base.height, 
             this->bricks[i].base.color);
-        
     }
 }
 
@@ -94,5 +94,6 @@ static Brick* glGetBrick(GameLevel* this, int index) {
     if (index < 0 || index >= BRICK_COUNT) {
         return NULL;
     }
+    
     return &this->bricks[index];
 }

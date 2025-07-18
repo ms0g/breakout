@@ -3,17 +3,17 @@
 
 #include "GAMEOBJ.H"
 
-enum Direction {
+typedef enum {
     LEFT,
     RIGHT
-};
+} Direction;
 
 typedef struct Paddle {
     GameObject base;
     Velocity velocity;
 
     void (*new)(struct Paddle*, float, float, char);
-    void (*move)(struct Paddle*, int);
+    void (*move)(struct Paddle*, Direction);
     void (*draw)(const struct Paddle*);
 } Paddle;
 

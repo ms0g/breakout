@@ -7,7 +7,7 @@
 #define PADDLE_HEIGHT 5
 
 static void paddleNew(Paddle* this, float x, float y, char color);
-static void paddleMove(Paddle* this, int direction);
+static void paddleMove(Paddle* this, Direction direction);
 static void paddleDraw(const Paddle* this);
 
 void paddleInit(Paddle* this) {
@@ -26,7 +26,7 @@ static void paddleNew(Paddle* this, float x, float y, char color) {
     this->base.color = color;
 }
 
-static void paddleMove(Paddle* this, int direction) {
+static void paddleMove(Paddle* this, Direction direction) {
     switch (direction) {
         case LEFT:
             if (this->base.position.x > 0) {

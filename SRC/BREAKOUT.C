@@ -28,13 +28,11 @@ static void doCollision(void);
 static void resetBall(void);
 
 static void processInput(void) {
-    unsigned char key = kbHit();
-
-    if (key == ESC) {
+    if (kbHit(ESC)) {
         isRunning = 0;
-    } else if (key == L_ARROW) {
+    } else if (kbHit(L_ARROW)) {
         paddle.move(&paddle, LEFT);
-    } else if (key == R_ARROW) {
+    } else if (kbHit(R_ARROW)) {
         paddle.move(&paddle, RIGHT);
     }
 }

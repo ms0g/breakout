@@ -86,18 +86,6 @@ void kbExit(void) {
     }
 }
 
-unsigned char kbHit(void) {
-    if (keys[R_ARROW]) {
-        return R_ARROW;
-    }
-    
-    if (keys[L_ARROW]) {
-        return L_ARROW;
-    }
-    
-    if (keys[ESC]) {
-        return ESC;
-    } 
-    
-    return 0;
+int kbHit(KeyCode key) {
+    return keys[key];
 }
